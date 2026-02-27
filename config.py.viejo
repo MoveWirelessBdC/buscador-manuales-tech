@@ -1,0 +1,35 @@
+# config.py
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HTML_RAW_DIR = os.path.join(BASE_DIR, 'data', '1_html_crudo')
+HTML_CLEANED_DIR = os.path.join(BASE_DIR, 'data', '2_html_limpio')
+MARKDOWN_DIR = os.path.join(BASE_DIR, 'data', '3_manuales_md')
+DATA_DIR = os.path.join(BASE_DIR, 'data', '4_datos_extraidos')
+IMAGES_DIR = os.path.join(DATA_DIR, 'imagenes')
+TRANSCRIPTS_DIR = os.path.join(DATA_DIR, 'transcripciones')
+TEMP_DIR = os.path.join(BASE_DIR, 'data', 'temp')
+KNOWLEDGE_BASE_DIR = os.path.join(BASE_DIR, 'data', '5_knowledge_base')
+KB_JSON_FILENAME = "knowledge_base.json"
+INDEX_URL = "https://portal.move-wifi.com/guide/index.html"
+DEFAULT_TIMEOUT = 60000
+HEADLESS_MODE = True
+BATCH_SIZE = 10
+BATCH_DELAY = 5
+LOGIN_USER_SELECTOR = "#login-page-login-input"
+LOGIN_PASS_SELECTOR = "#login-page-password-input"
+LOGIN_BUTTON_SELECTOR = "#login-page-login-button"
+TFA_REMIND_SELECTOR = "button:has-text('Remind me later')"
+GUIDE_LINK_SELECTOR = ".md-nav__link"
+CONTENT_SELECTORS = [".article-body", ".md-content"]
+HTML_TAGS_TO_REMOVE = ['header', 'nav', 'footer', 'script', 'style', 'aside', 'form']
+MAX_DOWNLOAD_WORKERS = 10
+VIDEO_URLS_FILE = os.path.join(DATA_DIR, "videos_a_procesar.txt")
+TRANSCRIPTION_LANG = "es-VE"
+GCS_BUCKET_NAME = "move-kb-audio-files-unique"
+GCP_PROJECT_ID = "move-agent-prod"
+GCP_REGION = "us-west1"
+CHUNK_SIZE = 1000
+CHUNK_OVERLAP = 150
+OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
+AI_MODEL_NAME = "gpt-3.5-turbo"
+AI_GENERATION_CONFIG = { "temperature": 0.2, "max_tokens": 1024 }

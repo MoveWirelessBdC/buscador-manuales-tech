@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="density_alerting.html" rel="prev"/>
+<link href="../reporting/location.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Panic Button - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#panic-button">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="panic-button">Panic Button</h1>
+<p>The <strong>Panic Button</strong> feature allows you to connect the Platform with alerting devices used in emergencies, and notify the designated recipients when those devices are activated.</p>
+<h2 id="creating-a-panic-button">Creating a Panic Button</h2>
+<ol>
+<li>
+<p>Go to the <strong>Location Management &gt; Panic Button</strong> section, and click the <strong>+</strong> button in the bottom right corner. </p>
+<p><img alt="panic button" src="images/panic_button/panic_button_1.png"/></p>
+</li>
+<li>
+<p>In the next window:</p>
+<ul>
+<li>In the <strong>Name</strong> field, type the name of the alerting setup</li>
+<li>From the <strong>Notification Type</strong> toggle button, select the way the alert should be delivered: by <strong>SMS</strong>, <strong>Email</strong>, or <strong>Endpoint</strong></li>
+</ul>
+<h4 id="the-sms-notification">The SMS Notification</h4>
+<p>In the SMS Notification:</p>
+<ul>
+<li>Into the <strong>Notification Content</strong> field, enter the content of the notification<br/>
+<strong>Note:</strong> You can use the dedicated tags to customise the message</li>
+<li>In the <strong>Phone Number</strong> field, select the appropriate country code and enter the phone number that should receive those notifications</li>
+</ul>
+<p>Then, click <strong>Save</strong> to finish creating the Panic Button.</p>
+<p><img alt="panic button" src="images/panic_button/panic_button_2.png"/></p>
+<h4 id="the-email-notification">The Email Notification</h4>
+<p>In the Email Notification:</p>
+<ul>
+<li>Enter the content of the notification into the <strong>Notification Content</strong> field</li>
+<li>Type the subject of the email in the <strong>Subject</strong> field</li>
+<li>Enter the desired email address into the <strong>Email Address</strong> field</li>
+</ul>
+<p>Then, click <strong>Save</strong> in the top right corner to finish creating the Panic Button.</p>
+<p><img alt="panic button" src="images/panic_button/panic_button_2b.png"/></p>
+<h4 id="the-endpoint-notification">The Endpoint Notification</h4>
+<p>Instead of an SMS or Email notification, the Platform server can send an HTTP request (POST request) to the specified Endpoint of a different server.</p>
+<p>To configure it:</p>
+<ul>
+<li>Select <strong>Endpoint</strong> from the Notification type toggle button</li>
+<li>Type the content of notification in the <strong>Notification Content</strong> field. For this instruction, it is <em>[$area]: Customer limit exceeded</em></li>
+<li>Into the <strong>API URL</strong> field, enter the end URL to which the notification should be sent. For this instruction, it is <em><a href="https://mycompany.com/notifications">https://mycompany.com/notifications</a> </em>.</li>
+<li>In the <strong>Authorisation Token</strong> field, enter the token, which authorises the communication between servers. For this instruction, it is <em>abcd1234</em></li>
+</ul>
+<p>As a result, you would receive the below request:</p>
+<p><em>HTTP POST<br/>
+URL <a href="https://mycompany.com/notifications">https://mycompany.com/notifications</a><br/>
+Headers:<br/>
+Authorization: abcd1234<br/>
+Request body: User: $user clicked the panic button in area: $area</em></p>
+<p><img alt="panic button" src="images/panic_button/panic_button_2c.png"/></p>
+</li>
+<li>
+<p>The Panic Button is now created.</p>
+<p><img alt="panic button" src="images/panic_button/panic_button_3.png"/></p>
+</li>
+</ol>
+<h2 id="editing-a-panic-button">Editing a Panic Button</h2>
+<p>To edit the Panic Button, click the <strong>More</strong> option in the top right corner of the desired Button, and select <strong>Edit</strong> from the dropdown menu. Then, make the desired changes and finish modifying it by clicking <strong>Save</strong> in the Panic Button Editor.</p>
+<p><img alt="panic button" src="images/panic_button/panic_button_4.png"/></p>
+<h2 id="deleting-a-panic-button">Deleting a Panic Button</h2>
+<p>To delete the Panic Button, click the <strong>More</strong> option in the top right corner of the desired Button, and select <strong>Delete</strong> from the dropdown menu. Then, confirm deleting the Button in the pop-up box.</p>
+<p><img alt="panic button" src="images/panic_button/panic_button_5.png"/></p>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

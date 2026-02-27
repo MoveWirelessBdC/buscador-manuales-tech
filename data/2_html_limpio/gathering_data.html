@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="configuring_access_points.html" rel="prev"/>
+<link href="configuring_engine_location.html" rel="next"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Gathering Calibration Data - Platform documentation</title>
+<link href="../../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#gathering-calibration-data">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="gathering-calibration-data">Gathering calibration data</h1>
+<p>The next step of the calibration is to gather calibration data. In this
+step, you basically tell the platform that you are about to go and gather
+data from all the calibrating points on the given floor on the given
+channel band and then perform it. The whole procedure is divided into
+two stages, the first is to create a link with a map of calibration
+points (steps 1-3) and the second is to perform the calibration at every
+calibration point (steps 4-10). For the second stage, it is recommended
+to read all the steps before performing the action.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>The calibration should be conducted within the opening hours of the venue.</li>
+<li>Every time the venue or the access points change, calibration should
+   be done again. To learn more, read the <a href="recalibration.html">Calibrating after editing a venue</a> chapter.</li>
+<li>Before performing the calibration, it is useful to forget all other
+   Wi-Fi connections so that your mobile device does not connect
+   automatically to a different connection while calibrating.</li>
+</ul>
+</div>
+<p>To gather calibration data:</p>
+<ol>
+<li>
+<p>Go to <strong>Location Management → Calibration</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Create link to calibration</strong> panel:</p>
+<ul>
+<li>
+<p>From the <strong>Venue</strong> list, select the name of your venue.</p>
+</li>
+<li>
+<p>Into the <strong>Calibration device MAC address</strong> field, type a MAC address of the device that you will use for calibration.</p>
+</li>
+<li>
+<p>From the <strong>Calibration name</strong> list, select the name of your calibration.</p>
+</li>
+<li>
+<p>From the <strong>Floor</strong> list, select the floor number on which you are going to perform the calibration.</p>
+</li>
+<li>
+<p>Select the channel band at which you calibrate the access point (<strong>2.4 GHz channel band</strong> or <strong>5 GHz channel band</strong>).</p>
+</li>
+<li>
+<p><strong>Only for advanced users</strong>: If you want to allow adding new
+  calibration points while you calibrate, enable the <strong>Allow new points</strong> option. <br/>
+  While this is not recommended, it may be necessary for those venues where it's difficult to add a point to the plan.</p>
+</li>
+</ul>
+<p><img alt="generate link" src="images/image165.png"/></p>
+</li>
+<li>
+<p>Click <strong>Generate link</strong>. As a result, the system generates
+   a link to the venue plan that you can open on your mobile device:</p>
+<ul>
+<li>To copy the link, click <strong>Copy to clipboard</strong>.</li>
+<li>To send the link to your mobile device, in the <strong>Phone</strong> section,
+   from the list, select the area code of your country, then type
+   your phone number and click <strong>Send link via sms</strong>.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The generated link is active for 10 minutes. If you do not start performing the calibration within this time frame, or you will have a break longer than 10 minutes, the link will expire and you'll need to <a href="creating_calibration.html">add a new calibration</a>.</p>
+</div>
+<p><img alt="generate link full screen" src="images/image166.png"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Calibration can be done simultaneously by more than one person. To do this, you need to add a calibration for everyone and you will be able to keep track of other people’s calibration progress on your device.</p>
+</div>
+</li>
+<li>
+<p>Connect the device defined via the MAC address to the proper Wi-Fi
+    channel. Open the link generated in step 3.</p>
+</li>
+<li>
+<p>Go to one of the places where you placed a calibration point on the
+    plan.</p>
+</li>
+<li>
+<p>Hold your mobile device so that you do not obstruct the antenna of
+    the device.</p>
+</li>
+<li>
+<p>On the plan, click a calibration point.</p>
+<p></p><p align="center">
+<img alt="calibration points map app" src="images/image167.png"/>
+</p><p></p>
+</li>
+<li>
+<p>At the top of the screen, click <strong>Calibrate</strong>. As a result, the
+    <strong>Calibration Point</strong> window with a compass opens and its arrow
+    points to the top of the screen. <strong>Note the point indicated by the
+    compass arrow.</strong></p>
+</li>
+<li>
+<p>Slowly rotate yourself 360 degrees clockwise. One rotation
+    should take 30 seconds and the arrow should always indicate
+    the same point it indicated at the beginning.</p>
+<p></p><p align="center">
+<img alt="calibration rotation" src="images/image168.png"/>
+</p><p></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case you want to abort the calibration process, click <strong>Cancel Calibration</strong>.</p>
+</div>
+<p>The <strong>Calibration Point</strong> window closes, and the marker point of the calibration point
+changes its colour.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Different marker point colours have different meanings. Just after calibrating a particular point:  </p>
+<ul>
+<li><img alt="green point" src="images/image169.png"/> means that the calibration of that point was successful.  </li>
+<li><img alt="red point" src="images/image170.png"/> means that the calibration of that point was unsuccessful.  </li>
+</ul>
+<p>When you go to the next point, the just calibrated point changes its colour (depending on the already gathered data) to the colour of the channel band it's calibrated for:</p>
+<ul>
+<li><img alt="blue point" src="images/image171.png"/> means that the point is not calibrated on any channel band.  </li>
+<li><img alt="purple point" src="images/image172.png"/> means that the point is calibrated only on the channel band 2.4 GHz.  </li>
+<li><img alt="orange point" src="images/image173.png"/> means that the point is calibrated only on the channel band 5 GHz.  </li>
+<li><img alt="dark blue point" src="images/image174.png"/> means that the point is calibrated on both channel bands.</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the calibration was successful, go to the next calibration point
+    from the map and repeat steps 6-10. Repeat these steps for all the
+    points on a given floor.</p>
+</li>
+<li>
+<p>If the calibration was unsuccessful, repeat the steps 6-10 for the
+    same calibration point.</p>
+</li>
+<li>
+<p><strong>Only for advanced users:</strong> If in step 2 you selected the
+    <strong>Allow new points</strong> option, you can add them now. On the map, click
+    a particular place where you want to add a new calibration point and
+    calibrate it straight away.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not calibrated new points will not be saved.</p>
+</div>
+</li>
+</ol>
+<p><strong>What to do next</strong>: <a href="configuring_engine_location.html">Configure engine</a></p>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

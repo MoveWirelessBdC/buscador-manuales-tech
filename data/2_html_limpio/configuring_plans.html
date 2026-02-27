@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../portal_management/facebook_application.html" rel="prev"/>
+<link href="adding_plans_to_portal.html" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Creating, Editing, and Deleting a Payment Plan - Platform documentation</title>
+<link href="../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#creating-editing-and-deleting-a-payment-plan">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="creating-editing-and-deleting-a-payment-plan">Creating, Editing, and Deleting a Payment Plan</h1>
+<p>The <strong>Payment Plans</strong> feature allows you to configure paid internet access. </p>
+<p><strong>Note:</strong> Before you start setting up Payment Plans, you should ensure that you have the below properties configured for your organisation. To learn how to configure them, contact your administrator.</p>
+<p><strong>OrganizationProperty.PayToAccess.PayPal</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>key</th>
+<th>description</th>
+<th>type</th>
+<th>default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>payPalClientId</td>
+<td>PayPal ClientId of the PayPal application. The account associated with it will be the receiver of the payments.</td>
+<td>string</td>
+<td>{@link CreatePaypalPaymentStep#defaultClientId()}</td>
+</tr>
+<tr>
+<td>payPalSecret</td>
+<td>PayPal Secret of the PayPal application.Security matter.</td>
+<td>string</td>
+<td>{@link CreatePaypalPaymentStep#defaultSecret()}</td>
+</tr>
+<tr>
+<td>payPalEndpoint</td>
+<td>PayPal endpoint URL used for PayPal requests. Default one is sandbox one: <a href="https://api.sandbox.paypal.com/v1/">https://api.sandbox.paypal.com/v1/</a> The real one is the same, but without ‘sandbox’</td>
+<td>string</td>
+<td>{@link CreatePaypalPaymentStep#defaultPayPalBaseUrl()}</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="creating-a-payment-plan">Creating a Payment Plan</h2>
+<ol>
+<li>
+<p>Go to the <strong>User Enrollment → Access Methods</strong> section and click the <strong>Payment Plans</strong> option.</p>
+<p><img alt="create payment plan" src="../images/payment_plans/payment_plan_1.png"/></p>
+</li>
+<li>
+<p>In the bottom right corner of the <strong>Payment Plans</strong> window, click the <strong>+</strong> button to create a new Payment Plan.</p>
+<p><strong>Note:</strong> To use the <strong>Payment Plans</strong> Access Method, you must first have a valid PayPal account which should be connected to the Platform. </p>
+<p><img alt="create payment plan" src="../images/payment_plans/payment_plan_2.png"/></p>
+</li>
+<li>
+<p>In the first step of the Payment Plan Creator, type the <strong>Name</strong> of the Plan in the <strong>Name</strong> field, and select its <strong>Type</strong>: </p>
+<ul>
+<li>The <strong>Free</strong> Plan enables free internet access; </li>
+<li>The <strong>Paid</strong> Plan allows you to specify the price of internet access. </li>
+</ul>
+<p>Once you select the <strong>Paid</strong> option, you can specify the price for internet access in the input field.</p>
+<p>Then, click <strong>Next</strong> in the top right corner to continue to the next step.</p>
+<p><img alt="create payment plan" src="../images/payment_plans/payment_plan_3.png"/></p>
+</li>
+<li>
+<p>In the second step, determine internet limitations for the Plan. To enable them, turn the switch <strong>ON</strong> next to the desired ones, and enter the preferred parameters. </p>
+<p>After you have finished defining your internet’s limitations, click <strong>Next</strong> in the top right corner to proceed further.</p>
+<p><img alt="create payment plan" src="../images/payment_plans/payment_plan_4.png"/></p>
+</li>
+<li>
+<p>In the last step, you can review the Payment Plan’s setup. To finish creating it, click <strong>Save</strong> in the top right corner.</p>
+<p><img alt="create payment plan" src="../images/payment_plans/payment_plan_5.png"/></p>
+</li>
+<li>
+<p>The Payment Plan is now created. You can also create other ones according to your preferences. To do this, re-follow the steps 1-5.</p>
+<p><img alt="create payment plan" src="../images/payment_plans/payment_plan_6.png"/></p>
+</li>
+<li>
+<p>Now, you should enable users to choose from Plans, by adding them to a Portal. To learn how to do this, read the <a href="adding_plans_to_portal.html">Adding Payment Plans to a Portal</a> chapter.</p>
+</li>
+</ol>
+<h2 id="editing-a-payment-plan">Editing a Payment Plan</h2>
+<p>To edit a Payment Plan, click the <strong>More</strong> option on the desired Plan, and select <strong>Edit</strong> from the dropdown list.</p>
+<p><img alt="edit payment plan" src="../images/payment_plans/payment_plan_7.png"/></p>
+<h2 id="deleting-a-payment-plan">Deleting a Payment Plan</h2>
+<p>To delete a Payment Plan, click the <strong>More</strong> option on the desired Plan, and select <strong>Delete</strong> from the dropdown list.</p>
+<p><img alt="edit payment plan" src="../images/payment_plans/payment_plan_7b.png"/></p>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

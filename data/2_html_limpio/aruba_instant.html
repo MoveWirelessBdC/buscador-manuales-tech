@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="aruba_controller.html" rel="prev"/>
+<link href="cisco_catalyst.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Aruba Instant - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#aruba-instant-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="aruba-instant-configuration-guide">Aruba Instant Configuration Guide</h1>
+<h2 id="prerequisites-and-basic-configuration">Prerequisites and Basic Configuration</h2>
+<p>To configure the Aruba controller Access Point with the platform, you should first fulfill specific prerequisites, and prepare the Basic Configuration.</p>
+<h3 id="configuration-prerequisites">Configuration Prerequisites</h3>
+<p>You should ensure that:</p>
+<ul>
+<li>You have correctly configured the Aruba Controller IP pools (including a valid DNS server address)</li>
+<li>Your Aruba Central devices resolve the platform domain address and have access to the Platform through ports: <em>80</em>, <em>1812</em> and <em>1813</em>.</li>
+</ul>
+<h3 id="basic-configuration">Basic Configuration</h3>
+<p>Below, you can find the table providing the data for the <strong>Production Environments</strong>, which are the cloud servers of the platform.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linkyfi UVA</td>
+<td>uva.linkyfi.com</td>
+<td>35.245.165.143</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="configuring-aruba-instant">Configuring Aruba Instant</h2>
+<p>The configuration of the Aruba Central requires setting up successively: the network, and <strong>the Platform</strong>.</p>
+<h2 id="configuring-aruba-controller">Configuring Aruba Controller</h2>
+<p>Before you start configuring the Aruba Instant, you should first log in to the Aruba user interface, and upgrade the software.</p>
+<p>The configuration of Aruba Instant consists of three steps. Firstly, you should add a new network to the system. Secondly, you should create the necessary user roles. Finally, you must configure your access points in the Platform.</p>
+<h3 id="logging-in-to-the-aruba-user-interface">Logging In To the Aruba User Interface</h3>
+<p>Go to the <em>https://<aruba access="" address="" ip="" point=""></aruba></em> website, and provide your login credentials:
+- Into the <strong>Username</strong> field, type your username. For this instruction it is <em>admin</em>. 
+- Into the <strong>Password</strong> field, type your password.</p>
+<p>Then, click the <strong>Log In</strong> button to log in to the user interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you log in to the interface  for the first time, you should select the country code of your country from the additional dropdown list. For this instruction it is <em>PL - Poland</em>  Click the <strong>OK</strong> button to confirm your selection.</p>
+</div>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_1.png"/></p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_2.png"/></p>
+<h3 id="upgrading-the-software">Upgrading the Software</h3>
+<h4 id="automatic-upgrade">Automatic Upgrade</h4>
+<ol>
+<li>
+<p>In the Aruba user interface, select the <strong>Maintenance</strong> option in the upper right corner.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_3.png"/></p>
+</li>
+<li>
+<p>In the new window, select the <strong>Firmware</strong> tab, and click the <strong>Check for New Version</strong> button in the <strong>Automatic</strong> section.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_4.png"/></p>
+</li>
+<li>
+<p>When the software must be updated, you can see the appropriate notification. Then, click the <strong>Upgrade Now</strong> button.</p>
+<p>When the upgrade process is finished, click <strong>OK</strong> to finish. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The software upgrade will reboot all of the access points.</p>
+</div>
+</li>
+</ol>
+<h4 id="manual-upgrade">Manual Upgrade</h4>
+<ol>
+<li>
+<p>Go to the Aruba website, and log in to your account. Then, download the image of the new software, and save it on your computer.</p>
+</li>
+<li>
+<p>Now, select the <strong>Maintenance</strong> tab in the upper right corner.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_3.png"/></p>
+</li>
+<li>
+<p>In the new window, select the <strong>Firmware</strong> tab, and click the <em>Browse</em><em> button next to the </em><em>Image File for New Version</em><em> field in the </em><em>Manual</em>* section.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_5.png"/></p>
+</li>
+<li>
+<p>If you do <strong>not</strong> wish to reboot your access points, unselect the <strong>Reboot All APs After Upgrade</strong> checkbox. Then, click the <strong>Upgrade Now</strong> button to start upgrading your devices.</p>
+</li>
+</ol>
+<h3 id="adding-a-network">Adding a Network</h3>
+<ol>
+<li>
+<p>In the <strong>Network</strong> column, click the <strong>New</strong> button. You will get redirected to the new window, where you can configure your network step by step.</p>
+</li>
+<li>
+<p>In the first <strong>WLAN Settings</strong> step, provide your network details:</p>
+<ul>
+<li>Into the <strong>Name (SSID)</strong> field, enter the unique name of your network. For this instruction it is <em>Platform</em></li>
+<li>For the <strong>Primary Usage</strong>, select the <strong>Guest</strong> option from the selectors list.</li>
+</ul>
+<p>Click <strong>Next</strong> in the lower right corner of the window to proceed to the next step.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_6.png"/></p>
+</li>
+<li>
+<p>In the second <strong>VLAN</strong> step:</p>
+<ul>
+<li>For the <strong>Client IP Assignment</strong>, select the appropriate method of assigning clients’ IPs from the selectors list. For this instruction it is <em>Virtual Controller Managed</em>.</li>
+<li>For the <strong>Client VLAN Assignment</strong>, select the appropriate method of assigning clients’ VLANs. For this instruction, it is <em>Default</em>.</li>
+</ul>
+<p>Click <strong>Next</strong> in the lower right corner of the window to proceed further.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_7.png"/></p>
+</li>
+<li>
+<p>In the third <strong>Security</strong> step, you can set up your network’s security:</p>
+<ul>
+<li>From the <strong>Splash Page Type</strong> dropdown list, select <em>External</em>. </li>
+<li>From the <strong>Captive Portal Profile</strong> dropdown list, select <em>New</em>. Then, in the popup box, provide the details of the portal:</li>
+<li>In the <strong>Name</strong> field, type the name of your captive portal. For this instruction it is <em>Platform</em>.</li>
+<li>From the <strong>Type</strong> dropdown list, select <em>Radius Authentication</em>.</li>
+<li>Into the <strong>IP or Hostname</strong> field, enter the address of the Platform server. For this instruction it is <em>platform.com</em>.</li>
+<li>Into the <strong>URL</strong> field, enter the captive portal address starting from <em>/</em>. For this instruction it is <em>/login</em>.</li>
+<li>From the <strong>Use Https</strong>* dropdown list, select either:<ul>
+<li>the <strong>Enabled</strong> option; then, into the <strong>Port</strong> field, type <em>443</em>.</li>
+<li>the <strong>Disabled</strong> option; then, into the <strong>Port</strong> field, type <em>80</em>. For this instruction, it is <strong>Disabled</strong> and the <strong>Port</strong> is <em>80</em>.</li>
+</ul>
+</li>
+<li>Into the <strong>Redirect URL</strong> field, enter the welcome page website address. For this instruction it is <em><a href="http://platform.com/welcome">http://platform.com/welcome</a></em>. </li>
+</ul>
+<p>When you have finished providing the details, click <strong>OK</strong> in the lower right corner of the popup box to confirm them.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_8.png"/></p>
+<ul>
+<li>From the <strong>Auth Server 1</strong> dropdown list, select <em>New</em>. Then, in the popup box:  <ul>
+<li>From the selector options, choose <em>RADIUS</em>.</li>
+<li>Into the <strong>Name</strong> field, enter the name of the server. For this instruction it is <em>platform</em>.</li>
+<li>Into the <strong>IP Address</strong> field, enter the IP address of the RADIUS server. For this instruction it is _ 35.241.143.144_. You should note, however, that the IP Address depends on the platform in which you configure the device.</li>
+<li>Into the <strong>Auth Port Field</strong>, type <em>1812</em>.</li>
+<li>Into the <strong>Accounting Port</strong> field, enter <em>1813</em>.</li>
+<li>Into the <strong>Shared Key</strong> and the <strong>Retype Key</strong> fields, enter your shared secret. For this instruction it is <em>bAZev44u</em></li>
+<li>In the <strong>Timeout</strong> field, specify the number of seconds. For this instruction it is <em>5</em>. </li>
+<li>In the <strong>Retry Count</strong> field, specify the number of retry attempts. For this instruction it is <em>3</em>. </li>
+</ul>
+</li>
+</ul>
+<p>To confirm the details, click <strong>OK</strong> in the lower right corner of the popup box.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_9.png"/></p>
+<ul>
+<li>Into the <strong>Reauth Interval</strong> field, type the desired number of minutes. Otherwise, the AP configuration may not work correctly. For this instruction it is <em>3</em> minutes.  </li>
+<li>From the <strong>Accounting</strong> dropdown list, select the <em>Use Authentication Servers</em> option.  </li>
+<li>From the <strong>Accounting Mode</strong> list, select <em>Authentication</em>.</li>
+</ul>
+<p>Then, click the <strong>Next</strong> button to proceed to the next step.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_10.png"/></p>
+</li>
+<li>
+<p>Finally, in the <strong>Access</strong> step, you can configure your network’s access. To do this, move the slider on the left to the <strong>Role-Based</strong> position.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default role is created automatically, and it has the same name as your network. It is assigned to network users after they have successfully logged in to the network. For this instruction, the name of the role is <em>Platform</em>.</p>
+</div>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_11.png"/></p>
+<p>In this step, you can edit role settings according to your preferences. To do this: 
+- In the <strong>Roles</strong> table, select the desired role.
+- Then, in the <strong>Access Rules For</strong> table, select the name of the role again, and click the <strong>Edit</strong> button below the table.</p>
+<p>Now, you can amend the role’s settings. To confirm them, click <strong>OK</strong>.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_12.png"/> </p>
+</li>
+<li>
+<p>To confirm creating the role, click <strong>Finish</strong>.</p>
+</li>
+</ol>
+<h2 id="configuring-the-platform">Configuring the Platform</h2>
+<p>To configure an access point on the Platform, you should first add it to the Platform. Then, you should configure the network in which the access point will be used.</p>
+<h3 id="adding-an-access-point-to-the-platform">Adding an Access Point to The Platform</h3>
+<p>To add an Access Point, you should first log in to the Platform. Then, go to the <strong>Portal Management &gt; Structure</strong> section, and select the <strong>Devices</strong> tab from the upper bar.</p>
+<ol>
+<li>
+<p>Now, click the <strong>+</strong> button in the bottom right corner to add a new device.</p>
+<p><img alt="aruba instant configuration" src="images/aruba_central/aruba_platform_config_1.png"/> </p>
+</li>
+<li>
+<p>Now, in the new window:</p>
+<ul>
+<li>From the <strong>Device Type</strong> list, select <strong>Aruba Stand-Alone 6.5 and Newer</strong>.</li>
+<li>In the <strong>NAS-ID</strong> field, type the access point's NAS-ID;</li>
+<li>Into the <strong>IP Address</strong> field, enter the access point’s IP address (recommended);</li>
+<li>Into the <strong>Serial Number</strong> field, enter the access point’s serial number;</li>
+<li>In the <strong>Descriptive Name</strong>, you can type the name that would help you differentiate this access point from the other ones;</li>
+<li>Into the <strong>MAC</strong> field, enter the access point’s MAC address.</li>
+</ul>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_platform_2.png"/></p>
+<p><img alt="aruba instant configuration" src="images/aruba_instant/aruba_instant_platform_3.png"/></p>
+<p>After you have finished providing the details, click <strong>Save</strong> in the top right corner to finish adding the access point to the Platform.</p>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<p>Below, you can find the list of entities which can be added to the Walled Garden during the configuration process. After you have finished adding them, continue configuring the Access Control.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The below entities are <strong>optional</strong> for the configuration. Using them may impact the <strong>Popup</strong> option which may not work as expected. You should also note that all of these entities use the <em>https</em> which requires the configuration of an appropriate cert for the proper redirection to the designated web address.</p>
+</div>
+<h3 id="domain">Domain</h3>
+<p><code>* .domain.com</code></p>
+<h4 id="ip">IP</h4>
+<p>For Domain Europe: <code>35.241.143.144</code><br/>
+For Domain North and South America: <code>35.245.165.143</code><br/>
+For Domain Asia: <code>35.240.186.103</code> </p>
+<h3 id="ios-optional">iOS (optional)</h3>
+<pre><code>www.appleiphonecell.com  
+captive.apple.com  
+www.apple.com  
+www.itools.info  
+www.ibook.info  
+www.airport.us  
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com  
+*.gstatic.com  
+clients3.google.com
+</code></pre>
+<h3 id="microsoft-required-for-loging-in-with-microsoft">Microsoft (required for loging in with Microsoft)</h3>
+<pre><code>msftncsi.com  
+*.msftncsi.com
+login.microsoftonline.com
+aadcdn.msftauth.net
+aadcdn.msauth.net
+login.live.com  
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com  
+facebook.net  
+akamaihd.net  
+digicert.com  
+fbcdn.net  
+fb.com  
+fbsbx.com  
+*.facebook.com  
+*.facebook.net  
+*.akamaihd.net  
+*.digicert.com  
+*.fbcdn.net  
+*.fb.com  
+*.fbsbx.com  
+</code></pre>
+<h4 id="ip_1">IP</h4>
+<pre><code>5.178.32.0/20  
+195.27.154.0/24  
+80.150.192.0/24  
+77.67.96.0/22  
+212.119.27.0/25  
+2.16.0.0/13  
+66.171.231.0/24  
+31.13.24.0/21  
+31.13.64.0/18  
+212.245.45.0/24  
+213.254.17.0/24  
+46.33.70.0/24  
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com  
+twimg.com  
+abs.twitter.com  
+*.twitter.com  
+*.twimg.com  
+*.abs.twitter.com 
+</code></pre>
+<h4 id="ip_2">IP</h4>
+<pre><code>199.16.156.0/22  
+199.59.148.0/22  
+199.96.56.0/21  
+192.133.76.0/22  
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com  
+oauth.vk.com  
+vk.me  
+*.vk.com  
+*.oauth.vk.com  
+*.vk.me
+</code></pre>
+<h2 id="paypal">PayPal</h2>
+<pre><code>paypal.com  
+omtrdc.net  
+mediaplex.com  
+paypalobjects.com  
+abmr.net  
+dotomi.com  
+*.paypal.com  
+*.omtrdc.net  
+*.mediaplex.com  
+*.paypalobjects.com  
+*.abmr.net  
+*.dotomi.com  
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<p><code>instagram.com</code></p>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com  
+ytimg.com  
+gstatic.com  
+google.com  
+googlevideo.com  
+*.youtube.com  
+*.ytimg.com  
+*.gstatic.com  
+*.google.com  
+*.googlevideo.com 
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com  
+gstatic.com  
+googleusercontent.com  
+google.com  
+googleapis.com  
+accounts.youtube.com  
+*.accounts.google.com  
+*.googleusercontent.com  
+*.google.com  
+*.googleapis.com  
+*.accounts.youtube.com 
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>*.line.me  
+*.line-apps.com  
+*.line-scdn.net  
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>*.kakao.com  
+*.google.com  
+*.m2.daumcdn.net  
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

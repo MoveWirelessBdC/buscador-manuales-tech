@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2024_04_26.html" rel="prev"/>
+<link href="2024_03_15.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>24.04.12__stable__0.118.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-240329__stable__01170-240412__stable__01180">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-240329__stable__01170-240412__stable__01180">Release Version: 24.03.29__stable__0.117.0 &amp; 24.04.12__stable__0.118.0</h1>
+<h3 id="release-date-12042024">Release Date: 12/04/2024</h3>
+<p>Note: This release includes both the 24.03.29__stable__0.117.0 and 24.04.12__stable__0.118.0 release versions.</p>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>We have implemented OTP (One-Time Password) authentication for WiFi access through WhatsApp Business via <strong>TapTalk</strong>
+  integration.<br/>
+  For proper operation:<ul>
+<li>enable this function in the Phone number component (Advanced section) in the Captive Portal editor</li>
+<li>
+<p>set the following properties in the organisation:</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tapTalkWhatsAppApiKey</td>
+<td>Secret used for TapTalk Business API authorization.</td>
+</tr>
+<tr>
+<td>tapTalkWhatsAppApiUrl</td>
+<td>API url used for TapTalk WhatsApp Business. By default is set to: <code>https://onetalk-api.taptalk.io/api/integration/v1/inbox/send_templated_message_whatsappba</code></td>
+</tr>
+<tr>
+<td>tapTalkWhatsAppChannelId</td>
+<td>ChannelID used for TapTalk WhatsApp Business.</td>
+</tr>
+<tr>
+<td>tapTalkWhatsAppLanguageCode</td>
+<td>Language used for TapTalk WhatsApp Business.</td>
+</tr>
+<tr>
+<td>tapTalkWhatsAppTemplateName</td>
+<td>Template name used for TapTalk WhatsApp Business.</td>
+</tr>
+</tbody>
+</table></div></div>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<h3 id="feature-updates">Feature Updates</h3>
+<ul>
+<li>We have introduced changes to the <strong>Marketing Campaigns</strong> feature. These include changes to the appearance of the
+  campaign list and a redesign of the campaign editor to make it easier to use.<br/>
+  For more information, please visit our What’s
+  New <a href="../../whats_new/2024/04.html">April 2024 Update: A New Horizon in Digital Marketing</a> chapter.</li>
+</ul>
+<h3 id="gui-updates">GUI Updates</h3>
+<ul>
+<li>We have improved the <strong>Troubleshooting</strong> table by improving issue type description and recommended solution steps.</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>We have updated the logging storage and processing system.</li>
+<li>In response to a discovered bug in the Meraki platform, we have enhanced our software to better manage the incorrect
+  Meraki TLV (Type-Length-Value) encoding of attributes in RADIUS packets, while providing enhanced validation.</li>
+</ul>
+<h2 id="resolved-issues">Resolved Issues</h2>
+<h3 id="gui-fixes">GUI Fixes</h3>
+<ul>
+<li>We have resolved the issue where the popup failed to close after navigating away from the relevant view.</li>
+</ul>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

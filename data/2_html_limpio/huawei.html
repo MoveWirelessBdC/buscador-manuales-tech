@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="edgecore.html" rel="prev"/>
+<link href="meraki.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Huawei - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#huawei-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="huawei-configuration-guide">Huawei Configuration Guide</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Welcome to the <strong>Linkyfi Configuration Guide</strong>.</p>
+<p>This guide will help you configure the Huawei so that it works with the Linkyfi platform.</p>
+<h2 id="prerequisites-and-basic-configuration">Prerequisites and basic configuration</h2>
+<p>To start with your Huawei configuration, you need to fulfil certain prerequisites and prepare your basic configuration.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Make sure that:</p>
+<ul>
+<li>Huawei:<ul>
+<li>has correctly configured IP settings with a correct DNS server.</li>
+<li>resolves the domain address – <strong>linkyfi.com</strong>.</li>
+<li>has access to the Linkyfi platform using ports <strong>80</strong>, <strong>1812</strong>, and <strong>1813</strong>.</li>
+</ul>
+</li>
+<li>You are logged in to the Agile Controller-Campus.</li>
+</ul>
+<p>Noted working firmware version:</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Software Mapping</th>
+<th>Software Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agile Controller-Campus</td>
+<td>V300R019C00SPC310</td>
+</tr>
+<tr>
+<td>AP</td>
+<td>V200R010C00SPCa00</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="basic-configuration">Basic configuration</h3>
+<p>Below, you can find the table providing the data for the <strong>Production Environments</strong>, which are the cloud servers of the platform.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linkyfi UVA</td>
+<td>uva.linkyfi.com</td>
+<td>35.245.165.143</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="configuring-huawei">Configuring Huawei</h2>
+<p>During the configuration of Huawei, you need to:</p>
+<ul>
+<li><a href="#making-an-access-point-online">Make an access point online</a>,</li>
+<li><a href="#connecting-access-points-to-the-agile-controller-campus">Connect the access point to the Agile Controller-Campus</a>,</li>
+<li><a href="#integrating-the-access-point-with-linkyfi">Integrate the access point with Linkyfi</a>.</li>
+</ul>
+<p>Proceed with each configuration and then <a href="#configuring-the-linkyfi-platform">configure the Linkyfi platform</a>.</p>
+<h3 id="making-an-access-point-online">Making an access point online</h3>
+<p>This stage of the configuration consists of two steps:</p>
+<ul>
+<li><a href="#Finding-the-device's-IP-address">Finding the device's IP address</a>,</li>
+<li>Configuring the access point either in the <a href="#Configuring-the-access-point-in-the-web-interface">web interface</a> or in the <a href="#Configuring-the access-point-in-the-CLI">command line interface</a> (CLI).</li>
+</ul>
+<h4 id="finding-the-devices-ip-address">Finding the device's IP address</h4>
+<p>Begin the configuration by finding the device's IP address in the CLI.</p>
+<p>To find the device's IP address in the CLI:</p>
+<ol>
+<li>Power up the access point.</li>
+<li>
+<p>If the device is connected to a network:</p>
+<ul>
+<li>Find a PC which is at the same network segment.</li>
+<li>
+<p>In the CLI, run the command:</p>
+<p><code>arp -a | find /i "18-de-d7-ba-52-e0"</code></p>
+<p>where <code>18-de-d7-ba-52-e0</code> is <strong>the MAC address of the device</strong>.</p>
+<p><img alt="Device's IP address in the CLI" src="images/huawei/huawei_01.png"/></p>
+</li>
+</ul>
+</li>
+<li>
+<p>If the device is not connected to any network, then connect a PC to the interface GE0 or GE1, the IP of network card on PC should be configured as 169.254.1.100, at the same segment. According to the product manual, the default IP address might be 169.254.1.1.</p>
+</li>
+</ol>
+<p><strong>What to do next:</strong> <a href="#configuring-the-access-point">Configure the access point</a></p>
+<h4 id="configuring-the-access-point">Configuring the access point</h4>
+<p>The second step is to configure the access point, you can either do it in the web interface or in the CLI.</p>
+<h5 id="configuring-the-access-point-in-the-web-interface">Configuring the access point in the web interface</h5>
+<p>The first of the option of the configuration of the access point is to configure it in the web interface.</p>
+<p>To configure the access point in the web interface:</p>
+<ol>
+<li>In a web browser, go to the <em>https://{device_ip}</em> website and log in.</li>
+<li>Expand <strong>Deployment Configuration</strong>:</li>
+</ol>
+<p><img alt="Deployment Configuration" src="images/huawei/huawei_02.png"/></p>
+<ul>
+<li>For <strong>Working mode</strong>, select the <strong>Cloud AP</strong> option.</li>
+<li>For <strong>Address mode</strong>, select the <strong>IP</strong> option.</li>
+<li>Into the <strong>IP address</strong> field, type your Controller Address. For example in this instruction, it is: <em>114.115.200.167</em>.</li>
+<li>Into the <strong>Port number</strong> field, type <strong>10020</strong>.</li>
+</ul>
+<p><img alt="Deployment Configuration Port Number" src="images/huawei/huawei_03.png"/></p>
+<ul>
+<li>Click <strong>Apply</strong>.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you access the web GUI and it returns no login page but this information:</p>
+<p><img alt="FIT" src="images/huawei/huawei_04.png"/></p>
+<p>Then the work mode is not set to cloud, and you need to <a href="#configuring-the-access-point-in-the-cli">configure the device using the CLI</a>.</p>
+</div>
+<h5 id="configuring-the-access-point-in-the-cli">Configuring the access point in the CLI</h5>
+<p>The access points can be also configured in the command line interface.</p>
+<p>To configure the access point in the CLI:</p>
+<ol>
+<li>Connect the device through the SSH2 protocol.
+  <img alt="Connect the device through the SSH2 protocol" src="images/huawei/huawei_05.png"/></li>
+<li>Run the command: <code>&lt;Huawei&gt;display version</code>. If the work mode is FIT or FAT rather than CLOUD, you need to switch mode to CLOUD.
+  <img alt="Work mode" src="images/huawei/huawei_06.png"/></li>
+<li>Switch the work mode to CLOUD by running the commands: <code>system</code> and then <code>ap-mode-switch cloud</code>. Confirm the switch. As a result, the device will reboot.
+  <img alt="Cloud work mode" src="images/huawei/huawei_07.png"/></li>
+<li>Register the device to the controller by running the commands: <code>system</code> and then <code>cloud-mng controller ip-address 114.115.200.167 port 10020</code> and then <code>display cloud-mng info</code>.
+  <img alt="cloud-mng controller ip-address" src="images/huawei/huawei_08.png"/></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember to use your controller's IP address</p>
+</div>
+<p><strong>What to do next:</strong> <a href="#connecting-access-points-to-the-agile-controller-campus">Connect access point to the Agile Controller-Campus</a></p>
+<h3 id="connecting-access-points-to-the-agile-controller-campus">Connecting access points to the Agile Controller-Campus</h3>
+<p>The second stage of the Huawei configuration is the connection of the access point to the Agile Controller-Campus. It consists of:</p>
+<ul>
+<li><a href="#accessing-the-access-point-in-the-cli">Accessing the access point in the CLI</a></li>
+<li><a href="#adding-and-authorizing-the-access-point">Adding and authorizing the access point</a></li>
+<li><a href="#registering-the-access-point-in-the-cli">Registering the access point in the CLI</a></li>
+<li><a href="#checking-the-status-of-the-access-point-in-the-agile-controller-campus">Checking the status of the access point in the CLI</a></li>
+</ul>
+<h4 id="accessing-the-access-point-in-the-cli">Accessing the access point in the CLI</h4>
+<p>The first step is accessing the access point in the CLI.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th><strong>Before you begin</strong>: Set the console baud rate to <strong>9600</strong>. If it is set correctly, then the login authentication appears.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Login authentication" src="images/huawei/huawei_09.png"/></td>
+</tr>
+</tbody>
+</table></div></div>
+<p>To access an access point in the command line interface:</p>
+<ol>
+<li>Enter the password.</li>
+<li>Check the current system software version, by running the command:
+  <code>&lt;Huawei&gt;display startup</code></li>
+<li>Check the ESN number, by running the command:
+  <code>&lt;Huawei&gt;display esn</code></li>
+<li>Check whether the AP can ping the controller and ensure that the public 
+network is used, by running the command:
+  <code>ping &lt;controller_southbound_service_IP&gt;</code></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Copy the ESN number, as it is going to be used later in the configuration.</p>
+</div>
+<p>For this instruction, the <code>controller_southbound_service_IP</code> is <code>114.115.200.167</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember to use your controller's IP address.</p>
+</div>
+<p><img alt="Ping" src="images/huawei/Huawei_10.png"/></p>
+<p><strong>What to do next:</strong> <a href="#adding-and-authorizing-the-access-point">Add and authorize the access point</a></p>
+<h4 id="adding-and-authorizing-the-access-point">Adding and authorizing the access point</h4>
+<p>The next step is to add and authorize access points in the Agile Controller-Campus.</p>
+<p>To add and authorize access points:</p>
+<ol>
+<li>In the Agile Controller-Campus, go to <strong>Plan &gt; Network &gt; Device List</strong> , and click <strong>Add Device</strong>:<ul>
+<li>Into the <strong>Device ESN</strong> field, type the ESN of the access point. For this instruction it is <em>2150 0829 352S H190 4086</em>.
+<img alt="Plan &gt; Network &gt; Device List" src="images/huawei/huawei_11.png"/></li>
+<li>Click <strong>Select</strong> and select the corresponding device group.</li>
+</ul>
+</li>
+<li>Go to <strong>System &gt; License Management</strong> <strong>&gt;</strong> <strong>License Information</strong> :<ul>
+<li>Click <strong>Authorize device</strong>.
+<img alt="License information" src="images/huawei/huawei_12.png"/></li>
+<li>Select the ESN of the access point to be connected.
+<img alt="ESN" src="images/huawei/huawei_13.png"/></li>
+</ul>
+</li>
+</ol>
+<p><strong>What to do next:</strong> <a href="#registering-the-access-point-in-the-cli">Register the access point</a></p>
+<h4 id="registering-the-access-point-in-the-cli">Registering the access point in the CLI</h4>
+<p>The next step is to register the added and authorized access points.</p>
+<p>To configure the access point in the CLI:</p>
+<ol>
+<li>In the command line, log in to the access point.</li>
+<li>Enter the system view by running the <code>system-viewcommand</code>.</li>
+<li>
+<p>To configure the IP address of the Agile Controller-Campus, run the command:</p>
+<p><code>cloud-mng controller ip-address &lt;ip_address&gt; port &lt;port_number&gt;</code>
+<img alt="IP address of the Agile Controller-Campus" src="images/huawei/huawei_14.png"/></p>
+</li>
+<li>
+<p>To configure the IP address of the Agile Controller-Campus, run the command:
+    <code>cloud-mng controller url \&lt;url\_string\&gt; port \&lt;port\_number\&gt;</code></p>
+</li>
+<li>
+<p>Make sure the configuration was successful, by running the command:
+    <code>display cloud-mng info</code></p>
+<p><img alt="display cloud-mng info" src="images/huawei/huawei_15.png"/></p>
+</li>
+</ol>
+<p><strong>What to do next:</strong> <a href="#checking-the-status-of-the-access-point-in-the-agile-controller-campus">Check the status of the access point</a></p>
+<h4 id="checking-the-status-of-the-access-point-in-the-agile-controller-campus">Checking the status of the access point in the Agile Controller-Campus</h4>
+<p>This stage of the configuration ends with checking the status of the device in the web interface.</p>
+<p>To check the status of the access point in the web interface:</p>
+<ol>
+<li>Go to <strong>Plan &gt; Network &gt; Device List</strong>.</li>
+<li>Make sure that in the <strong>Status</strong> column, <strong>Normal</strong> is displayed .</li>
+</ol>
+<p><img alt="Device list" src="images/huawei/huawei_16.png"/></p>
+<p><strong>What to do next:</strong> <a href="#integrating-the-access-point-with-linkyfi">Integrate the access point with Linkyfi</a></p>
+<h3 id="integrating-the-access-point-with-linkyfi">Integrating the access point with Linkyfi</h3>
+<p>The next stage of the configuration is the integration of the access point with Linkyfi. It consists of the following procedures:</p>
+<ul>
+<li><a href="#adding-the-acl-template">Adding the ACL template</a></li>
+<li><a href="#adding-radius-relay-server">Adding RADIUS relay server</a></li>
+<li><a href="#adding-the-url-template">Adding the URL template</a></li>
+<li><a href="#configuring-ssid">Configuring SSID</a></li>
+<li><a href="#setting-a-portal-page">Setting a portal page</a></li>
+</ul>
+<h4 id="adding-the-acl-template">Adding the ACL template</h4>
+<p>The first step of the integration is the addition of the ACL template.</p>
+<p>To add the ACL template:</p>
+<ol>
+<li>Go to <strong>Tenant &gt; Configure &gt; Template</strong> and then go to the <strong>Policy Template</strong> tab.</li>
+<li>From the <strong>Template</strong> menu, select <strong>ACL</strong>.</li>
+<li>Into the <strong>Name</strong> field, type a name of the template. For this instruction it is <em>ACL6000</em>.</li>
+<li>
+<p>For <strong>Rule List</strong>:</p>
+<ul>
+<li>Click <strong>Add</strong>.</li>
+<li>Add following entries:</li>
+</ul>
+<p></p><div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<tbody><tr>
+<td>IP</td>
+<td>13.228.254.255/32</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>*linkyfi.com</td>
+</tr>
+</tbody></table></div></div><p></p>
+<p><img alt="Rule list" src="images/huawei/huawei_17.png"/></p>
+<ul>
+<li>Also add the domain and name and IP addresses of the Agile Controller-Campus.</li>
+</ul>
+<p></p><div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<tbody><tr>
+<td>domain</td>
+<td><em>.huaweicloud.com</em></td>
+</tr>
+<tr>
+<td>IP</td>
+<td><em><em>(your controller IP)</em></em>*</td>
+</tr>
+</tbody></table></div></div><p></p>
+<p><img alt="Rule list" src="images/huawei/huawei_18.png"/></p>
+</li>
+<li>
+<p>For the full list of entries (e.g. to allow social media login), go to the <a href="#references">References</a> chapter.</p>
+</li>
+</ol>
+<p><strong>What to do next:</strong> <a href="#adding-radius-relay-server">Add RADIUS relay server</a></p>
+<h4 id="adding-radius-relay-server">Adding RADIUS relay server</h4>
+<p>The next step is to add RADIUS relay server.</p>
+<p>To add RADIUS relay server:</p>
+<ol>
+<li>Go to the <strong>Radius Relay Server</strong> tab.</li>
+<li>Into the <strong>Name</strong> field, type a name of the server. For this instruction it is <em>LinkyfiRadius</em>.</li>
+<li>For <strong>Authentication server</strong> address, click <strong>Add</strong>:<ul>
+<li>Into the <strong>Host IP Address</strong> field, type your Linkyfi server address. For this instruction it is <em>13.228.254.255</em>.</li>
+<li>Into the <strong>Port</strong> field, type <strong>1812</strong>.</li>
+<li>Into the <strong>Key</strong> field, type <strong>bAZev44u</strong>.</li>
+</ul>
+</li>
+<li>For <strong>Accounting server address</strong> , click <strong>Add</strong>:<ul>
+<li>Into the <strong>Host IP Address</strong> field, type your Linkyfi server address. For this instruction it is <em>13.228.254.255</em>.</li>
+<li>Into the <strong>Port</strong> field, type <strong>1813</strong>.</li>
+<li>Into the <strong>Key</strong> field, type <strong>bAZev44u</strong>.</li>
+</ul>
+</li>
+<li>Into the <strong>Timeout period(s)</strong> field, type <strong>30</strong>.</li>
+<li>Into the <strong>Retransmission times</strong> field, type <strong>2</strong>.</li>
+<li>For <strong>Load balancing</strong> mode, select the <strong>Strict accordance with priority</strong> option.</li>
+</ol>
+<p><img alt="RADIUS relay server" src="images/huawei/huawei_19.png"/></p>
+<p><strong>What to do next:</strong> <a href="#_Adding_the_URL">Add the URL template</a></p>
+<h4 id="adding-the-url-template">Adding the URL template</h4>
+<p>This chapter will help you add the URL template.</p>
+<p>To add the URL template:</p>
+<ol>
+<li>Go to the <strong>URL Template</strong> tab.</li>
+<li>Name the Template. For this instruction, it is <em>LinkyfiURL</em>.</li>
+<li>
+<p>For <strong>Template Type</strong>, select the <strong>Cloud platform-based relay authentication</strong> option.</p>
+<p><img alt="URL template" src="images/huawei/huawei_20.png"/>
+4. For <strong>Parameters</strong> in template, click <strong>Create</strong> and add the following entries:</p>
+</li>
+</ol>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th><strong>Value Assignment Mode</strong></th>
+<th><strong>Parameter Content</strong></th>
+<th><strong>Parameter Name</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User-defined</td>
+<td>login</td>
+<td>cmd</td>
+</tr>
+<tr>
+<td>User-defined</td>
+<td>4c-fa-ca-f4-45-40</td>
+<td>apname</td>
+</tr>
+<tr>
+<td>Replace Existing Value</td>
+<td>redirect-url</td>
+<td>url</td>
+</tr>
+<tr>
+<td>Replace Existing Value</td>
+<td>user-ip</td>
+<td>ip</td>
+</tr>
+<tr>
+<td>Replace Existing Value</td>
+<td>user-mac</td>
+<td>mac</td>
+</tr>
+<tr>
+<td>Replace Existing Value</td>
+<td>loginurl</td>
+<td>loginurl</td>
+</tr>
+<tr>
+<td>Replace Existing Value</td>
+<td>ssid</td>
+<td>essid</td>
+</tr>
+</tbody>
+</table></div></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace your AP's own MAC address with apname.</p>
+</div>
+<p><img alt="Parameters in template" src="images/huawei/huawei_21.png"/></p>
+<p><strong>What to do next:</strong> <a href="#configuring-ssid">Configure SSID</a></p>
+<h4 id="configuring-ssid">Configuring SSID</h4>
+<p>The next step is to configure SSID. Read this chapter to learn how to do it.</p>
+<p>To configure SSID:</p>
+<ol>
+<li>Go to <strong>Network Configuration &gt; AP</strong>.</li>
+<li>
+<p>In the <strong>Basic Settings</strong> pane:</p>
+<ul>
+<li>Into the <strong>SSID Name</strong> field, type a name for the SSID. Remember it, as it is going to be used later. For this instruction it is <em>Linkyfi</em>.</li>
+<li>Switch the <strong>Working status</strong> slider to the <strong>ON</strong> position (it lights green).</li>
+<li>For <strong>Effective radio</strong> , select the radio channels on which it must work. For this instruction it is <em>2.4G/5G</em>.</li>
+<li>For <strong>Network connection</strong> mode, select the <strong>NAT</strong> option.</li>
+</ul>
+<p><img alt="Basic settings" src="images/huawei/huawei_22.png"/></p>
+<ul>
+<li>Click <strong>Next</strong>.</li>
+</ul>
+</li>
+<li>
+<p>In the <strong>Security Authentication</strong> pane:</p>
+<ul>
+<li>For <strong>Authentication mode</strong> , select the <strong>Open network</strong> option.</li>
+<li>Switch the <strong>Push pages</strong> slider to the <strong>ON</strong> position (it lights green).</li>
+<li>For <strong>Page pushing mode</strong>, select <strong>Relay authentication by cloud platform</strong>.</li>
+<li>For <strong>Interconnection</strong> mode, select the <strong>RADIUS relay</strong> option.</li>
+</ul>
+<p><img alt="Security authentication" src="images/huawei/huawei_23.png"/></p>
+<ul>
+<li>For <strong>Third-Party Portal page authentication parameters</strong>:<ul>
+<li>Into the <strong>User name</strong> field, type <strong>username</strong>.</li>
+<li>Into the <strong>Password</strong> field, type <strong>password</strong>.</li>
+<li>Into the <strong>Success page URL</strong> field, type <strong>redirect_URL</strong>.</li>
+<li>Next to the <strong>RADIUS relay server</strong> field, click <strong>Select Server</strong> and select the created server. For this instruction it is <em>LinkyfiRadius</em>.</li>
+</ul>
+</li>
+<li>Switch the <strong>Real-time accounting</strong> slider to the <strong>ON</strong> position (it lights green).</li>
+<li>For <strong>Default permit rule</strong>, select the created ACL template. For this instruction it is <em>ACL6000</em>.</li>
+<li>For <strong>Escape policy</strong>, select the proper check boxes.</li>
+</ul>
+<p><img alt="Third-party Portal page authentication parameters" src="images/huawei/huawei_24.png"/></p>
+<ul>
+<li>Click <strong>Next</strong>.</li>
+</ul>
+</li>
+<li>
+<p>In the <strong>Policy Control</strong> pane, click <strong>OK</strong>.</p>
+</li>
+</ol>
+<p><img alt="Policy control" src="images/huawei/huawei_25.png"/></p>
+<p><strong>What to do next:</strong> <a href="#setting-a-portal-page">Set a portal page</a></p>
+<h4 id="setting-a-portal-page">Setting a portal page</h4>
+<p>The last step of the integration is the setting of a portal page.</p>
+<p>To set a portal page:</p>
+<ol>
+<li>Go to <strong>Site &gt; Configure &gt; Access Policy</strong> &gt; <strong>Portal Page Push Policy</strong>.</li>
+<li>Type a Name for the portal.</li>
+<li>Turn on <strong>SSID Matching</strong>.</li>
+<li>
+<p>For <strong>SSID</strong>, select the SSID that was created previously. For this instruction it is <em>Linkyfi</em>.</p>
+<p><img alt="Portal Page Push Policy" src="images/huawei/huawei_26.png"/></p>
+</li>
+<li>
+<p>Turn on <strong>Device Matching</strong>.</p>
+</li>
+<li>
+<p>Add your Devices. </p>
+</li>
+<li>
+<p>In the <strong>Push Page Rule</strong> section:</p>
+<ul>
+<li>For <strong>Authentication mode</strong>, select the <strong>Cloud platform-based relay authentication</strong>.</li>
+<li>For <strong>Interconnection</strong> mode, select <strong>RADIUS Relay</strong>.</li>
+<li>For <strong>URL template</strong>, select the template created previously. For this instruction it is <em>LinkyfiURL</em>.</li>
+<li>In the <strong>Third-party authentication URL</strong> field, type your welcome page address. For this instruction it is <em><a href="http://linkyfi.com/login">http://linkyfi.com/login</a>.</em></li>
+<li>Click <strong>Apply</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Push Page rule" src="images/huawei/huawei_27.png"/></p>
+<p><strong>What to do next:</strong> <a href="#configuring-the-linkyfi-platform">Configure the Linkyfi platform</a></p>
+<h2 id="configuring-the-linkyfi-platform">Configuring the Linkyfi platform</h2>
+<h3 id="adding-the-access-point">Adding the access point</h3>
+<p>To add the access point:</p>
+<ol>
+<li>Click <strong>Portal Management</strong>.</li>
+<li>Go to <strong>Structure</strong> and then <strong>Devices</strong>.</li>
+<li>
+<p>Click the <img alt="plus icon" src="images/huawei/huawei_28.png"/> button to add a new device.</p>
+<p><img alt="Add new device" src="images/huawei/huawei_29.png"/>
+4. In the <strong>Add a new device</strong> pane:</p>
+<ul>
+<li>From the <strong>Device type</strong> list, select <strong>Huawei</strong>.</li>
+<li>Into the <strong>AP MAC</strong> field, type a MAC address of your device. For this instruction it is <em>4c-fa-ca-f4-45-40</em>.</li>
+</ul>
+<p><img alt="Device settings" src="images/huawei/huawei_30.png"/> <br/>
+5. Click <strong>Save</strong>.</p>
+</li>
+</ol>
+<p><strong>What to do next:</strong> <a href="#creating-portals">Create a portal</a>.</p>
+<h3 id="creating-portals">Creating Portals</h3>
+<p>To create a portal:</p>
+<ol>
+<li>Go to <strong>User Enrollment &gt; User Journey &gt; Portal.</strong></li>
+<li>
+<p>Configure portal settings:</p>
+<ul>
+<li>Into the  <strong>Name</strong>  field, type the portal name. For this instruction it is <em><em>new_linkyfi_portal</em></em>.</li>
+<li>From the  <strong>Language selection</strong>  list, select the portal language.</li>
+</ul>
+<p><img alt="Create a portal" src="images/huawei/huawei_31.png"/></p>
+<ul>
+<li>In the top right corner, click  <strong>Next</strong>.</li>
+</ul>
+</li>
+<li>
+<p>In the left menu, select category and component, drag it and drop onto the working space.</p>
+</li>
+</ol>
+<p><img alt="Portal editor" src="images/huawei/huawei_32.png"/>
+4. Click <strong>Save</strong>.</p>
+<p><strong>What to do next:</strong> <a href="#adding-the-portal-node">Adding the Portal node</a>.</p>
+<h3 id="adding-the-portal-node">Adding the Portal node</h3>
+<p><strong>After creating the portal, next thing you should do is to attach the portal to a flow.</strong></p>
+<p>To add the portal node:</p>
+<ol>
+<li>Go to <strong>User Enrollment &gt; User Journey &gt; Page Flow</strong></li>
+<li>Configure portal settings<ul>
+<li>Into the <strong>Name</strong> field, type the flow name. For this instruction it is <em><em>new_linkyfi_flow</em></em>.
+<img alt="Flow" src="images/huawei/huawei_33.png"/> </li>
+</ul>
+</li>
+<li>In the Page Flow editor, depending on whether it is the first node added to the flow or a consecutive one, click the available button, either  <img alt="plus icon" src="images/huawei/huawei_34.png"/>  or  <img alt="three dots" src="images/huawei/huawei_35.png"/>. From the list, select  <strong>Portal</strong>.</li>
+</ol>
+<p><img alt="Flow editor" src="images/huawei/huawei_36.png"/>
+4. If you have a portal that is already created, in the portals available in the panel, click the portal tile and then click <strong>Select</strong>.</p>
+<p><img alt="New portal node" src="images/huawei/huawei_37.png"/>
+5. As a result, the Portal node is added to the flow.</p>
+<p><img alt="New portal node added" src="images/huawei/huawei_38.png"/>
+6. Then, click <img alt="three dots" src="images/huawei/huawei_35.png"/> to add internet access.</p>
+<p><img alt="Add Internet access" src="images/huawei/huawei_39.png"/>
+7. Set the <strong>Network parameters</strong>.</p>
+<p><img alt="Network parameters" src="images/huawei/huawei_40.jpg"/><br/>
+8. Lastly, remember to add a <strong>Landing page</strong>. It can be a portal or a website.</p>
+<p><img alt="Landing page" src="images/huawei/huawei_41.png"/> 
+9. Click <strong>Save</strong>.</p>
+<p><strong>What to do next:</strong> <a href="#publishing-a-page-flow">Publishing a Page Flow</a>.</p>
+<h3 id="publishing-a-page-flow">Publishing a Page Flow</h3>
+<p><strong>In order for a Page Flow to be made public, you need to create access settings and attach a Page Flow to it.</strong></p>
+<p>To publish a Page Flow:</p>
+<ol>
+<li>Go to <strong>User Enrollment &gt; User Journey &gt; Access settings</strong>.</li>
+<li>
+<p>Click <img alt="plus icon" src="images/huawei/huawei_28.png"/> to add your network name/SSID. For this instruction it is <em>Linkyfi</em>.<br/>
+<img alt="Publish a page flow" src="images/huawei/huawei_42.png"/> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Into the <strong>Name</strong> field, type the exact network name or SSID that you set on AP. This is case sensitive.</p>
+</div>
+</li>
+<li>
+<p>In the <strong>Network manager</strong>, click <strong>Attach flow</strong> on the tile of the created access settings.</p>
+</li>
+</ol>
+<p><img alt="Attach flow" src="images/huawei/huawei_43.png"/>
+4. If you already have a Page Flow created, in the Page Flows available panel, click it and then click <strong>Select</strong>.</p>
+<p><img alt="Published page flow" src="images/huawei/huawei_44.png"/>
+5. As a result, the Page Flow is published. You can see it in the Access settings tile in the Attached Flow section.</p>
+<p><img alt="Attached flow" src="images/huawei/huawei_45.png"/></p>
+<h2 id="references">References</h2>
+<p>In this section, there is a list of all entries that you may need to add to the walled garden. When you finish adding them, continue with the <a href="#adding-the-acl-template">Adding the ACL template</a> procedure.</p>
+<h3 id="linkyfi">Linkyfi</h3>
+<pre><code>*.linkyfi.com
+</code></pre>
+<pre><code>IPs:
+For Linkyfi Europe:                   94.23.89.14
+For Linkyfi North and South America:  52.2.225.2
+For Linkyfi Asia:                     13.228.254.255
+</code></pre>
+<h3 id="ios">iOS</h3>
+<pre><code>www.appleiphonecell.com
+
+captive.apple.com
+
+www.apple.com
+
+www.itools.info
+
+www.ibook.info
+
+www.airport.us
+
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com
+
+*.gstatic.com
+</code></pre>
+<h3 id="microsoft">Microsoft</h3>
+<pre><code>msftncsi.com
+
+*.msftncsi.com
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com
+
+facebook.net
+
+akamaihd.net
+
+digicert.com
+
+fbcdn.net
+
+fb.com
+
+fbsbx.com
+
+*.facebook.com
+
+*.facebook.net
+
+*.akamaihd.net
+
+*.digicert.com
+
+*.fbcdn.net
+
+*.fb.com
+
+*.fbsbx.com
+</code></pre>
+<p>IPs:</p>
+<pre><code>5.178.32.0/20
+
+195.27.154.0/24
+
+80.150.192.0/24
+
+77.67.96.0/22
+
+212.119.27.0/25
+
+2.16.0.0/13
+
+66.171.231.0/24
+
+31.13.24.0/21
+
+31.13.64.0/18
+
+212.245.45.0/24
+
+213.254.17.0/24
+
+46.33.70.0/24
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com
+
+twimg.com
+
+abs.twitter.com
+
+*.twitter.com
+
+*.twimg.com
+
+*.abs.twitter.com
+</code></pre>
+<p>IPs:</p>
+<pre><code>199.16.156.0/22
+
+199.59.148.0/22
+
+199.96.56.0/21
+
+192.133.76.0/22
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<pre><code>instagram.com
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com
+
+oauth.vk.com
+
+vk.me
+
+*.vk.com
+
+*.oauth.vk.com
+
+*.vk.me
+</code></pre>
+<h3 id="paypal">PayPal</h3>
+<pre><code>paypal.com
+
+omtrdc.net
+
+mediaplex.com
+
+paypalobjects.com
+
+abmr.net
+
+dotomi.com
+
+*.paypal.com
+
+*.omtrdc.net
+
+*.mediaplex.com
+
+*.paypalobjects.com
+
+*.abmr.net
+
+*.dotomi.com
+</code></pre>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com
+
+ytimg.com
+
+gstatic.com
+
+google.com
+
+googlevideo.com
+
+*.youtube.com
+
+*.ytimg.com
+
+*.gstatic.com
+
+*.google.com
+
+*.googlevideo.com
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com
+
+gstatic.com
+
+googleusercontent.com
+
+google.com
+
+googleapis.com
+
+accounts.youtube.com
+
+*.accounts.google.com
+
+*.gstatic.com
+
+*.googleusercontent.com
+
+*.google.com
+
+*.googleapis.com
+
+*.accounts.youtube.com
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>*.line.me
+
+*.line-apps.com
+
+*.line-scdn.net
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>*.kakao.com
+
+*.google.com
+
+*.m2.daumcdn.net
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

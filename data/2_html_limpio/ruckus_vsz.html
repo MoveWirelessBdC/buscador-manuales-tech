@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="mist.html" rel="prev"/>
+<link href="ruckus_zd.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Ruckus vSZ - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ruckus-vsz-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="ruckus-vsz-configuration-guide">Ruckus vSZ Configuration Guide</h1>
+<h2 id="prerequisites-and-basic-configuration">Prerequisites and Basic Configuration</h2>
+<p>To configure the Ruckus vSZ Access Point with the platform, you should first fulfill specific prerequisites, and prepare the Basic Configuration.</p>
+<h3 id="configuration-prerequisites">Configuration Prerequisites</h3>
+<p>You should ensure  that the Ruckus controller:
+- Has correctly configured IP settings, and is connected with the DNS server,
+- Can resolve the domain address which is <em><strong>domain</strong>.com</em>,
+- Is given access to the platform via ports: <em>80</em>, <em>1812</em> and <em>1813</em>,
+- Is connected and communicating with Access Points.</p>
+<p>You should also make certain that:
+- The end device has been given access to the port <strong>9997</strong> of the management plane, cluster plane of vSZ, or in case of Ruckus GRE tunnel - an external IP,
+- The firewall for the http and https re-directions should have ports <strong>8090</strong> and <strong>8099</strong> <strong>opened</strong>.</p>
+<h3 id="basic-configuration">Basic Configuration</h3>
+<p>Below, you can find the table providing the data for the <strong>Production Environments</strong>, which are the cloud servers of the platform.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linkyfi UVA</td>
+<td>uva.linkyfi.com</td>
+<td>35.245.165.143</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="configuring-ruckus-vsz">Configuring Ruckus vSZ</h2>
+<p>Before you start the configuration of the platform, you should set up the Ruckus vSZ Access Point. To do this, configure the following parameters successively: 
+ - RADIUS server
+ - Hotspot
+ - WLAN group
+ - WLAN network.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During the configuration process, the end-device web browser may stop at <strong>SIP:9997</strong>. This may be caused by the <strong>9997-post</strong> barrier, or a Ruckus bug. To resolve the problem, you should add a custom <strong>SIP</strong> to the <strong>Control Panel</strong> instead of the <strong>Management Panel</strong>.</p>
+</div>
+<h2 id="before-you-start-the-configuration">Before You Start the Configuration</h2>
+<p>Before you start the configuration process, you should disable the IP, and MAC Address’ encryption:</p>
+<ol>
+<li>
+<p>First, connect to the <strong>SmartZone CLI</strong> via <strong>SSH</strong>. Then, enter the configuration mode by typing <code>config</code>in the console. Press <strong>Enter</strong> on your keyboard to initialise the process.. </p>
+</li>
+<li>
+<p>After initialising the <code>(config)#</code> command prompt, type <code>no encrypt-mac-ip</code> and press <strong>Enter</strong>. As a result, you should get the following response:</p>
+<p><code>Do you want to continue to disable (or input 'no' to cancel)? [yes/no].</code></p>
+<p>Type <code>yes</code> to confirm the desired action, and press <strong>Enter</strong> to initialise it. At that point, you should get the following response: <code>Successful operation.</code></p>
+</li>
+<li>
+<p>To ensure that the encryption of the IP and the MAC address has been disabled::</p>
+<ul>
+<li>
+<p>In the configuration mode where 
+the <code>(config)#</code> command prompt is displayed, type the following command:
+<code>do show running-config encrypt-mac-ip</code></p>
+</li>
+<li>
+<p>If you are not in the configuration mode, type the following command: 
+<code>show running-config encrypt-mac-ip</code></p>
+</li>
+</ul>
+<p>As a result, you should get the following response:
+<code>Encryption MAC and IP: Disabled.</code></p>
+</li>
+</ol>
+<h2 id="configuring-the-radius-server">Configuring the RADIUS Server</h2>
+<h3 id="enabling-communication-between-the-controller-and-the-radius-server">Enabling Communication Between the Controller and the RADIUS Server</h3>
+<p>The RADIUS server must be configured to ensure the authentication of the end users’ devices, and to authorise these devices to use the WiFi network. This configuration process consists of two steps:</p>
+<ul>
+<li>Configuration of the RADIUSserver for authentication, and</li>
+<li>Configuration of the RADIUSserver for accounting.</li>
+</ul>
+<h4 id="configuring-the-radius-server-for-authentication">Configuring the RADIUS Server for Authentication</h4>
+<ol>
+<li>
+<p>Log in to the Ruckus vSZ user interface, and go to the <strong>Services &amp; Profiles ** Authentication</strong> section in the menu on the left.</p>
+</li>
+<li>
+<p>In the <strong>Non-Proxy</strong> (AP Authentication)<strong> window, select the </strong>Default Zone<strong> option from the menu tree. Then, click the </strong>Create** button.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_1.png"/></p>
+</li>
+<li>
+<p>Now, you can provide the server details in the <strong>Create AAA server</strong> window:</p>
+<ul>
+<li>In the <strong>Name</strong> field, type the name of the server. For this instruction, it is <em>Radius Name</em>,</li>
+<li>From the <strong>Type</strong> checklist, select the <strong>RADIUS</strong> option,</li>
+<li>Into the <strong>IP Address</strong> field, enter the <strong>RADIUS Server Address</strong>. For this instruction, it is <em>35.241.143.144</em>,</li>
+<li>Into the <strong>Port</strong> field, enter <em>1812</em>,</li>
+<li>In the <strong>Shared Secret</strong> field, type <em>bAZev44u</em></li>
+<li>In the <strong>Confirm Secret</strong> field, retype the <strong>Shared Secret</strong> from the previous field.</li>
+</ul>
+<p>After you have finished providing the server details, click <strong>OK</strong> to save the server settings.</p>
+</li>
+</ol>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_2.png"/></p>
+<h4 id="configuring-the-radius-server-for-accounting">Configuring the RADIUS Server for Accounting</h4>
+<p>This configuration enables the communication with <strong>Domain RADIUS Server</strong> on <strong>port 1813</strong> to enable the RADIUS accounting.</p>
+<ol>
+<li>
+<p>Go to the <strong>Services &amp; Profiles ** Accounting</strong> section in the menu on the left.</p>
+</li>
+<li>
+<p>In the<strong>Non-Proxy</strong> window, select the <strong>Default Zone</strong> option from the menu tree. Then, click the <strong>Create</strong> button.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_3.png"/></p>
+</li>
+<li>
+<p>Now, you can provide the server details in the *<em>Create New</em> window:</p>
+<ul>
+<li>In the <strong>Name</strong> field, type the name of the server for accounting. For this instruction, it is <em>Radius_Accounting_Name</em>,</li>
+<li>Into the <strong>IP Address</strong> field, enter the <strong>Server IP Address</strong>. For this instruction, it is <em>35.241.143.144</em>,</li>
+<li>Into the <strong>Port</strong> field, enter <em>1813</em>,</li>
+<li>Into the <strong>Shared Secret</strong> field, enter <em>bAZev44u</em></li>
+<li>In the <strong>Confirm Secret</strong> field, retype the <strong>Shared Secret</strong> from the previous field.</li>
+</ul>
+<p>After you have finished providing the server details, click <strong>OK</strong> to save the server settings.</p>
+</li>
+</ol>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_4.png"/></p>
+<h2 id="configuring-the-hotspot-service">Configuring the Hotspot Service</h2>
+<p>The configuration of the hotspot enables establishing the proper network connection, followed by the redirection to the captive portal. You can choose which RADIUS Server should be used for the authorization process, and designate the Walled Garden. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Walled Garden is a list of websites that can be accessed by users who have not logged in to the network. It is required for proper functioning of the captive portal.</p>
+</div>
+<ol>
+<li>
+<p>Go to the <strong>Services &amp; Profiles &gt; Hotspot &amp; Portals</strong> and select the ** Hotspot(WISPr)** section. Then, choose the desired zone from the menu tree; for this instruction, it is <em>Default Zone</em>.</p>
+</li>
+<li>
+<p>Now, click the <strong>Create</strong> button to create a <strong>Hotspot Portal</strong>.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_5.png"/></p>
+</li>
+<li>
+<p>Now, you can provide the server details in the <strong>Create Hotspot Portal</strong> window:</p>
+<ul>
+<li>In the <strong>Portal Name</strong> field, type the name of the Portal. For this instruction, it is <em><strong>domain</strong></em>,</li>
+<li>From the <strong>Logon URL</strong> checklist, select the <strong>External</strong> option. Then, enter the desired captive portal address into the <strong>Redirect Unauthenticated User to the URL for Authentication</strong> field. For this instruction, it is <em>http://<strong>domain</strong>.com/login</em>,</li>
+<li>From the <strong>Redirected MAC Format</strong> dropdown list, select the desired MAC Format. For this instruction, it is <em>AABBCCDDEEFF</em>,</li>
+<li>From the <strong>Start Page</strong> checklist, select the <strong>Redirect to the URL That Users Intend to Visit</strong> option, and type the desired website address in the below field. For this instruction, it is <em>http://<strong>domain</strong>.com/welcome</em>.</li>
+</ul>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_6.png"/></p>
+</li>
+<li>
+<p>After you have provided the Hotspot Page details, expand the <strong>Walled Garden</strong> section, and provide its details. To do this, type <em><strong>domain</strong>.com</em> into the <strong>Walled Garden Entry</strong> field. Then, click <strong>Add</strong> to save the entry.</p>
+<p>Repeat this step to add other required website addresses from the <strong>References</strong> section.</p>
+</li>
+<li>
+<p>To finish the configuration process, click the <strong>OK</strong> button.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_7.png"/></p>
+</li>
+</ol>
+<h2 id="configuring-the-wireless-lan-group">Configuring the Wireless LAN Group</h2>
+<p>The Wireless LAN Group (WLAN Group) configuration requires assigning the existing SSIDs to WLAN Groups which are logical containers for numerous different SSIDs. Those groups can be later used to broadcast multiple SSIDs by using the same Access Point.</p>
+<ol>
+<li>
+<p>From the <strong>Wireless LANs</strong> list, select <strong>Default Zone</strong>. Then, click <strong>+</strong> which is located above the WLAN list to add a WLAN Group.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_8.png"/></p>
+</li>
+<li>
+<p>In the <strong>Create WLAN Group</strong> window, type the name of the WLAN Group In the <strong>Name</strong> field. For this instruction, it is <em><em>Domain</em></em>, and click <strong>Next</strong>.</p>
+<p>Then, click the <strong>OK</strong> button to finish creating the WLAN Group.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_9.png"/></p>
+</li>
+</ol>
+<h2 id="configuring-the-wireless-lan-network">Configuring the Wireless LAN Network</h2>
+<p>The configuration of Wireless LAN requires creating a <em>SSID Network</em>*, which is distributed by Access Points, by assigning the hotspots to the designated SSID and, by that, enabling the correct redirection and communication with RADIUS.</p>
+<ol>
+<li>
+<p>From the menu on the left, select the <strong>Wireless LANs</strong> option.</p>
+</li>
+<li>
+<p>From the <strong>Wireless LANs</strong> list, select <strong>Default Zone</strong>. Then, click the <strong>Create</strong> button to add a new network.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_10.png"/></p>
+</li>
+<li>
+<p>Now, you can provide the server details in the <strong>Create WLAN Configuration</strong> window:</p>
+<ul>
+<li>In the <strong>Name</strong> field, type the name of the network. For this instruction, it is <em>SSID_NAME</em>,</li>
+<li>Into the <strong>SSID</strong> field, enter the broadcasted SSID. For this instruction, it is <em>SSID_NAME</em>. 
+Note: This value is also required in the platform configuration process.</li>
+<li>From the <strong>WLAN Group</strong> dropdown list, select the WLAN group which you have created. For this instruction, it is <em><strong>Domain</strong></em>,</li>
+<li>In the <strong>WLAN Usage</strong> section, for the <strong>Authentication Type</strong> select <em>Hotspot (WISPr)</em>,</li>
+<li>In the <strong>Authentication Options</strong> section, for the <strong>Method</strong>, select <strong>Open</strong>,</li>
+<li>In the <strong>Encryption Options</strong> section, for the <strong>Method</strong>, select <strong>None</strong>,</li>
+<li>In the <strong>Hotspot Portal</strong> section:<ul>
+<li>From the <strong>Hotspot (WISPr) Portal</strong> dropdown list, select the name of the Hotspot Service which you have created. For this instruction, it is <em><strong>Domain</strong></em>,</li>
+<li>In the <strong>Authentication Server</strong> option, uncheck the <strong>Use the Controller as Proxy</strong> checkbox, and select the name of the Authentication Service, which you have created, from the dropdown list. For this instruction, it is <em>Radius_Name</em>,</li>
+<li>In the <strong>Accounting Server</strong> option, uncheck the <strong>Use the Controller as Proxy</strong> checkbox, and select the name of the Accounting Service, which you have created, from the dropdown list. For this instruction, it is <em>Radius Accounting</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>When you have finished providing the details, click <strong>OK</strong> to save the settings.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/config_ruckus_vsz_11.png"/></p>
+</li>
+</ol>
+<h2 id="configuring-the-platform">Configuring the Platform</h2>
+<p>The platform configuration consists of two steps: adding the access point to the network, and configuring it. You should carry them out successively.</p>
+<h3 id="adding-an-access-point-to-the-network">Adding an Access Point to the Network</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Access Points are called <strong>Devices</strong> on the platform.</p>
+</div>
+<ol>
+<li>
+<p>Firstly, log in to the platform. Then, go to the <strong>Portal Management → Structure</strong>  section and select <strong>Devices</strong> from the navigation bar. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that you are in the appropriate organisation. To do this, select the desired one from the right panel or the top bar; it should be highlighted in blue.</p>
+</div>
+</li>
+<li>
+<p>Now, click <strong>+</strong> in the bottom right corner to add a device.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/ruckus_vsz_1.png"/></p>
+</li>
+<li>
+<p>In the <strong>Add Devices</strong> window, enter the device details:</p>
+<ul>
+<li>From the <strong>Device Type</strong> dropdown list, select the type of the device,</li>
+<li>Into the <strong>AP MAC</strong> field, enter the device MAC;</li>
+<li>In the <strong>IP Address</strong> field ,enter the device’s IP address (recommended),</li>
+<li>In the <strong>Serial Number</strong> field, enter the device’s serial number,</li>
+<li>Into the <strong>Descriptive Name</strong> field, type a descriptive name of the device,</li>
+</ul>
+<p>Then, click <strong>Save</strong> in the top right corner to confirm the details and proceed further.</p>
+<p><img alt="ruckus vsz configuration" src="images/ruckus_vSZ/ruckus_vsz_2.png"/></p>
+</li>
+<li>
+<p>The device is now added to your organisation.</p>
+</li>
+</ol>
+<h3 id="configuring-the-network">Configuring the Network</h3>
+<p>To learn how to configure the Network, read the <a href="../user_guide/user_enrollment/create_access_settings.html">Creating Access Settings</a>.</p>
+<h2 id="references">References</h2>
+<p>Below, you can find the list of entities which can be added to the Walled Garden during the configuration process. After you have finished adding them, continue configuring the Access Control.</p>
+<p>When using the Ruckus GRE tunnel, we recommend adding the <strong>Domain address</strong>, its <strong>IP</strong>, and the social media records which you would like to use to the walled garden rules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The below entities are <strong>optional</strong> for the configuration. Using them may impact the <strong>Popup</strong> option which may not work as expected. You should also note that all of these entities use the <em>https</em> which requires the configuration of an appropriate cert for the proper redirection to the designated web address.</p>
+</div>
+<h3 id="domain">Domain</h3>
+<pre><code>*.domain.com
+</code></pre>
+<h4 id="ip">IP</h4>
+<p>For Domain Europe: <code>35.241.143.144</code><br/>
+For Domain North and South America: <code>35.245.165.143</code><br/>
+For Domain Asia: <code>35.240.186.103</code></p>
+<h3 id="ios-optional">iOS (optional)</h3>
+<pre><code>www.appleiphonecell.com  
+captive.apple.com  
+www.apple.com  
+www.itools.info  
+www.ibook.info  
+www.airport.us  
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com  
+*.gstatic.com  
+clients3.google.com
+</code></pre>
+<h3 id="microsoft-required-for-loging-in-with-microsoft">Microsoft (required for loging in with Microsoft)</h3>
+<pre><code>msftncsi.com  
+*.msftncsi.com
+login.microsoftonline.com
+aadcdn.msftauth.net
+aadcdn.msauth.net
+login.live.com  
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com  
+facebook.net  
+akamaihd.net  
+digicert.com  
+fbcdn.net  
+fb.com  
+fbsbx.com  
+*.facebook.com  
+*.facebook.net  
+*.akamaihd.net  
+*.digicert.com  
+*.fbcdn.net  
+*.fb.com  
+*.fbsbx.com  
+</code></pre>
+<h4 id="ip_1">IP</h4>
+<pre><code>5.178.32.0/20  
+195.27.154.0/24  
+80.150.192.0/24  
+77.67.96.0/22  
+212.119.27.0/25  
+2.16.0.0/13  
+66.171.231.0/24  
+31.13.24.0/21  
+31.13.64.0/18  
+212.245.45.0/24  
+213.254.17.0/24  
+46.33.70.0/24  
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com  
+twimg.com  
+abs.twitter.com  
+*.twitter.com  
+*.twimg.com  
+*.abs.twitter.com 
+</code></pre>
+<h4 id="ip_2">IP</h4>
+<pre><code>199.16.156.0/22  
+199.59.148.0/22  
+199.96.56.0/21  
+192.133.76.0/22  
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com  
+oauth.vk.com  
+vk.me  
+*.vk.com  
+*.oauth.vk.com  
+*.vk.me
+</code></pre>
+<h3 id="paypal">PayPal</h3>
+<pre><code>paypal.com  
+omtrdc.net  
+mediaplex.com  
+paypalobjects.com  
+abmr.net  
+dotomi.com  
+*.paypal.com  
+*.omtrdc.net  
+*.mediaplex.com  
+*.paypalobjects.com  
+*.abmr.net  
+*.dotomi.com  
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<pre><code>instagram.com
+</code></pre>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com  
+ytimg.com  
+gstatic.com  
+google.com  
+googlevideo.com  
+*.youtube.com  
+*.ytimg.com  
+*.gstatic.com  
+*.google.com  
+*.googlevideo.com 
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com  
+gstatic.com  
+googleusercontent.com  
+google.com  
+googleapis.com  
+accounts.youtube.com  
+*.accounts.google.com  
+*.googleusercontent.com  
+*.google.com  
+*.googleapis.com  
+*.accounts.youtube.com 
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>*.line.me  
+*.line-apps.com  
+*.line-scdn.net  
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>*.kakao.com  
+*.google.com  
+*.m2.daumcdn.net  
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="meraki.html" rel="prev"/>
+<link href="ruckus_vsz.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Mist - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#mist-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="mist-configuration-guide">Mist Configuration Guide</h1>
+<ul>
+<li>To claim the APs, go to the <strong>Organization &gt; Subscriptions</strong> page and select the <strong>Add Activation Code</strong> button in the top right corner.  Once the activation code is added and <strong>Activated</strong>, all the APs will automatically get claimed to the organization.  You can see the list of APs in the Inventory page (<strong>Organization &gt; Inventory</strong>).</li>
+</ul>
+<p><img alt="mist configuration" src="images/mist/mist_0.png"/></p>
+<ul>
+<li>You can individually claim APs to your organization by navigating to <strong>Organization &gt; Inventory &gt; Claim APs</strong> and entering in the claim code found on the back of each AP.</li>
+</ul>
+<p><img alt="mist configuration" src="images/mist/mist_1.png"/></p>
+<ul>
+<li>The <strong>claim code</strong> of the AP is written in the backside of the AP where the <strong>QR code</strong> of the AP is printed.</li>
+</ul>
+<p><img alt="mist configuration" src="images/mist/mist_2.jpg"/></p>
+<h2 id="wlan-configuration">WLAN Configuration</h2>
+<ol>
+<li>Login in to the <strong>Mist Portal</strong>.</li>
+<li>Click on the <strong>Networks</strong> icon in the left hand column and click on <strong>WLANS</strong>.</li>
+<li>Click the <strong>Add WLAN button</strong> in the top right hand corner to add your network.  </li>
+<li>In the <strong>SSID section</strong> create the network name which must be the same as in the platform.</li>
+<li>Under <strong>WLAN Status</strong> click the <strong>Enabled</strong> button, choose <strong>Radio Band</strong> 2.4 GHz and 5 GHz and the <strong>Drop Rate</strong>.</li>
+<li>Under <strong>Data Rates</strong> choose <strong>Compatible</strong>.</li>
+<li>Under <strong>WiFi Protocols</strong> select <strong>Enabled</strong>.</li>
+<li><strong>WLAN Rate Limit</strong> should be <strong>Disabled</strong>.</li>
+<li>Under <strong>Security</strong> you have the option of choosing whether your network has a passphrase or not and then choose the default option under <strong>Fast Roaming</strong>.</li>
+<li><strong>VLAN</strong> should be <strong>Untagged</strong>.</li>
+<li>Under <strong>Guest Portal</strong> make the following changes.<ul>
+<li>Click on the <strong>Forward to external portal</strong>. </li>
+<li>In the <strong>Portal URL</strong> field enter the desired address.</li>
+<li>Add the <strong>Default Walled Garden</strong> entries to the <strong>Allowed Host Names</strong> field.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to put commas in between walled garden entries.    </p>
+</div>
+<p><img alt="mist configuration" src="images/mist/mist_3.png"/></p>
+<h2 id="configuring-the-platform">Configuring the Platform</h2>
+<p>To configure an access point on the Platform, you should first add it to the Platform. Then, you should configure the network in which the access point will be used.</p>
+<h3 id="adding-an-access-point-to-the-platform">Adding an Access Point to The Platform</h3>
+<p>To add an Access Point, you should first log in to the Platform. Then, go to the <strong>Portal Management &gt; Structure</strong> section, and select the <strong>Devices</strong> tab from the upper bar.</p>
+<ol>
+<li>Now, click the <strong>+</strong> button in the bottom right corner to add a new device.</li>
+</ol>
+<p><img alt="aruba central configuration" src="images/aruba_central/aruba_platform_config_1.png"/></p>
+<ol>
+<li>From the <strong>Device Type</strong> list, select <strong>Mist</strong>. Then, provide the access point details:</li>
+<li>In the <strong>AP MAC</strong> field, type the access point's <strong>MAC</strong> address,</li>
+<li>Into the <strong>IP Address</strong> field, enter the access point’s IP address (recommended),</li>
+<li>Into the <strong>Serial Number</strong> field, enter the access point’s serial number,</li>
+<li>In the <strong>Descriptive Name</strong>, you can type the name that would help you differentiate this access point from the other ones,</li>
+</ol>
+<p><img alt="aruba central configuration" src="images/aruba_central/aruba_platform_config_2.png"/></p>
+<p><img alt="mist configuration" src="images/mist/mist_6.png"/></p>
+<ol>
+<li>In the below section, in order to retrieve the <strong>Site ID</strong> you must first go to <a href="https://manage.eu.mist.com/">https://manage.eu.mist.com/</a> and log in to your organisation.  Next, go to <strong>Organization &gt; Site Configuration</strong> and choose your organisation.  There you will find the <strong>Site ID</strong>.  To retrieve the <strong>WLAN ID</strong> and <strong>API Secret</strong> go to <strong>Network &gt; WLANs</strong> and choose the network.  There you will find the <strong>WLAN ID</strong> and <strong>API Secret</strong>.</li>
+</ol>
+<p><img alt="mist configuration" src="images/mist/mist_7.png"/></p>
+<p>After you have finished providing the details, click <strong>Save</strong> in the top right corner to finish adding the access point to the Platform.</p>
+<h3 id="creating-mist-api-token">Creating MIST API Token</h3>
+<ul>
+<li><strong>API Tokens</strong> are used to authenticate each <strong>Mist API</strong> call to a particular user.</li>
+<li>Each user has a role which authorizes the user to perform certain operations to the organization or site (ie: “<strong>administrator</strong>” or “<strong>read-only</strong>” roles).</li>
+<li>To create <strong>API Token</strong> go to <a href="https://api.mist.com/api/v1/self/apitokens">https://api.mist.com/api/v1/self/apitokens</a> and click the <strong>POST</strong> button to create a new token.</li>
+</ul>
+<p><img alt="mist configuration" src="images/mist/mist_8.jpg"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Store the key somewhere safe; the full <strong>API token</strong> string will not be revealed again!</p>
+</div>
+<p><img alt="mist configuration" src="images/mist/mist_9.jpg"/></p>
+<h2 id="references">References</h2>
+<p>Below, you can find the list of entities which can be added to the Walled Garden during the configuration process. After you have finished adding them, continue configuring the Access Control.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The below entities are <strong>optional</strong> for the configuration. Using them may impact the <strong>Popup</strong> option which may not work as expected. You should also note that all of these entities use the <em>https</em> which requires the configuration of an appropriate cert for the proper redirection to the designated web address.</p>
+</div>
+<h3 id="domain">Domain</h3>
+<pre><code>*.domain.com
+</code></pre>
+<h4 id="ip">IP</h4>
+<p>For Domain Europe: <code>35.241.143.144</code><br/>
+For Domain North and South America: <code>35.245.165.143</code><br/>
+For Domain Asia: <code>35.240.186.103</code></p>
+<h3 id="ios-optional">iOS (optional)</h3>
+<pre><code>www.appleiphonecell.com  
+captive.apple.com  
+www.apple.com  
+www.itools.info  
+www.ibook.info  
+www.airport.us  
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com  
+*.gstatic.com  
+clients3.google.com
+</code></pre>
+<h3 id="microsoft-required-for-loging-in-with-microsoft">Microsoft (required for loging in with Microsoft)</h3>
+<pre><code>msftncsi.com  
+*.msftncsi.com
+login.microsoftonline.com
+aadcdn.msftauth.net
+aadcdn.msauth.net
+login.live.com  
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com  
+facebook.net  
+akamaihd.net  
+digicert.com  
+fbcdn.net  
+fb.com  
+fbsbx.com  
+*.facebook.com  
+*.facebook.net  
+*.akamaihd.net  
+*.digicert.com  
+*.fbcdn.net  
+*.fb.com  
+*.fbsbx.com  
+</code></pre>
+<h4 id="ip_1">IP</h4>
+<pre><code>5.178.32.0/20  
+195.27.154.0/24  
+80.150.192.0/24  
+77.67.96.0/22  
+212.119.27.0/25  
+2.16.0.0/13  
+66.171.231.0/24  
+31.13.24.0/21  
+31.13.64.0/18  
+212.245.45.0/24  
+213.254.17.0/24  
+46.33.70.0/24  
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com  
+twimg.com  
+abs.twitter.com  
+*.twitter.com  
+*.twimg.com  
+*.abs.twitter.com 
+</code></pre>
+<h4 id="ip_2">IP</h4>
+<pre><code>199.16.156.0/22  
+199.59.148.0/22  
+199.96.56.0/21  
+192.133.76.0/22  
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com  
+oauth.vk.com  
+vk.me  
+*.vk.com  
+*.oauth.vk.com  
+*.vk.me
+</code></pre>
+<h3 id="paypal">PayPal</h3>
+<pre><code>paypal.com  
+omtrdc.net  
+mediaplex.com  
+paypalobjects.com  
+abmr.net  
+dotomi.com  
+*.paypal.com  
+*.omtrdc.net  
+*.mediaplex.com  
+*.paypalobjects.com  
+*.abmr.net  
+*.dotomi.com  
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<pre><code>instagram.com
+</code></pre>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com  
+ytimg.com  
+gstatic.com  
+google.com  
+googlevideo.com  
+*.youtube.com  
+*.ytimg.com  
+*.gstatic.com  
+*.google.com  
+*.googlevideo.com 
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com  
+gstatic.com  
+googleusercontent.com  
+google.com  
+googleapis.com  
+accounts.youtube.com  
+*.accounts.google.com  
+*.googleusercontent.com  
+*.google.com  
+*.googleapis.com  
+*.accounts.youtube.com 
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>*.line.me  
+*.line-apps.com  
+*.line-scdn.net  
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>*.kakao.com  
+*.google.com  
+*.m2.daumcdn.net  
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

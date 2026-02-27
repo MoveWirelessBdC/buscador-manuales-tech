@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2021_10_29.html" rel="prev"/>
+<link href="2021_10_01.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>21.10.15__stable__0.53.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-211015__stable__0530">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-211015__stable__0530">Release Version: 21.10.15__stable__0.53.0</h1>
+<h3 id="release-date-10152021">Release Date: 10/15/2021</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>Users can now export selected devices in the devices table by going to <strong>Portal management</strong> &gt; <strong>Structure</strong> &gt; <strong>Devices</strong>.</li>
+<li>The possibility of editing settings of <strong>Flows/Portals/Forms</strong> from the respective manager has been added without the need to go through the editor.</li>
+<li>We have added the possibility to <strong>remember devices</strong> by using a verified phone number in the <strong>Phone Verification Component</strong> which will <strong>not</strong> send SMSs to verify the device.  Also the default configuration in the organisation can be changed by setting the appropriate property.  </li>
+<li>A new <strong>Two-step email verification login</strong> method has been added to the portal.  The verification of the email must be done from a <strong>different device</strong> which has access to the internet. The <strong>emailVerificationComponent</strong> permission is required to add components to the portal.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<ul>
+<li>We have changed the <strong>password reset</strong> method in which we no longer send a temporary password.  After entering the email address, the user receives a message with a <strong>link</strong>, in which a new password can be set.  The previous two steps of resetting the password have been replaced with one.  Users <strong>must update</strong> their email when using the <strong>custom email content</strong>.</li>
+<li>A service for assigning domains to the functionality has been added.  We have started dividing the functionality of domains into two, for <strong>Captive Portal</strong> and for the <strong>Administration Portal</strong>.  You can now generate links for reports and password resets for installations with different <strong>administrative domains</strong> and <strong>hotspots</strong>.</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>We have added the following permissions to the Platform:</li>
+</ul>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>phoneInputRememberDeviceConfiguration</td>
+<td>Allows the user to access the Remember Device Configuration in the Phone Number component</td>
+</tr>
+<tr>
+<td>emailVerificationComponent</td>
+<td>Allows the user to add Email Verification components to Portals</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="resolved-issues">Resolved Issues</h2>
+<h3 id="system-fixes">System Fixes</h3>
+<ul>
+<li>We have fixed an error on the <strong>Dashboard</strong> where the <strong>Heatmap</strong> size for very small venues was incorrect..</li>
+<li>We have added <strong>Login Information</strong> for <strong>MAC</strong> based logins for <strong>Benu</strong>.</li>
+</ul>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

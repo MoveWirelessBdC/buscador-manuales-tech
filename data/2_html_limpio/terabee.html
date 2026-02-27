@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="ruckus_one.html" rel="prev"/>
+<link href="tp_link_controller.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Terabee People Counting L - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#terabee-people-counting-l-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="terabee-people-counting-l-configuration-guide">Terabee People Counting L Configuration Guide</h1>
+<p>To configure the Terabee People Counting L devices, you must set them up in the Terabee web user interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To display data collected from Terabee cameras in the Platform, you must have a Venue set up in the Platform.</p>
+</div>
+<h2 id="configuring-terabee-people-counting-l-in-the-web-user-interface">Configuring Terabee People Counting L in the Web User Interface</h2>
+<ol>
+<li>
+<p>First, log in to the Terabee People Counting L web user interface either by a computer or by mobile phone:</p>
+<ul>
+<li>For <strong>computers</strong>, open the browser and paste the following URL into the browser field: <em><a href="http://terabee-">http://terabee-</a><code>&lt; device_id &gt;</code>.local</em></li>
+<li>For <strong>mobile phones</strong>, flash the QR code located on the People Counter ID card to access the mobile <strong>Terabee People Counting Setup</strong> app.</li>
+</ul>
+<p>Then, enter the following ID into the login fields:
+- Username: <em>people_counting_admin</em>
+- Password: <em><code>&lt; device_id &gt;</code>--admin</em> (for example: 123abc456def--admin).</p>
+<p>!!! note
+     You cannot yet access the advanced interface from the mobile app. To access this interface, open it on your computer's internet browser.</p>
+</li>
+<li>
+<p>Now, you can configure the device's parameters:</p>
+<ul>
+<li>The <strong>Reverse Direction</strong> checkbox allows you to switch between areas of <strong>entries</strong> and <strong>exits</strong>. If you leave this option <strong>unselected</strong>, the camera will be set to areas of <strong>entries</strong>. Selecting this checkbox will switch the camera's setup to areas of <strong>exits</strong>. </li>
+<li>From the <strong>Camera Height</strong> list, choose the height (in millimetres) at which the device is installed (from 2400 to 3200 mm).</li>
+<li>From the <strong>Exclusion Height</strong> list, select the height (in millimetres) below which the traffic will not be detected (starting from the ground).</li>
+</ul>
+<p><img alt="terabee" src="images/terabee/terabee_1.png"/></p>
+</li>
+<li>
+<p>In the following options, you can set up parameters of data which will be transferred to the Platform:</p>
+<ul>
+<li>Select the <strong>Enable Custom Data Push</strong> checkbox to enable sending data to the Platform</li>
+<li>Into the <strong>Push URL</strong> field, enter the URL to which the device should push data.</li>
+<li>Into the <strong>Protocol</strong> field, enter the protocol used when pushing data: <em>http-get</em> or <em>http-post</em>.  </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Look below for the example configuration of these two protocols.</p>
+</div>
+<ul>
+<li>In the <strong>Payload Format</strong> field, enter the adequate format (only for <strong>http-post</strong>).  </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Look below for the example configuration of these two protocols.</p>
+</div>
+<ul>
+<li>From the <strong>Push Interval</strong> list, choose how many seconds must pass between the data pushout. For this instruction, it is <em>60</em>.</li>
+<li>Select the <strong>Enable Push On Event</strong> checkbox to enable pushing data at each detection event.  </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For configuring Terabee cameras with the Platform, it is advised to leave this checkbox <strong>unselected</strong>.</p>
+</div>
+<ul>
+<li>In the <strong>Reset Hour</strong> field, specify the time at which the device should reset the daily count (in the HH:MM format). The default is 00:00.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is advised to set that time to when the area is empty.</p>
+</div>
+<p>Look at the below configuration of the Protocol and Push URL:</p>
+<h4 id="example-one-get">Example one: Get</h4>
+<p>Protocol: <em>http-get</em> </p>
+<p>Push URL: <em>http[s]://<code>&lt; installation_url &gt;</code>/camera/terabee/<code>&lt; organization_id &gt;</code>/<code>&lt; sensor_name &gt;</code>/{nb_in}/{nb_out}</em> </p>
+<p>where<br/>
+<code>[s]</code> - you can use either <em>http</em> or <em>https</em><br/>
+<code>&lt; installation_url &gt;</code> - domain to which data should be pushed. For this instruction, it is <em>platform.com</em>.<br/>
+<code>&lt; organization_id &gt;</code> - ID of the Organisation that collects the data<br/>
+<code>&lt; sensor_name &gt;</code> - the camera name. This name will be used to display the camera’s statistics in the Platform.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cameras’ names must be unique in the Organisation.  </p>
+</div>
+<p>Example:
+<a href="http://platform.com/camera/terabee/23/Printer/{nb_in}/{nb_out">http://platform.com/camera/terabee/23/Printer/{nb_in}/{nb_out</a>}</p>
+<h4 id="example-two-post">Example two: Post</h4>
+<p>Protocol: <em>http-post</em> </p>
+<p>Push URL: <em>http[s]://<code>&lt; installation_url &gt;</code>/camera/terabee/<code>&lt; organization_id &gt;</code></em> </p>
+<p>Payload format: <em>{{"sensorId":"<code>&lt; sensor_name &gt;</code>","counter":{{"in":{nb_in},"out":{nb_out}}}}}</em> </p>
+<p>where<br/>
+<code>[s]</code> - you can use either <em>http</em> or <em>https</em><br/>
+<code>&lt; Installation_url &gt;</code> - domain to which data should be pushed. For this instruction, it is <em>platform.com</em>.<br/>
+<code>&lt; organization_id &gt;</code> - ID of the Organisation that collects the data<br/>
+<code>&lt; sensor_name &gt;</code> - the camera name. This name will be used to display the camera’s statistics in the Platform.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cameras’ names must be unique in the Organisation.</p>
+</div>
+<p>Example:<br/>
+<a href="http://platform.com/camera/terabee/23">http://platform.com/camera/terabee/23</a><br/>
+{{"sensorId":"Printer","counter":{{"in":{nb_in},"out":{nb_out}}}}}</p>
+<p><img alt="terabee" src="images/terabee/terabee_2.png"/></p>
+</li>
+<li>
+<p>To confirm the setup, click the yellow <strong>Send</strong> button at the bottom of the page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Avoid clicking the <strong>Send</strong> button too often, as it may freeze the device. In such event, restart the camera by turning it off and on.</p>
+</div>
+</li>
+<li>
+<p>In the end, check if the two LEDs on the camera are green. If yes, the camera is correctly configured and is now pushing the data to the Platform.</p>
+<p>If the LEDs are not green, restart the camera as described in pt. 4.</p>
+</li>
+</ol>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

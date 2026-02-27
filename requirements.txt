@@ -1,0 +1,12 @@
+Flask
+gunicorn
+openai
+numpy
+python-dotenv
+playwright
+beautifulsoup4
+markdownify
+yt-dlp
+requests
+google-cloud-speech
+google-cloud-storage

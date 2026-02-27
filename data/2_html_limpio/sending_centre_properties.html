@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="email_customisation.html" rel="prev"/>
+<link href="licence_package.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Sending Centre Properties - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#sending-centre-properties">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="sending-centre-properties">Sending Centre Properties</h1>
+<p>The <strong>Sending Centre</strong> Properties allow you to integrate and properly configure the GDPR user panel, and the Email and SMS gateways which are responsible for the correct message dispatch.</p>
+<p>This section consists of three tabs: <strong>Active Configurations</strong>, <strong>SMS</strong>, and <strong>Email</strong>. The <strong>Active Configurations</strong> tab is divided into <strong>SMS</strong> and <strong>Email</strong> sections, which are broken by three categories: <strong>GDPR</strong>, <strong>Other</strong>, and <strong>Marketing Campaigns</strong>. In the <strong>SMS</strong> and <strong>Email</strong> tabs, you can create respective configurations according to your preferences. These two tabs also serve as libraries of all configurations which you have created for the SMS and Email dispatch.</p>
+<h2 id="sms-configuration">SMS Configuration</h2>
+<p>To configure these properties you should first prepare configurations which you can then assign to each category. To do this, you can create your own configuration, or use one which you inherit from your parent organisations.</p>
+<h3 id="creating-an-sms-configuration">Creating an SMS Configuration</h3>
+<p>To begin creating an SMS configuration, you should first ensure that you have a client account on the dedicated Gateway platform. To learn more about configuring gateways, read the <strong>Configuring Gateways</strong> chapter of the User Guide.</p>
+<ol>
+<li>
+<p>To create a new SMS configuration, click the <strong>+</strong> button in the bottom right corner of the window.</p>
+</li>
+<li>
+<p>Now, in the SMS settings window:</p>
+<ul>
+<li>In the <strong>Name</strong> field, type the name of the SMS configuration;</li>
+<li>From the <strong>Gateway</strong> dropdown list, select the desired gateway. For this instruction, it is <em>Default</em>.
+Then, click <strong>Next</strong> in the top right corner to proceed further.</li>
+</ul>
+<p><img alt="sms properties" src="images/properties/sms_config_properties_1.png"/></p>
+</li>
+<li>
+<p>In the next window:</p>
+<ul>
+<li>Into the <strong>SMS Gateway URL</strong> field, enter the designated gateway URL;</li>
+<li>From the <strong>SMS API Encoding</strong> dropdown list, select the desired encoding. For this instruction, it is <em>UTF-8</em>.</li>
+</ul>
+<p>Finally, click <strong>Save</strong> in the top right corner to finish creating the configuration.</p>
+<p><img alt="sms properties" src="images/properties/sms_config_properties_2.png"/></p>
+</li>
+<li>
+<p>The SMS configuration is now created. You should note that your sub-organisations can <strong>inherit</strong> it, and will be able to use it for their own SMS gateway configuration.</p>
+<p>Now, to finish the configuration process, you must assign the newly created configuration to the appropriate Property. To learn how to do this, read the <strong>Active Configurations</strong> section of this chapter.</p>
+</li>
+</ol>
+<h3 id="editing-an-sms-configuration">Editing an SMS Configuration</h3>
+<p>To edit the SMS configuration, click the <strong>More</strong> option in the upper right corner of the desired configuration, and select <strong>Edit</strong> from the dropdown menu. Then, edit the setup according to your preferences.</p>
+<p>You should note that you can edit only your <strong>Own</strong> configurations. If you would like to edit an <strong>Inherited</strong> configuration, you must first copy it into the <strong>Own</strong>  section. To learn how to do this, read the following <strong>Copying a SMS Configuration</strong> section.</p>
+<p><img alt="sms properties" src="images/properties/sms_config_properties_3a.png"/></p>
+<h3 id="copying-a-sms-configuration">Copying a SMS Configuration</h3>
+<p>To copy an existing SMS configuration, click the <strong>More</strong> option in the upper right corner of the desired configuration, and select <strong>Copy</strong> from the dropdown menu. Then, in the <strong>SMS Settings</strong> window, type the name of the copied configuration into the <strong>Name</strong> field. Then, click <strong>Save</strong> in the top right corner to confirm copying the setup.</p>
+<p><img alt="sms properties" src="images/properties/sms_config_properties_3b.png"/></p>
+<p><img alt="sms properties" src="images/properties/sms_config_properties_4.png"/></p>
+<h3 id="removing-an-sms-configuration">Removing an SMS Configuration</h3>
+<p>To remove the SMS configuration, click the <strong>More</strong> option in the upper right corner of the desired configuration, and select <strong>Remove</strong> from the dropdown menu. Then, confirm the removal in the pop-up box.</p>
+<p>Note: You cannot remove a configuration that is currently in use. To remove it, you must first change the active configuration in the <strong>Active Configurations</strong> tab.</p>
+<p><img alt="sms properties" src="images/properties/sms_config_properties_3c.png"/></p>
+<h3 id="testing-an-sms-configuration">Testing an SMS Configuration</h3>
+<p>To test the SMS configuration, click the <strong>More</strong> option in the upper right corner of the desired configuration, and select <strong>Send Test Message</strong> from the dropdown menu. Then, in the <strong>Send Test Message</strong> pop-up box:</p>
+<ul>
+<li>In the <strong>Phone Number</strong> field, select the appropriate <strong>Dialing Code</strong> and type the phone number to which a test message should be delivered;</li>
+<li>Into the <strong>Message Text</strong> field, enter the text of the test message.</li>
+</ul>
+<p>Then, to confirm and send the test message to the designated number, click <strong>Send</strong>.</p>
+<p><strong>Note:</strong> To faultlessly test the configuration, you should ensure that your gateway allows dispatching messages to the designated country. To do this, log in to your Client platform, and check the <strong>geopermission configuration</strong>.</p>
+<p><img alt="sms properties" src="images/properties/sms_config_properties_4a.png"/></p>
+<p><img alt="sms properties" src="images/properties/sms_config_properties_5.png"/></p>
+<h2 id="email-configuration">Email Configuration</h2>
+<p><strong>Note:</strong> To begin creating an Email configuration, you should first ensure that you have a client account on the dedicated Gateway platform. To learn more about configuring gateways, read the <strong>Configuring Gateways</strong> chapter of the User Guide.</p>
+<ol>
+<li>
+<p>To create a new Email configuration, click the <strong>+</strong> button in the bottom right corner of the window.</p>
+</li>
+<li>
+<p>Now, in the <strong>Email Settings</strong> window:</p>
+<ul>
+<li>In the <strong>Name</strong> field, type the name of the Email configuration;</li>
+<li>From the <strong>Gateway</strong> dropdown list, select the desired gateway. For this instruction, it is <em>Default</em>.</li>
+</ul>
+<p>Then, click <strong>Next</strong> in the top right corner to proceed further.</p>
+<p><img alt="email properties" src="images/properties/email_config_properties_1.png"/></p>
+</li>
+<li>
+<p>In the next window, you should provide the Email configuration details</p>
+<ul>
+<li>The <strong>Auth Enabled</strong>  dropdown list allows you to specify whether the Email Authentication is enabled or not, by selecting <em>true</em> (for yes) or <em>false</em> (if no);</li>
+<li>In the <strong>Host Name</strong> field, type the host web address;</li>
+<li>Into the <strong>Password field</strong>, enter the gateway password;</li>
+<li>Into the <strong>Port</strong> field, enter the gateway port;</li>
+<li>In the <strong>Source Mail</strong> field, enter the email address from which the messages will be sent;</li>
+<li>The <strong>SSL Enabled</strong> dropdown list allows you to specify whether the Email dispatch is secured with the SSL certificate, by selecting <em>true</em> (for yes) or <em>false</em> (if no);</li>
+<li>The <strong>TSL Enabled</strong> dropdown list dropdown list allows you to specify whether the Email dispatch is secured with the TSL certificate, by selecting <em>true</em> (for yes) or <em>false</em> (if no);</li>
+<li>From the <strong>Transport Protocol</strong> dropdown list, select the protocol by which the emails are dispatched - <em>SMTP</em> or <em>SMTPS</em>;</li>
+<li>In the <strong>Username</strong> field, enter the gateway username;</li>
+<li>In the <strong>Sender Name</strong> field, type the name or text, which will display in the email title.</li>
+</ul>
+<p>After you have finished providing the details, click <strong>Save</strong> in the top right corner to finish creating the configuration.</p>
+<p><img alt="email properties" src="images/properties/email_config_properties_2.png"/></p>
+</li>
+<li>
+<p>The SMS configuration is now created. You should note that your sub-organisations can <strong>inherit</strong> it, and will be able to use it for their own SMS and Email gateway configuration.</p>
+<p>Now, to finish the configuration process, you must assign the newly created configuration to the appropriate Property. To learn how to do this, read the <strong>Active Configurations</strong> section of this chapter.</p>
+</li>
+</ol>
+<h3 id="editing-an-email-configuration">Editing an Email Configuration</h3>
+<p>To edit the Email configuration, click the <strong>More</strong> option in the upper right corner of the desired configuration, and select <strong>Edit</strong> from the dropdown menu. Then, edit the setup according to your preferences.</p>
+<p><img alt="email properties" src="images/properties/email_config_properties_3.png"/></p>
+<h3 id="removing-an-email-configuration">Removing an Email Configuration</h3>
+<p>To remove the Email configuration, click the <strong>More</strong> option in the upper right corner of the desired configuration, and select <strong>Remove</strong> from the dropdown menu. Then, confirm the removal in the pop-up box.</p>
+<p>Note: You cannot remove a configuration that is currently in use. To remove it, you must first change the active configuration in the <strong>Active Configurations</strong> tab.</p>
+<p><img alt="email properties" src="images/properties/email_config_properties_3c.png"/></p>
+<h3 id="copying-an-email-configuration">Copying an Email Configuration</h3>
+<p>To copy an existing Email configuration, click the <strong>More</strong> option in the upper right corner of the desired configuration, and select <strong>Copy</strong> from the dropdown menu. Then, in the <strong>Email  Settings</strong> window, type the name of the copied configuration into the <strong>Name</strong> field. Then, click <strong>Save</strong> in the top right corner to confirm copying the setup.</p>
+<p><img alt="email properties" src="images/properties/email_config_properties_3b.png"/></p>
+<h3 id="testing-an-email-configuration">Testing an Email Configuration</h3>
+<p>To test the Email configuration, click the <strong>More</strong> option in the upper right corner of the desired configuration, and select <strong>Send Test Message</strong> from the dropdown menu. Then, in the <strong>Send Test Message</strong> pop-up box:</p>
+<ul>
+<li>
+<p>In the <strong>Email Address</strong> field, type the email address  to which the test message should be delivered;</p>
+</li>
+<li>
+<p>In the <strong>Subject</strong> field, type the title of the message;</p>
+</li>
+<li>
+<p>Into the <strong>Message Text</strong> field, enter the text of the test message.</p>
+</li>
+</ul>
+<p>Then, To confirm and send a test message to the designated number, click <strong>Send</strong>.</p>
+<p><img alt="email properties" src="images/properties/email_config_properties_3d.png"/></p>
+<p><img alt="email properties" src="images/properties/email_config_properties_4.png"/></p>
+<h2 id="active-configurations">Active Configurations</h2>
+<p>When you have finished creating appropriate SMS and/or Email configurations, you can now select and set them up as Active Configurations. To do this, go to the Active configurations tab in the Sending Centre Properties.</p>
+<p>The <strong>Active Configurations</strong> tab provides you the summary of configurations activated for your Organisation. It allows you to determine which configurations are used for the GDPR, Marketing campaigns, and Other types of dispatch activities, and change them according to your preferences.</p>
+<h3 id="selecting-a-configuration">Selecting a Configuration</h3>
+<p>Depending on where your location is located in the hierarchy, you may select to either <strong>inherit</strong> the desired configuration, or <strong>Select</strong> your own one.</p>
+<ol>
+<li>
+<p>To select a configuration, click the <strong>Pen</strong> icon located on the right of the desired category panel.</p>
+<p><img alt="active configurations" src="images/properties/active_config_1.png"/></p>
+</li>
+<li>
+<p>In the pop-up box, choose either the <strong>Inherit</strong> or <strong>Select</strong> option from the toggle button:</p>
+<ul>
+<li>The <strong>Inherit</strong> option allows you to use the configuration of your closest parent organisation.
+<strong>Note:</strong> If this parent organisation changes its configuration, your organisation’s configuration will change as well;</li>
+<li>The <strong>Select</strong> option enables you to choose from both <strong>Own</strong> and <strong>Inherited</strong> configurations.</li>
+</ul>
+<p>You should note that in both cases your sub-organisations inherit your current setup. They can change it by selecting a different configuration through the <strong>Select</strong> option.</p>
+<p>After you have chosen the desired configuration, click <strong>Save</strong> on the bottom right corner of the pop-up box to confirm your selection.</p>
+<p><img alt="active configurations" src="images/properties/active_config_2a.png"/></p>
+<p><img alt="active configurations" src="images/properties/active_config_3a.png"/></p>
+<p><strong>Note:</strong> If your organisation is a parent organisation, the <strong>Inherit</strong> option stays inactive, and you can only select a configuration from your own set of configurations.</p>
+<p><img alt="active configurations" src="images/properties/active_config_4b.png"/></p>
+</li>
+</ol>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

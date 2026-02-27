@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="12.html" rel="prev"/>
+<link href="10.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>November 2020 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#whats-new-in-november-2020">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="whats-new-in-november-2020">What’s New in November 2020</h1>
+<h2 id="brand-new-adding-venues">Brand-New Adding Venues</h2>
+<p>We have reviewed and updated the process of adding Venues to the Platform, which is now visually consistent with the rest of the Platform interface.</p>
+<p>We have also moved it to the <strong>Portal Management &gt; Structure</strong> section; it is now located in the Structure upper bar to facilitate managing Venues in Organisations.</p>
+<p>To learn more about adding Venues to an Organisations, read the <a href="../../user_guide/portal_management/creating_venue.html">Creating, Editing and Deleting a Venue</a> chapter in the User Guide.</p>
+<p><strong>Note:</strong> To use the <strong>Venues</strong> feature, you must first have your Organisation set to the <strong>Location</strong> mode.</p>
+<p><img alt="add venue" src="images/11/creating_venue_1.png"/></p>
+<h2 id="new-timeout-option">New Timeout Option</h2>
+<p>We have introduced the new type of <strong>Timeout</strong> in the Page Flow nodes  - <strong>Hour</strong> - that allows you to specify the exact hour of the day, after which the user’s session would reset.</p>
+<h3 id="how-it-works">How It Works</h3>
+<h4 id="use-case">Use Case</h4>
+<p>A user is given internet access for one hour per day. Until now, Flow nodes allowed you to configure the session reset only to a specified interval, such as 24 hours. So, if the user browsed the internet on November 1, from 7 to 8 PM, then on the following day, November 2, they would have to wait until 7 PM to gain internet access again. But what if they would like to use it earlier?</p>
+<h4 id="solution">Solution</h4>
+<p>The <strong>Hour</strong> option enables you to designate an exact hour of the day when internet access resets. You can set up the reset hour to a preferred one, such as midnight or any other, which would allow the user to browse the internet any time on November 2.</p>
+<p>To do this, click the <strong>More</strong> option on the desired node, and select <strong>Timeout</strong> from the dropdown menu. Then, in the pop-up box, select <strong>Hour</strong> from the available options, and specify the time in the selector. To confirm your changes, click <strong>Save</strong> in the bottom right corner of the popup-box.</p>
+<p><img alt="timeout" src="images/11/timeout_hour_1.png"/></p>
+<p><img alt="timeout" src="images/11/timeout_hour_2.png"/></p>
+<h2 id="data-transfer-limits">Data Transfer Limits</h2>
+<p>We have implemented the new mechanism which controls data transfer used by WiFi users and terminates user sessions when they reach determined limits.</p>
+<p>In the process, we have updated the transfer counting per user which now, apart of counting transfers per sessions, is based on the <code>UserAccountingEvent</code> events. Data transfers will also be checked when users log in to the network; if it is used up, users will not be able to log in to your WiFi.w</p>
+<p><strong>Note:</strong> To limit data transfers, you should enable the <code>userAccountTransferLimitsEnabled</code> property for the desired Organisations by changing its status to <code>true</code>. </p>
+<p>You can preview data transfers for all user accounts in the <strong>List of User Accounts</strong> table in the <strong>Access Methods &gt; User Accounts</strong> section.</p>
+<p>To ensure that data limits are working correctly, we recommend using devices which support transfer limits and configure them accordingly. Devices supported by the Platform include: CISCO, Ruckus controller, Meraki, Ruckus SZ/vSZ/vSCG, Ruckus SCG 3.2-3.4, RUCKUS_VSCG_CLOUD, and other.</p>
+<p>For more configuration details, see the <strong>Device Configurations</strong> chapter in the User Guide.</p>
+<h2 id="permissions">Permissions</h2>
+<p>We have added a new permission to the Platform. Be sure that you accordingly update it for your Platform users.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>totalDataTransferLimit</td>
+<td>Allows the user to set the total data transfer (for uploaded and downloaded data) for Token Groups</td>
+</tr>
+</tbody>
+</table></div></div>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="locationApi.html" rel="prev"/>
+<link href="../release_notes/2025/2025_07_18.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Session API - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#post-accounting-session">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="post-accounting-session">POST / Accounting Session</h1>
+<h2 id="description">Description</h2>
+<p>The <strong>Accounting Session API</strong> is a push API that sends accounting session data to an external server on every session
+start and end.</p>
+<p>It can be used to integrate the platform with services delivered by external providers.</p>
+<p>Push Method:<br/>
+<strong>POST</strong></p>
+<h2 id="push-url">Push URL</h2>
+<p>The <strong>Push URL</strong> is the URL of the server which receives the collected data.</p>
+<ul>
+<li>It must start with <strong>https://</strong></li>
+<li>It is set in <strong>Portal Management → Properties → Advanced properties</strong>: the keys are <em>sessionPushApiUrl</em> and
+  <em>sessionPushApiBasicAuthCredential</em><ul>
+<li><em>sessionPushApiUrl</em> sets the Push API</li>
+<li><em>sessionPushApiBasicAuthCredential</em> is <strong>optional</strong>, and when defined, it enables transferring sessions to the URL
+  with Basic Authentication. <br/>
+<strong>Note: It must have a specific format: "login:password".</strong></li>
+</ul>
+</li>
+<li>When a session starts or ends, the entire path is searched for the above
+  properties: from the organisation in which they log in, to root. Then, the profiles are sent to the Push URL.</li>
+<li>It is recommended to use the properties in an organisation which acts as the Data Administrator</li>
+<li>Property <em>sessionPushApiCustomerRefPropertyName</em> is optional and stores name of dynamic property storing value of
+  customerRef to be sent along with session data</li>
+</ul>
+<h2 id="message">Message</h2>
+<p>Format: JSON object<br/>
+Message elements:</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>emailData</code></td>
+<td>EmailData / null</td>
+<td>Email data</td>
+</tr>
+<tr>
+<td><code>createdTime</code></td>
+<td>Long</td>
+<td>Timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>updatedTime</code></td>
+<td>Long</td>
+<td>Timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>customerRef</code></td>
+<td>String / null</td>
+<td>Customer Ref</td>
+</tr>
+<tr>
+<td><code>bytesDown</code></td>
+<td>Long</td>
+<td>Bytes downloaded</td>
+</tr>
+<tr>
+<td><code>bytesUp</code></td>
+<td>Long</td>
+<td>Bytes uploaded</td>
+</tr>
+<tr>
+<td><code>sessionDuration</code></td>
+<td>Long</td>
+<td>Duration of the session in seconds</td>
+</tr>
+<tr>
+<td><code>eventType</code></td>
+<td>String</td>
+<td>start / stop</td>
+</tr>
+<tr>
+<td><code>deviceID</code></td>
+<td>String</td>
+<td>Device ID</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="emaildata">EmailData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>emailAddress</code></td>
+<td>String</td>
+<td>Email address</td>
+</tr>
+<tr>
+<td><code>confirmationDate</code></td>
+<td>Long / null</td>
+<td>Timestamp in milliseconds. When null, it means the email is not confirmed</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="example">Example</h2>
+<pre><code>{
+  "emailData": {
+    "emailAddress": "john.doe@example.com",
+    "confirmationDate": 1561982019208
+  },
+  "createdTime": 1561982019208,
+  "updatedTime": 1561982019208,
+  "customerRef": "Customer 1",
+  "bytesDown": 1000,
+  "bytesUp": 2000,
+  "sessionDuration": 3600,
+  "eventType": "start",
+  "deviceID": "AABBCCDDEEFF"
+}
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

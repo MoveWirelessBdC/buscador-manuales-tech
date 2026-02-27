@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="aruba_central.html" rel="prev"/>
+<link href="aruba_instant.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Aruba Controller - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#aruba-controller-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="aruba-controller-configuration-guide">Aruba Controller Configuration Guide</h1>
+<h2 id="prerequisites-and-basic-configuration">Prerequisites and Basic Configuration</h2>
+<p>To configure the Aruba controller Access Point with the platform, you should first fulfill specific prerequisites, and prepare the Basic Configuration.</p>
+<h3 id="the-configuration-prerequisites">The Configuration Prerequisites</h3>
+<p>You should ensure that:</p>
+<ul>
+<li>You have correctly configured the Aruba Controller IP pools (including a valid DNS server address)</li>
+<li>You have <strong>enabled</strong> the Policy Enforcement Firewall option must To verify it, go to Configuration &gt; Network &gt; Controller &gt; Licenses section</li>
+</ul>
+<p>You should also verify that:</p>
+<ul>
+<li>The Aruba Controller resolves the domain address – platform.com, and can access the platform using the following ports – 80, 1812 and 1813,</li>
+<li>Your Access Points correctly communicate with the controller, and are set to the <strong>Tunnel</strong> mode</li>
+</ul>
+<h3 id="the-basic-configuration">The Basic Configuration</h3>
+<p>Below, you can find the table providing the data for the <strong>Production Environments</strong>, which are the cloud servers of the platform.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linkyfi UVA</td>
+<td>uva.linkyfi.com</td>
+<td>35.245.165.143</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="configuring-aruba-controller">Configuring Aruba Controller</h2>
+<p>To properly set up the aruba controller, you must follow the below steps:
+1. Set up the RADIUS server 
+2. Configure a group of servers
+3. Set up AAA profiles
+4. Add whitelists
+5. Configure your network</p>
+<h3 id="logging-in-to-the-aruba-controller">Logging in to the Aruba Controller</h3>
+<p>To begin the configuration process, you should first log in to the Aruba Controller. To do this, go to the <em>https://<aruba address="" controller="" ip=""></aruba></em> page. Into the login fields, enter your username and password, and click the <strong>Log In</strong> button.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_0.png"/></p>
+<h3 id="setting-up-the-radius-server">Setting Up the RADIUS server</h3>
+<ol>
+<li>
+<p>Go to the <strong>Configuration &gt; WLAN</strong> section and click the blue <strong>+</strong> icon to add a new WLAN.</p>
+</li>
+<li>
+<p>In the first <strong>General</strong> step:</p>
+<ul>
+<li>In the <strong>Name (SSID)</strong> field, type the name of the WLAN. For this instruction, it is <em>Platform</em>.</li>
+<li>In the <strong>Primary Usage</strong> section, select the <strong>Guest</strong> option.</li>
+<li>From the  <strong>Broadcast On</strong> dropdown list, select *<em>All APs</em>.</li>
+<li>From the <strong>Forwarding Mode</strong> dropdown list, select <strong>Tunnel</strong>.</li>
+</ul>
+<p>After you have finished providing the details, click <strong>Submit</strong> to continue to the next step.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_1.jpg"/></p>
+</li>
+<li>
+<p>In the <strong>VLANs</strong> step, select the desired VLAN, from the dropdown list. For this instruction, it is <em>VLAN_200</em>.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_2.jpg"/></p>
+</li>
+</ol>
+<p>Then, click <strong>Submit</strong> to proceed further.</p>
+<ol>
+<li>
+<p>In the <strong>Security</strong> step. Swipe the slider to the <strong>ClearPass or Other External Captive Portal</strong> option, and click the blue <strong>+</strong> icon in the bottom left corner of the <strong>Auth Servers</strong> field to create a new server.</p>
+<p>For this instruction, a server has already been created. However, if you configure the Aruba Controller for the first time, the <strong>Auth Server</strong> field is empty.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_3.jpg"/></p>
+</li>
+<li>
+<p>Now, in the <strong>Create New Server</strong> window:</p>
+<ul>
+<li>Choose the <strong>RADIUS</strong> selector.</li>
+<li>In the <strong>Name</strong> field, type the name of the server. For this instruction, it is <em>Platform</em>.</li>
+<li>Into the <strong>IP Address</strong> field, enter the server’s IP address. For this instruction, it is <em>35.241.143.144</em>.</li>
+<li>Into the <strong>Auth Port</strong> field, enter the server’s authentication port. For this instruction, it is <em>1812</em>.</li>
+<li>In the <strong>Accounting Port</strong> field, type the server’s accounting port. For this instruction, it is <em>1813</em>.</li>
+<li>Into the <strong>Shared Key</strong> field, enter the server’s shared key. For this instruction, it is <em>bAZev44u</em>.</li>
+<li>In the *<em>Retype Key</em> field, retype the shared key.</li>
+<li>In the <strong>Timeout</strong> field, set up the server’s timeout by entering the desired number. By default, it is <em>5</em>.</li>
+</ul>
+<p>After you have provided the server’s details, click <strong>Submit</strong> in the bottom right corner.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_4.jpg"/></p>
+</li>
+<li>
+<p>Now, back in the <strong>Security</strong> step, provide the details of the captive portal:</p>
+<ul>
+<li>In the <strong>CPPM Host</strong> field, type the domain of the Platform server. For this instruction, it is <em>platform.com</em>.</li>
+<li>In the <strong>CPPM Page</strong> field, type the captive portal address. For this instruction, it is <em>/login</em>.<br/>
+<strong>Note:</strong> If your Aruba Controller has a custom domain, change <code>/login</code> to <code>/login?switch_url=customdomain.com</code> in the <strong>CPPM Page</strong> field, where <code>customdomain.com</code> is a URL address of the desired domain.</li>
+<li>Into the <strong>Redirect URL</strong> field, enter the address to which users will be redirected after gaining internet access. For this instruction, it is <em>platform.com/welcome</em>.</li>
+</ul>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_5.jpg"/></p>
+</li>
+<li>
+<p>In the <strong>Access</strong> step, click <strong>submit</strong> in the bottom right corner to finish setting up the RADIUS server.</p>
+</li>
+</ol>
+<h3 id="adding-whitelists">Adding Whitelists</h3>
+<ol>
+<li>
+<p>Go to the <strong>Authentication &gt; L3 Authentication &gt; Captive Portal Authentication</strong> section, and select the captive portal which you have just created from the <strong>L3</strong> Authentication left menu. For this instruction, it is <em>Platform</em>.</p>
+</li>
+<li>
+<p>Now, scroll down the <strong>Captive Portal Authentication Profile</strong> section to the <strong>Whitelist</strong> field, and click the blue <strong>+</strong> icon in the bottom left corner to add a whitelisted site. For this instruction, it is <em>platform.com</em>. You can also add other websites, such as social media platforms, according to your preferences.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_6.jpg"/></p>
+</li>
+</ol>
+<h3 id="configuring-a-captive-portal">Configuring a Captive Portal</h3>
+<ol>
+<li>
+<p>Go again to the <strong>Authentication &gt; L3 Authentication &gt; Captive Portal Authentication</strong> section, and select the captive portal which you have just created from the <strong>L3</strong> Authentication left menu. For this instruction, it is <em>Platform</em>.. </p>
+</li>
+<li>
+<p>In this section:</p>
+<ul>
+<li>For the <strong>Default Role</strong>, select <strong>guest</strong> from the dropdown menu.</li>
+<li>For the <strong>Default Guest Role</strong>, select <strong>guest</strong> as well.</li>
+<li>Specify the number of seconds for the <strong>Redirect Pause</strong>. For this instruction, it is <em>10</em>.</li>
+<li>Select the <strong>User Login</strong>, <strong>Guest Login</strong>, and Logout Popup Window** checkboxes.</li>
+<li>Specify the number of seconds for <strong>Logon Wait Minimum Wait</strong> and the <strong>Logon Wait Maximum Wait</strong> options. For this instructions, these are <em>5</em> and <em>10</em>, respectively.</li>
+<li>Set the <strong>Logon Wait CPU Utilization Treshold</strong>. For this instruction, it is <em>60</em>.</li>
+<li>Set the number of <strong>Max Authentication Failures</strong>. For this instruction, it is <em>0</em>.</li>
+<li>For the <strong>Authentication Protocol</strong>, select <strong>PAP</strong> from the dropdown list.</li>
+<li>In the <strong>Login Page</strong> field, enter the website address. For this instruction, it is <em><a href="https://platform.com">https://platform.com</a></em>.</li>
+<li>In the <strong>Welcome Page</strong> field, enter the web address of the page which the users see after logging in to your network. For this instruction, it is <em><a href="https://platform.com/welcome">https://platform.com/welcome</a></em>.</li>
+<li>To enable the welcome page, select the <strong>Show Welcome Page</strong> checkbox.</li>
+</ul>
+<p>After you have finished providing all the details, click <strong>Submit</strong> to save them.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_7.png"/></p>
+</li>
+</ol>
+<h3 id="adding-user-roles">Adding User Roles</h3>
+<ol>
+<li>
+<p>Go to the <strong>Configuration &gt; Security &gt; Access Control &gt; User Roles</strong> section, and click the <strong>+</strong> button to create a role:</p>
+</li>
+<li>
+<p>Now, in the <strong>New Role</strong> window, type the Name of the Role in the <strong>Name</strong> field. For this instruction, it is <em>Platform</em>. Afterwards, click the <strong>Submit</strong> button.</p>
+<p>Then, click <strong>Apply</strong> in the bottom right corner to confirm adding the role.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_8.jpg"/></p>
+</li>
+<li>
+<p>The Role named <em>Platform</em> is now created. Now, click the blue <strong>+</strong> button in the bottom left corner.to create a new Policy.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_9.jpg"/></p>
+</li>
+<li>
+<p>Now, in the <strong>New Policy</strong> window:</p>
+<ul>
+<li>From the top checkboxes, select the <strong>Add an Existing Policy</strong> option.</li>
+<li>From the <strong>Policy Type</strong> dropdown list, select <strong>Session</strong>.</li>
+<li>From the <strong>Policy Name</strong> dropdown list, select the Policy’s name. For this instruction, it is <em>apprf-internal_cp-guest-logon-sacl...</em>.</li>
+</ul>
+<p>Afterwards, click <strong>Submit</strong> to finish creating the new Policy.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_10.jpg"/></p>
+</li>
+</ol>
+<h3 id="configuring-aaa-profiles">Configuring AAA Profiles</h3>
+<ol>
+<li>
+<p>Go to the <strong>Authentication &gt; AAA Profiles</strong> section, and click the blue <strong>+</strong> button to add a new AAA Profile.</p>
+</li>
+<li>
+<p>Now, in the <strong>AAA Profile: New Profile</strong> window:</p>
+<ul>
+<li>In the <strong>Profile Name</strong> field, type the name of the AAA Profile. For this instruction, it is <em>Platform</em>.</li>
+<li>From the <strong>Initial Role</strong> dropdown list, select <strong>Platform-guest-Logon</strong>.</li>
+<li>From the <strong>MAC Authentication Default Role</strong>, select <strong>guest</strong>.</li>
+<li>From the <strong>802.1X Authentication Default Role</strong>, also select <strong>guest</strong>.</li>
+<li>Specify the number of the <strong>Max IPv4 for Wireless User</strong>. For this instruction, it is <em>2</em>.</li>
+<li>Select the <strong>RADIUS Roaming Accounting</strong> and <strong>RADIUS Interim Accounting</strong> checkboxes.</li>
+<li>From the <strong>User Derivation Rules</strong> dropdown list, select <strong>-None-</strong>.</li>
+<li>From the following checkboxes, select the <strong>Wired to Wireless Roaming</strong>, <strong>Device Type Classification</strong>, and <strong>Enforce DHCP</strong> options.</li>
+</ul>
+<p>Afterwards, click <strong>Submit</strong> to save the settings.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_11.png"/></p>
+</li>
+<li>
+<p>Next, expand the AAA Profile section which you are currently configuring in the <strong>AAA Profiles List</strong>. For this instruction, it is <em>Platform</em>. Then, from the sub-list, select the <strong>RADIUS Accounting Server group</strong> section.</p>
+</li>
+<li>
+<p>In the <strong>Server Group</strong> window, select the name of the server group from the <strong>Server group</strong> dropdown list. For this instruction, it is <em>Platform</em>.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_12.png"/></p>
+</li>
+</ol>
+<h2 id="configuring-the-network">Configuring the Network</h2>
+<p>When you have finished all the above configuration steps, you can now start configuring your Network. To do this, you should add an AP Group, and Remote AP Whitelists.</p>
+<h3 id="adding-an-ap-group">Adding an AP Group</h3>
+<ol>
+<li>
+<p>Go to the <strong>Configuration &gt; AP Group</strong> section and click the blue <strong>+</strong> button to add a new AP Group.</p>
+</li>
+<li>
+<p>In the <strong>New AP group</strong> window, type the name of the new AP group in the <strong>Name</strong> field. For this instruction, it is <em>Platform,</em>.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_13.png"/></p>
+</li>
+<li>
+<p>Now, select the <strong>WLANs</strong> tab in the <strong>AP groups</strong> window, and click the blue <strong>+</strong> cutton in the bottom left corner to assign a WLN to it.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_14.png"/></p>
+</li>
+<li>
+<p>In the <strong>Select WLAN</strong> window, select the AP from the <strong>Virtual-AP</strong> dropdown list. For this instruction, it is <em>Platform</em>.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_15.png"/></p>
+</li>
+</ol>
+<h3 id="adding-aps-to-an-ap-group">Adding APs to an AP Group</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before you begin to add an AP to an AP Group, you should ensure that the AP is configured in the RAP mode, and is assigned the correct Controller address.</p>
+</div>
+<h4 id="adding-aps-to-an-ap-group-in-the-remote-ap-rap-mode">Adding APs to an AP Group in the Remote AP (RAP) Mode</h4>
+<ol>
+<li>
+<p>Go to the <strong>Configuration &gt; Access Points &gt; Whitelist</strong> section, select the <strong>Remote AP Whitelists</strong> tab, and click the blue <strong>+</strong> button in the bottom left corner.</p>
+</li>
+<li>
+<p>In the <strong>Add New Remote AP Whitelists</strong> window:</p>
+<ul>
+<li>Into the <strong>MAC Address</strong> field, enter the MAC address of the AP.</li>
+<li>In the <strong>AP Name</strong> field, type the name of the AP.
+<strong>Note:</strong> It is a good practice to enter the MAC address as the AP name as well.</li>
+<li>From the <strong>AP Group</strong> dropdown list, select the group to which you would like to add the AP. For this instruction, it is <strong>Platform</strong>.</li>
+</ul>
+<p>To confirm adding a whitelist, click <strong>Submit</strong>.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_16.png"/></p>
+</li>
+</ol>
+<h4 id="adding-aps-to-an-ap-group-in-the-campus-ap-cap-mode">Adding APs to an AP Group in the Campus AP (CAP) Mode</h4>
+<p>To add APs to an AP Group in the Campus AP <strong>(CAP)</strong> Mode, follow the same steps from the above _ Adding APs to an AP Group in the Remote AP (RAP) Mode_ chapter.</p>
+<p><strong>Important:</strong> After you have finished configuring the whitelists, you should make sure the <strong>Admin State</strong> is <strong>enabled</strong>. To do this:</p>
+<ol>
+<li>
+<p>Select the desired VLAN in the <strong>VLANs</strong> tab.</p>
+</li>
+<li>
+<p>In the <strong>VLAN</strong> window, select the VLANs On<strong> tab, and check the state in the </strong>Admin State** column.</p>
+<p><img alt="aruba controller configuration" src="images/aruba_controller/aruba_controller_17.jpg"/></p>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<p>Below, you can find the list of entities which can be added to the Walled Garden during the configuration process. After you have finished adding them, continue configuring the Access Control.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The below entities are <strong>optional</strong> for the configuration. Using them may impact the <strong>Popup</strong> option which may not work as expected. You should also note that all of these entities use the <em>https</em> which requires the configuration of an appropriate cert for the proper redirection to the designated web address.</p>
+</div>
+<h3 id="domain">Domain</h3>
+<pre><code>*.domain.com
+</code></pre>
+<h4 id="ip">IP</h4>
+<p>For Domain Europe: <code>35.241.143.144</code><br/>
+For Domain North and South America: <code>35.245.165.143</code><br/>
+For Domain Asia: <code>35.240.186.103</code></p>
+<h3 id="ios-optional">iOS (optional)</h3>
+<pre><code>www.appleiphonecell.com  
+captive.apple.com  
+www.apple.com  
+www.itools.info  
+www.ibook.info  
+www.airport.us  
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com  
+*.gstatic.com  
+clients3.google.com
+</code></pre>
+<h3 id="microsoft-required-for-loging-in-with-microsoft">Microsoft (required for loging in with Microsoft)</h3>
+<pre><code>msftncsi.com  
+*.msftncsi.com
+login.microsoftonline.com
+aadcdn.msftauth.net
+aadcdn.msauth.net
+login.live.com  
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com  
+facebook.net  
+akamaihd.net  
+digicert.com  
+fbcdn.net  
+fb.com  
+fbsbx.com  
+*.facebook.com  
+*.facebook.net  
+*.akamaihd.net  
+*.digicert.com  
+*.fbcdn.net  
+*.fb.com  
+*.fbsbx.com  
+</code></pre>
+<h4 id="ip_1">IP</h4>
+<pre><code>5.178.32.0/20  
+195.27.154.0/24  
+80.150.192.0/24  
+77.67.96.0/22  
+212.119.27.0/25  
+2.16.0.0/13  
+66.171.231.0/24  
+31.13.24.0/21  
+31.13.64.0/18  
+212.245.45.0/24  
+213.254.17.0/24  
+46.33.70.0/24  
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com  
+twimg.com  
+abs.twitter.com  
+*.twitter.com  
+*.twimg.com  
+*.abs.twitter.com 
+</code></pre>
+<h4 id="ip_2">IP</h4>
+<pre><code>199.16.156.0/22  
+199.59.148.0/22  
+199.96.56.0/21  
+192.133.76.0/22  
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com  
+oauth.vk.com  
+vk.me  
+*.vk.com  
+*.oauth.vk.com  
+*.vk.me
+</code></pre>
+<h3 id="paypal">PayPal</h3>
+<pre><code>paypal.com  
+omtrdc.net  
+mediaplex.com  
+paypalobjects.com  
+abmr.net  
+dotomi.com  
+*.paypal.com  
+*.omtrdc.net  
+*.mediaplex.com  
+*.paypalobjects.com  
+*.abmr.net  
+*.dotomi.com  
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<pre><code>instagram.com
+</code></pre>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com  
+ytimg.com  
+gstatic.com  
+google.com  
+googlevideo.com  
+*.youtube.com  
+*.ytimg.com  
+*.gstatic.com  
+*.google.com  
+*.googlevideo.com 
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com  
+gstatic.com  
+googleusercontent.com  
+google.com  
+googleapis.com  
+accounts.youtube.com  
+*.accounts.google.com  
+*.googleusercontent.com  
+*.google.com  
+*.googleapis.com  
+*.accounts.youtube.com 
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>*.line.me  
+*.line-apps.com  
+*.line-scdn.net  
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>*.kakao.com  
+*.google.com  
+*.m2.daumcdn.net  
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

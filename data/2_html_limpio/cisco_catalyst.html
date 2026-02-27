@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="aruba_instant.html" rel="prev"/>
+<link href="edgecore.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Cisco with Catalyst WC - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#cisco-with-catalyst-wireless-controller-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="cisco-with-catalyst-wireless-controller-guide">Cisco with Catalyst Wireless Controller Guide</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This guide will help you configure your Cisco Catalyst Wireless Controller to work with platform.</p>
+<p>Instruction and screens were based on Cisco Catalyst C9800-CL version 17.9.4.</p>
+<h2 id="prerequisites-and-basic-configuration">Prerequisites and basic configuration</h2>
+<p>To start with your Cisco configuration, you need to fulfil certain prerequisites and prepare your basic configuration.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>You should verify that Cisco Catalyst Wireless Controller:</p>
+<ul>
+<li>has correctly configured IP settings with a correct DNS server;</li>
+<li>resolves the platform domain address;</li>
+<li>has access to the platform using ports <em>80</em>, <em>1812</em>, and <em>1813</em>;</li>
+<li>runs software version 17.3 or higher (recommended at least 17.9.4 for best stability).</li>
+</ul>
+<h3 id="basic-configuration">Basic configuration</h3>
+<p>Below, you can find the table providing the data for the <strong>Production Environments</strong>, which are the cloud servers of the
+platform.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linkyfi UVA</td>
+<td>uva.linkyfi.com</td>
+<td>35.245.165.143</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="configuration">Configuration</h2>
+<h3 id="configuring-the-aaa">Configuring the AAA</h3>
+<h4 id="configure-radius">Configure Radius</h4>
+<ol>
+<li>Go to the <strong>Configuration &gt; Security &gt; AAA</strong>.</li>
+<li>Select the <strong>Servers/Groups</strong> tab.</li>
+<li>Choose <strong>RADIUS &gt; Servers</strong> and click the <strong>+Add</strong> button.</li>
+<li>Configure <strong>Edit AAA Radius Server</strong>:<ol>
+<li>Into the <strong>Name</strong> field, type any name for your RADIUS server. For this instruction, it is <strong>Testmaster</strong>.</li>
+<li>Into the <strong>Server Address</strong> field, enter the server’s IP address.</li>
+<li>From the <strong>Key Type</strong> dropdown list, select the <strong>Clear Text</strong>.</li>
+<li>Into the <strong>Key</strong> field, enter the RADIUS password. For this instruction, it is <strong>bAZev44u</strong>.</li>
+<li>Into the <strong>Confirm Key</strong> field, enter again the RADIUS password. For this instruction, it is <strong>bAZev44u</strong>.</li>
+<li>Into the <strong>Auth Port</strong> field, enter the Authorization server port. For this instruction, it is <strong>1812</strong>.</li>
+<li>Into the <strong>Acct Port</strong> field, enter the Accounting server port. For this instruction, it is <strong>1813</strong>.</li>
+<li>Into the <strong>Server Timeout (seconds)</strong> field, enter the desired number of seconds. For this instruction, it is
+   <strong>10</strong>.</li>
+<li>Into the <strong>Retry Count</strong> field, enter the desired number. For this instruction, it is <strong>3</strong>.
+   <img alt="Cisco AAA Radius Server" src="images/cisco_catalyst/cisco_1.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+<li>Now go to <strong>RADIUS &gt; Server Groups</strong> and click the <strong>+Add</strong> button.</li>
+<li>Configure <strong>Edit AAA Radius Server Group</strong>:<ol>
+<li>Into the <strong>Name</strong> field, type any name for your RADIUS server group. For this instruction, it is <strong>Testmaster</strong>.</li>
+<li>From the <strong>MAC-Delimiter</strong> dropdown list, select the <strong>hyphen</strong>.</li>
+<li>From the <strong>MAC-Filtering</strong> dropdown list, select the <strong>mac</strong>.</li>
+<li>Move the configured server group from <strong>Available Servers</strong> to <strong>Assigned Servers</strong>.
+   <img alt="Cisco AAA Radius Server Group" src="images/cisco_catalyst/cisco_2.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+</ol>
+<h4 id="configure-authentication">Configure Authentication</h4>
+<ol>
+<li>Go to the <strong>AAA Method List</strong> tab.</li>
+<li>Choose <strong>AAA Method List &gt; Authentication</strong> and click the <strong>+Add</strong> button.</li>
+<li>Configure <strong>Quick Setup: AAA Authentication</strong>:<ol>
+<li>Into the <strong>Method List Name</strong> field, type any name for your method list. For this instruction, it is
+   <strong>Testmaster_authe</strong>.</li>
+<li>From the <strong>Type</strong> dropdown list, select the <strong>login</strong>.</li>
+<li>From the <strong>Group Type</strong> dropdown list, select the <strong>group</strong>.</li>
+<li>Move the configured server from <strong>Available Servers</strong> to <strong>Assigned Servers</strong>.
+   <img alt="Cisco AAA Authentication" src="images/cisco_catalyst/cisco_3.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+</ol>
+<h4 id="configure-authorization">Configure Authorization</h4>
+<ol>
+<li>Choose <strong>AAA Method List &gt; Authorization</strong> and click the <strong>+Add</strong> button.</li>
+<li>Configure <strong>Quick Setup: AAA Authorization</strong>:<ol>
+<li>Into the <strong>Method List Name</strong> field, type any name for your method list. For this instruction, it is
+   <strong>Testmaster_autho</strong>.</li>
+<li>From the <strong>Type</strong> dropdown list, select the <strong>network</strong>.</li>
+<li>From the <strong>Group Type</strong> dropdown list, select the <strong>group</strong>.</li>
+<li>Move the configured server from <strong>Available Servers</strong> to <strong>Assigned Servers</strong>.
+   <img alt="Cisco AAA Authorization" src="images/cisco_catalyst/cisco_4.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+</ol>
+<h4 id="configure-accounting">Configure Accounting</h4>
+<ol>
+<li>Choose <strong>AAA Method List &gt; Accounting</strong> and click the <strong>+Add</strong> button.</li>
+<li>Configure <strong>Quick Setup: AAA Accounting</strong>:<ol>
+<li>Into the <strong>Method List Name</strong> field, type any name for your method list. For this instruction, it is
+   <strong>Testmaster_acc</strong>.</li>
+<li>From the <strong>Type</strong> dropdown list, select the <strong>identity</strong>.</li>
+<li>Move the configured server from <strong>Available Servers</strong> to <strong>Assigned Servers</strong>.
+   <img alt="Cisco AAA Accounting" src="images/cisco_catalyst/cisco_5.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+</ol>
+<h4 id="configure-aaa-advanced">Configure AAA Advanced:</h4>
+<ol>
+<li>Go to the <strong>AAA Advanced</strong> tab.</li>
+<li>Configure <strong>Global Config</strong>:<ol>
+<li>Expand <strong>Show Advanced Settings</strong></li>
+<li>In the <strong>Radius Attributes</strong>:<ul>
+<li>Called-station-id: Accounting &gt; macaddress</li>
+<li>Called-station-id: Authentication &gt; ap-macaddress
+  <img alt="Cisco AAA Advanced" src="images/cisco_catalyst/cisco_6.png"/></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="configuring-the-captive-portal">Configuring the Captive Portal</h3>
+<ol>
+<li>Go to the <strong>Configuration &gt; Security &gt; Web Auth</strong>.</li>
+<li>Modify the preconfigured Web Auth Parameter by selecting <strong>global</strong>.</li>
+<li>Configure <strong>Web Auth Parameter</strong>.</li>
+<li>In the <strong>General</strong> tab:<ol>
+<li>Select the <strong>Captive Bypass Portal</strong> checkbox.</li>
+<li>Select the <strong>Disable Success Window</strong> checkbox.</li>
+<li>Select the <strong>Disable Logout Window</strong> checkbox.
+   <img alt="Cisco Web Auth Parameter 1" src="images/cisco_catalyst/cisco_7.png"/></li>
+</ol>
+</li>
+<li>Go back to the <strong>Web Auth</strong> window and click the <strong>+Add</strong> button.</li>
+<li>Configure <strong>Web Auth Parameter</strong>.</li>
+<li>Select the <strong>General</strong> tab:<ol>
+<li>Into the <strong>Parameter-map Name</strong> field, type any name for your Parameter-map. For this instruction, it is
+   <strong>Testmaster</strong>.</li>
+<li>Into the <strong>Maximum HTTP connections</strong> field, enter <strong>200</strong>.</li>
+<li>Into the <strong>Init-State Timeout(secs)</strong> field, enter <strong>60</strong>.</li>
+<li>From the <strong>Type</strong> dropdown list, select the <strong>webauth</strong>.</li>
+<li>Select the <strong>Captive Bypass Portal</strong> checkbox.</li>
+<li>Select the <strong>Disable Success Window</strong> checkbox.</li>
+<li>Select the <strong>Disable Logout Window</strong> checkbox.</li>
+<li>Select the <strong>Disable Cisco Logo</strong> checkbox.
+   <img alt="Cisco Web Auth Parameter 2" src="images/cisco_catalyst/cisco_8.png"/></li>
+</ol>
+</li>
+<li>Select the <strong>Advanced</strong> tab:<ol>
+<li>Into the <strong>Redirect URL for login</strong> field, enter the captive portal address <code>https://platform.com/login</code></li>
+<li>Into the <strong>Redirect Append for AP MAC Address</strong> field, enter <strong>apname</strong>.</li>
+<li>Into the <strong>Redirect Append for Client MAC Address field</strong>, enter <strong>mac</strong>.</li>
+<li>Into the <strong>Redirect Append for WLAN SSID</strong> field, enter <strong>essid</strong>.</li>
+<li>Into the <strong>Portal IPV4 Address</strong> field, enter the platform server’s IP address.
+   <img alt="Cisco Web Auth Parameter 3" src="images/cisco_catalyst/cisco_9.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply</strong> button to save the configuration.</li>
+</ol>
+<h3 id="configuring-the-url-filters">Configuring the URL Filters</h3>
+<ol>
+<li>Go to <strong>Configuration &gt; Security &gt; URL Filters</strong> and click the <strong>+Add</strong> button.</li>
+<li>Configure the <strong>URL Filter</strong>:<ol>
+<li>Into the <strong>List Name</strong> field, type any name for your List. For this instruction, it is <strong>Testmaster</strong>.</li>
+<li>From the <strong>Type</strong> dropdown list, select the <strong>PRE-AUTH</strong>.</li>
+<li>Into the <strong>Action</strong>, select the <strong>PERMIT</strong>.</li>
+<li>Into the URLs, add the following:<ul>
+<li>platform.com</li>
+<li>server DNS</li>
+</ul>
+</li>
+<li>For the full list of entries (e.g. to allow social media login), go to the <a href="#references">References</a> chapter.
+   <img alt="Cisco URL Filter" src="images/cisco_catalyst/cisco_10.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+</ol>
+<h3 id="configuring-the-wlan">Configuring the WLAN</h3>
+<ol>
+<li>Go to <strong>Configuration &gt; Tags &amp; Profiles &gt; WLANs</strong> and click the <strong>+Add</strong> button.</li>
+<li>Configure the <strong>WLAN</strong>.</li>
+<li>Select the <strong>General</strong> tab:<ol>
+<li>Into the <strong>Profile Name</strong> field, type any name for your profile. For this instruction, it is <strong>Testmaster</strong>.</li>
+<li>Into the <strong>SSID</strong> field, type any name for your SSID. For this instruction, it is <strong>Testmaster</strong>.</li>
+<li>Into the <strong>Status</strong>, select the <strong>ENABLED</strong>.
+   <img alt="Cisco WLAN General" src="images/cisco_catalyst/cisco_11.png"/></li>
+</ol>
+</li>
+<li>Select the <strong>Security</strong> tab:<ol>
+<li>Go to <strong>Layer2</strong> tab.</li>
+<li>Under Layer2, you will see the available wireless securities, select <strong>None</strong>.</li>
+<li>Select the <strong>Mac Filtering</strong> checkbox.</li>
+<li>From the <strong>Authorization List</strong> dropdown list, select your created list. For this instruction, it is
+   <strong>Testmaster</strong>.</li>
+<li>Unselect the <strong>OWE Transition Mode</strong> checkbox.
+   <img alt="Cisco WLAN Security Layer2" src="images/cisco_catalyst/cisco_12.png"/></li>
+<li>Go to <strong>Layer3</strong> tab</li>
+<li>Select the <strong>Web Policy</strong> checkbox.</li>
+<li>From the <strong>Web Auth Parameter Map</strong> dropdown list, select your created web auth. For this instruction, it is
+   <strong>Testmaster</strong>.</li>
+<li>From the <strong>Authentication List</strong> dropdown list, select your created list. For this instruction, it is
+   <strong>Testmaster_authe</strong>.</li>
+<li>Select the <strong>On MAC Filter Failure</strong> checkbox.
+    <img alt="Cisco WLAN Security Layer3" src="images/cisco_catalyst/cisco_13.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+</ol>
+<h3 id="configuring-the-policy">Configuring the Policy</h3>
+<ol>
+<li>Go to the <strong>Configuration &gt; Tags &amp; Profiles &gt; Policy</strong> and click the <strong>+Add</strong> button.</li>
+<li>Configure the <strong>Policy Profile</strong>.</li>
+<li>Select the <strong>General</strong> tab:<ol>
+<li>Into the <strong>Name</strong> field, type any name for your policy. For this instruction, it is <strong>Testmaster</strong>.</li>
+<li>Into the <strong>Status</strong>, select the <strong>ENABLED</strong>.</li>
+<li>Into the <strong>IP MAC Binding</strong>, select <strong>DISABLED</strong>.</li>
+<li>Into the <strong>Central Switching</strong>, select <strong>DISABLED</strong>.</li>
+<li>Into the <strong>Central DHCP</strong>, select <strong>DISABLED</strong>.
+   <img alt="Cisco Policy Profile General" src="images/cisco_catalyst/cisco_14.png"/></li>
+</ol>
+</li>
+<li>Select the <strong>Access Policies</strong> tab:<ol>
+<li>Select the <strong>Radius Profiling</strong> checkbox.</li>
+<li>Select the <strong>HTTP TLV Caching</strong> checkbox.</li>
+<li>Select the <strong>DHCP TLV Caching</strong> checkbox.</li>
+<li>Into the <strong>VLAN/VLAN Group</strong> field, assign VLAN ID between 0-4095. For this instruction, it is <strong>123</strong>.</li>
+<li>From the <strong>Pre Auth dropdown</strong> list, select the created URL Filters. For this instruction, it is <strong>Testmaster</strong>.
+   <img alt="Cisco Policy Profile Access Policies" src="images/cisco_catalyst/cisco_15.png"/></li>
+</ol>
+</li>
+<li>Select the <strong>Advanced</strong> tab:<ol>
+<li>Select the <strong>Allow AAA Override</strong> checkbox.</li>
+<li>From the <strong>Accounting List</strong> dropdown list, select the created AAA policy. For this instruction, it is
+   <strong>Testmaster_acc</strong>.
+   <img alt="Cisco Policy Profile Advanced" src="images/cisco_catalyst/cisco_16.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+</ol>
+<h3 id="configuring-the-certificates">Configuring the Certificates</h3>
+<p><strong>Important</strong>: For production environments, always use a trusted SSL certificate from a well-known Certificate Authority
+(CA). Self-signed certificates will cause security warnings on client devices and may prevent automatic captive portal
+detection.</p>
+<h4 id="uploading-a-p12-certificate">Uploading a p12 certificate</h4>
+<ol>
+<li>Go to the <strong>Configuration &gt; Security &gt; PKI Management &gt; Add Certificate &gt; Import PKCS12 Certificate</strong></li>
+<li>Select the protocol for uploading the certificate: TFTP, SFTP, FTP, SCP, or Desktop (HTTPS) to the controller's
+   memory.</li>
+<li>Specify the certificate file with the CA certificate generated for the authorizing point in the controller.</li>
+<li>Enter the certificate password.
+   <img alt="Cisco PKI Management" src="images/cisco_catalyst/cisco_17.png"/></li>
+<li>Click <strong>Import</strong> button.</li>
+</ol>
+<h4 id="modifying-web-auth-parameters">Modifying Web Auth Parameters</h4>
+<ol>
+<li>Go to the <strong>Configuration &gt; Security &gt; Web Auth</strong></li>
+<li>In the <strong>General settings</strong> tab, modify the following:<ol>
+<li>Set the <strong>Virtual IPv4 Address</strong> used for Captive Portal redirection. For this instruction its <strong>192.0.2.1</strong>.</li>
+<li>In <strong>Trustpoint</strong> section, select the uploaded certificate.</li>
+<li>In <strong>Virtual IPv4 Hostname</strong> section, input the domain name from the certificate.<ul>
+<li>Configure the DNS used by clients to resolve the domain specified as the Virtual IPv4 Hostname to the IP
+  address assigned as the Virtual IPv4 Address.</li>
+</ul>
+</li>
+<li>Check boxes to enable <strong>Web Auth intercept HTTPS</strong> and <strong>Enable HTTP server for Web Auth</strong>.</li>
+<li><strong>Disable HTTP secure server for Web Auth</strong> should be unchecked.<br/>
+<img alt="Cisco Web Auth Parameter" src="images/cisco_catalyst/cisco_18.png"/></li>
+</ol>
+</li>
+<li>Then, click the <strong>Update &amp; Apply to Device</strong> button to save the configuration.</li>
+</ol>
+<h2 id="configuring-the-platform">Configuring the Platform</h2>
+<p>To configure an access point on the Platform, you should first add it to the Platform. Then, you should configure the
+network in which the access point will be used.</p>
+<h3 id="adding-an-access-point-to-the-platform">Adding an Access Point to The Platform</h3>
+<p>To add an Access Point, you should first log in to the Platform. Then, go to the <strong>Portal Management &gt; Structure</strong>
+section, and select the <strong>Devices</strong> tab from the upper bar.</p>
+<ol>
+<li>Now, click the <strong>+</strong> button in the bottom right corner to add a new device.
+   <img alt="Platform configuration" src="images/aruba_central/aruba_platform_config_1.png"/></li>
+<li>Now, in the new window:<ol>
+<li>From the <strong>Device type</strong> list, select <strong>Cisco with Catalyst WC</strong>.</li>
+<li>In the <strong>AP MAC</strong> field, type the access point's <strong>Radio MAC</strong> address.</li>
+<li>Into the <strong>IP address</strong> field, enter the controller IP address.</li>
+<li>Into the <strong>CoA Port</strong> field, enter the controller CoA Port.</li>
+<li>Into the <strong>Serial number</strong> field, enter the access point’s serial number.</li>
+<li>In the <strong>Descriptive name</strong>, you can type the name that would help you differentiate this access point from the
+   other ones.
+   <img alt="Platform add Cisco 1" src="images/cisco_catalyst/cisco_20.png"/>
+<img alt="Platform add Cisco 2" src="images/cisco_catalyst/cisco_21.png"/></li>
+</ol>
+</li>
+<li>After you have finished providing the details, click Save in the top right corner to finish adding the access point
+   to the Platform.</li>
+</ol>
+<h2 id="references">References</h2>
+<p>In this section, there is a list of all entries that you may need to add to the walled garden. When you finish adding
+them, continue with the <a href="#configuring-the-url-filters">Configuring the URL Filters</a> procedure.</p>
+<h3 id="domain">Domain</h3>
+<pre><code>domain.com
+</code></pre>
+<h4 id="ip">IP</h4>
+<p>For Domain Europe: <code>35.241.143.144</code><br/>
+For Domain North and South America: <code>35.245.165.143</code><br/>
+For Domain Asia: <code>35.240.186.103</code></p>
+<h3 id="ios-optional">iOS (optional)</h3>
+<pre><code>www.appleiphonecell.com  
+captive.apple.com  
+www.apple.com  
+www.itools.info  
+www.ibook.info  
+www.airport.us  
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com  
+*.gstatic.com  
+clients3.google.com
+</code></pre>
+<h3 id="microsoft">Microsoft</h3>
+<pre><code>msftncsi.com  
+*.msftncsi.com
+login.microsoftonline.com
+aadcdn.msftauth.net
+aadcdn.msauth.net
+login.live.com  
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com  
+facebook.net  
+akamaihd.net  
+digicert.com  
+fbcdn.net  
+fb.com  
+fbsbx.com  
+*.facebook.com  
+*.facebook.net  
+*.akamaihd.net  
+*.digicert.com  
+*.fbcdn.net  
+*.fb.com  
+*.fbsbx.com  
+</code></pre>
+<h4 id="ip_1">IP</h4>
+<pre><code>5.178.32.0/20  
+195.27.154.0/24  
+80.150.192.0/24  
+77.67.96.0/22  
+212.119.27.0/25  
+2.16.0.0/13  
+66.171.231.0/24  
+31.13.24.0/21  
+31.13.64.0/18  
+212.245.45.0/24  
+213.254.17.0/24  
+46.33.70.0/24  
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com  
+twimg.com  
+abs.twitter.com  
+*.twitter.com  
+*.twimg.com  
+*.abs.twitter.com 
+</code></pre>
+<h4 id="ip_2">IP</h4>
+<pre><code>199.16.156.0/22  
+199.59.148.0/22  
+199.96.56.0/21  
+192.133.76.0/22  
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com  
+oauth.vk.com  
+vk.me  
+*.vk.com  
+*.oauth.vk.com  
+*.vk.me
+</code></pre>
+<h3 id="paypal">PayPal</h3>
+<pre><code>paypal.com  
+omtrdc.net  
+mediaplex.com  
+paypalobjects.com  
+abmr.net  
+dotomi.com  
+*.paypal.com  
+*.omtrdc.net  
+*.mediaplex.com  
+*.paypalobjects.com  
+*.abmr.net  
+*.dotomi.com  
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<pre><code>instagram.com
+</code></pre>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com  
+ytimg.com  
+gstatic.com  
+google.com  
+googlevideo.com  
+*.youtube.com  
+*.ytimg.com  
+*.gstatic.com  
+*.google.com  
+*.googlevideo.com 
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com  
+gstatic.com  
+googleusercontent.com  
+google.com  
+googleapis.com  
+accounts.youtube.com  
+*.accounts.google.com  
+*.googleusercontent.com  
+*.google.com  
+*.googleapis.com  
+*.accounts.youtube.com 
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>*.line.me  
+*.line-apps.com  
+*.line-scdn.net  
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>*.kakao.com  
+*.google.com  
+*.m2.daumcdn.net  
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

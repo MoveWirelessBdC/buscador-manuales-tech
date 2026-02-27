@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="11.html" rel="prev"/>
+<link href="09.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>October 2020 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#whats-new-in-october-2020">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="whats-new-in-october-2020">What’s New in October 2020</h1>
+<h2 id="brand-new-licences">Brand New Licences</h2>
+<p>We have introduced the long-awaited update to the <strong>Licences</strong> feature which is now visually consistent with the rest of the Platform. We have also reviewed and redesigned the licencing mechanism, so it’s more user-friendly and allows you to manage your Licences more efficiently.</p>
+<p>The new <strong>Licences</strong> allow you to create <strong>Licence Packages</strong> which contain Access Points that can be further distributed among your clients as <strong>Sublicences</strong>. It also provides a smart overview of your Licences with a quick view on AP capacity and time left for them to expire.</p>
+<p>You can also set up email notifications on Licences, such as expiry, removal, or updates, and manage their sending details.</p>
+<p>To learn how to manage Licences, go to the <strong>User Guide &gt; Licences and Roles</strong> section.</p>
+<p><img alt="licences" src="images/10/licences_1.png"/></p>
+<p><img alt="licences" src="images/10/licences_2.png"/></p>
+<h2 id="importing-user-accounts-from-a-csv-file">Importing User Accounts from a CSV File</h2>
+<p>You can now upload User Accounts to the Platform in one bulk instead of creating them one by one by importing them from a CSV file. </p>
+<p>To do this, go to the <strong>User Accounts</strong> feature, click the <strong>+</strong> button in the bottom right corner, and select the <strong>Upload from CSV file</strong> option in the popup-box.</p>
+<p><img alt="user account csv" src="images/10/user_acc_csv_1.png"/></p>
+<p><img alt="user account csv" src="images/10/user_acc_csv_2.png"/></p>
+<h2 id="printing-user-accounts-details">Printing User Accounts Details</h2>
+<p>Additionally, you can now print User Account details in the form of tokens and customise their look according to your preferences. To do this, select the <strong>Display Account Print View</strong> from the <strong>More</strong> option’s dropdown menu.</p>
+<p>You should note that to enable this option, you must set up the <code>allowWifiUserAccountPasswordRetrieval</code> property which determines how User Account passwords are saved in the Platform.</p>
+<p><strong>Note:</strong> Customising the print view requires basic knowledge of HTML and CSS.</p>
+<p><img alt="user account print" src="images/10/user_acc_print_1.png"/></p>
+<p><img alt="user account print" src="images/10/user_acc_print_2.png"/></p>
+<h2 id="data-top-up">Data Top-Up</h2>
+<p>The <strong>User Accounts</strong> feature now allows you to <strong>top data transfer up</strong> for User Accounts.</p>
+<p>To do this, click the <strong>More</strong> option on the desired user, and select <strong>Show Top-Ups</strong> from the dropdown list. In the new window, click the <strong>+</strong> button in the bottom right corner, and specify the quota and validity time in the pop-up-box.</p>
+<p><img alt="data transfer top-up" src="images/10/data_top_up_2.png"/></p>
+<p><img alt="data transfer top-up" src="images/10/data_top_up_4.png"/></p>
+<p><img alt="data transfer top-up" src="images/10/data_top_up_5.png"/></p>
+<p>You can also see the top-up details in the new columns which have been added to the <strong>List of User Accounts</strong> table.</p>
+<p><img alt="data transfer top-up" src="images/10/data_top_up_3.png"/></p>
+<h2 id="permissions">Permissions</h2>
+<p>We have added new permissions to the Platform. Be sure that you accordingly update them for your Platform users.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>topUpUserAccountTransferLimit</td>
+<td>Allows the user to top up data transfer for User Accounts</td>
+</tr>
+<tr>
+<td>sublicenceWrite</td>
+<td>Allows a user to create a Sublicence</td>
+</tr>
+<tr>
+<td>licencePackageWrite</td>
+<td>Allows a user to create a Licence Package</td>
+</tr>
+<tr>
+<td>sublicenceDelete</td>
+<td>Allows a user to delete a Sublicence</td>
+</tr>
+<tr>
+<td>licencePackageDelete</td>
+<td>Allows a user to delete a Licence Package</td>
+</tr>
+<tr>
+<td>areaLocationStatistics</td>
+<td>Allows the user to access the Area statistics</td>
+</tr>
+<tr>
+<td>licenceCustomPlanSelection</td>
+<td>Allows the user to select a custom Plan for Licences</td>
+</tr>
+<tr>
+<td>licencePackageRead</td>
+<td>Allows the user to access Licence Packages</td>
+</tr>
+<tr>
+<td>sublicenceRead</td>
+<td>Allows the user to access Sublicences</td>
+</tr>
+<tr>
+<td>userTemplates</td>
+<td>Allows the user to customise content and formats of the User Account messages</td>
+</tr>
+<tr>
+<td>licenceTemplates</td>
+<td>Allows the user to customise content and formats of Licence messages</td>
+</tr>
+<tr>
+<td>callAuthentication</td>
+<td>Allows the user to add Call Authentication components to Portals</td>
+</tr>
+</tbody>
+</table></div></div>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

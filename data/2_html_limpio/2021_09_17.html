@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2021_10_01.html" rel="prev"/>
+<link href="2021_09_03.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>21.09.17__stable__0.51.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-210917__stable__0510">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-210917__stable__0510">Release Version: 21.09.17__stable__0.51.0</h1>
+<h3 id="release-date-09172021">Release Date: 09/17/2021</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>We have added a new and <strong>important security feature</strong>, the ability to set up and configure a <strong>Time-Based One Time Password Two-Factor Authentication</strong> when logging in to the platform.  From now on, during logging into this feature can be either <strong>recommended</strong>, <strong>required</strong> or <strong>turned off</strong>. An additional option has been implemented, <strong>Remember me</strong>, which allows the user not to enter the token code every time if using the same device. The <strong>Two-Factor Authentication</strong> set-up view is available for the user until the correct code is entered for the first time. The view becomes available again when the user <strong>secret key</strong> is reset in <strong>Portal Management &gt; Structure &gt; User section</strong>.  The option of configuring the <strong>Two-Factor Authentication</strong>for an organisation is possible only by our administration.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<h3 id="feature-updates">Feature Updates</h3>
+<ul>
+<li>In the <strong>Device Mapper</strong> in <strong>Dashboard &gt; Behaviour</strong>, the activation of the <strong>Panic Button</strong> changes the device’s color to a <strong>warning color</strong>.</li>
+<li>We have added <strong>Tooltips</strong> for device configuration which support CoA and informs about <strong>IP Address</strong>, <strong>Domain controller</strong> and <strong>Custom/Public SIP</strong>.</li>
+<li>In the <strong>Users Now</strong> table of the <strong>Dashboard</strong> we have changed the list of all <strong>user organisations</strong> and the list of all their <strong>devices</strong> to the current device used to log in and the organisation they last logged into. </li>
+</ul>
+<p><strong>Note:</strong> Earlier data can be found in <strong>Raw Data &gt; WiFi Users</strong> table.   </p>
+<ul>
+<li>When creating and editing a <strong>Payment Plan</strong> in the <strong>network parameters</strong> step, the option to set the total data transfer has been added.</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>We have added the following permissions to the Platform:</li>
+</ul>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resetTotpSecret</td>
+<td>Allows the user to reset the secret key for two-factor authentication</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="resolved-issues">Resolved Issues</h2>
+<h3 id="system-fixes">System Fixes</h3>
+<ul>
+<li>The video preview in the table in <strong>Reporting &gt; Statistics &gt; Ad Server</strong> is now up and running.</li>
+<li>The issue with incorrect calculations of the <strong>Quota Left</strong> in the <strong>User account</strong> table has been resolved.</li>
+</ul>
+<p><strong>Note:</strong> In the <strong>Used</strong> column information has been added that the value of the exceed transfer may be higher than the total.</p>
+<ul>
+<li>Editing a <strong>User account</strong> defined in the child of the currently selected organisation is now working properly.</li>
+<li>We have optimised the processing for <strong>Captive Portals</strong> which in turn results in fewer queries to the database.</li>
+</ul>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

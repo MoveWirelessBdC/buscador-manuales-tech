@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="cisco_catalyst.html" rel="prev"/>
+<link href="huawei.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Edgecore - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#edgecore-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="edgecore-configuration-guide">Edgecore Configuration Guide</h1>
+<h2 id="prerequisites-and-basic-configuration">Prerequisites and Basic Configuration</h2>
+<p>To configure the Edgecore Access Point with the platform, you should first fulfill specific prerequisites, and prepare the Basic Configuration.</p>
+<h3 id="the-configuration-prerequisites">The Configuration Prerequisites</h3>
+<p>You should verify that:</p>
+<ul>
+<li>The Edgecore has correctly configured IP settings, and is connected with the DNS server,</li>
+<li>The Edgecore resolves the platform domain address, and can access the platform using the following ports – 80, 443, 1812 and 1813,</li>
+</ul>
+<h3 id="the-basic-configuration">The Basic Configuration</h3>
+<p>Below, you can find the table providing the data for the <strong>Production Environments</strong>, which are the cloud servers of the platform.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linkyfi UVA</td>
+<td>uva.linkyfi.com</td>
+<td>35.245.165.143</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="configuration-steps">Configuration Steps</h3>
+<ol>
+<li>Log in to the <strong>Edgecore GUI</strong>.</li>
+<li>Navigate to the WiFi network configuration panel (<strong>WiFi5 / WiFi6</strong>) and select the <strong>Wireless SSID</strong> tab.</li>
+<li>Select the SSID of the network you wish to edit from the list.
+<img alt="image" src="images/edgecore/image_01.png"/>
+<img alt="image" src="images/edgecore/image_02.png"/>
+<strong>Important:</strong> Copy the SSID value, as you will need it later when configuring the Network Name on the Platform side.</li>
+<li>Navigate to <strong>Network Settings</strong>, set <code>Hotspot-controlled</code> as the network behavior, and add platform domain to the <a href="#whitelist">whitelist</a>. The whitelist should be updated as needed.
+<img alt="image" src="images/edgecore/image_03.png"/></li>
+<li>Access the <strong>Hotspot Tab</strong>, ensure that the <strong>Hotspot Enabled</strong> toggle is activated and select <strong>External Captive Portal Service</strong>.
+<img alt="image" src="images/edgecore/image_04.png"/></li>
+<li>Configure <strong>RADIUS Server Settings</strong>:  <ul>
+<li>Enable the RADIUS Server.</li>
+<li>Enter your RADIUS server address (for example, domain.com) – this address is for a test instance.</li>
+<li>Enter <code>bAZev44u</code> as the RADIUS server shared secret.</li>
+<li>Set <code>1812</code> as the RADIUS server authentication port.</li>
+<li>Set <code>1813</code> as the RADIUS server accounting port.</li>
+<li><strong>Important:</strong> Make sure to add a <strong>NAS ID</strong>, as this will be required later in the Platform. Configuring NAS ID is essential for identifying the Access Point and the organization from which the traffic originates, ensuring the proper functioning of the login process in the Platform.
+<img alt="image" src="images/edgecore/image_05.png"/></li>
+</ul>
+</li>
+<li>Set up <strong>Captive Portal Settings</strong>:<ul>
+<li>Enter your domain URL (e.g., <a href="https://domain.com/login">https://domain.com/login</a>).</li>
+<li>Specify your domain's landing page URL (e.g., <a href="https://domain.com/welcome">https://domain.com/welcome</a>).
+<img alt="image" src="images/edgecore/image_06.png"/></li>
+</ul>
+</li>
+<li>Go to <strong>Platform</strong> - <strong>Portal Management</strong> - <strong>Structure</strong> and choose the <strong>Devices</strong> tab. Add a new device by clicking the <strong>(+)</strong> button.
+<img alt="image" src="images/commons/enter_device_editor.jpg"/></li>
+<li>Choose <code>Edgecore</code> and add the <strong>NAS ID</strong> created in the controller menu.
+<img alt="image" src="images/edgecore/image_07.png"/></li>
+<li>Go to <strong>User Enrollment</strong> -&gt; <strong>User Journey</strong> -&gt; <strong>Access Settings</strong> and add a new Network. It must have the same <strong>Network Name</strong> as on the controller.
+<img alt="image" src="images/commons/user_journey_menu.png"/>
+<img alt="image" src="images/commons/network_name.png"/></li>
+</ol>
+<h2 id="whitelist">Whitelist</h2>
+<h3 id="domain">Domain</h3>
+<p><code>domain.com</code></p>
+<h3 id="ios-optional">iOS (optional)</h3>
+<pre><code>www.appleiphonecell.com  
+captive.apple.com  
+www.apple.com  
+www.itools.info  
+www.ibook.info  
+www.airport.us  
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com  
+gstatic.com  
+clients3.google.com
+</code></pre>
+<h3 id="microsoft-required-for-loging-in-with-microsoft">Microsoft (required for loging in with Microsoft)</h3>
+<pre><code>msftncsi.com
+login.microsoftonline.com
+aadcdn.msftauth.net
+aadcdn.msauth.net
+login.live.com  
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com  
+facebook.net  
+akamaihd.net  
+digicert.com  
+fbcdn.net  
+fb.com  
+fbsbx.com  
+</code></pre>
+<h4 id="ip">IP</h4>
+<pre><code>5.178.32.0/20  
+195.27.154.0/24  
+80.150.192.0/24  
+77.67.96.0/22  
+212.119.27.0/25  
+2.16.0.0/13  
+66.171.231.0/24  
+31.13.24.0/21  
+31.13.64.0/18  
+212.245.45.0/24  
+213.254.17.0/24  
+46.33.70.0/24  
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com  
+twimg.com  
+abs.twitter.com  
+</code></pre>
+<h4 id="ip_1">IP</h4>
+<pre><code>199.16.156.0/22  
+199.59.148.0/22  
+199.96.56.0/21  
+192.133.76.0/22  
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com  
+oauth.vk.com  
+vk.me  
+</code></pre>
+<h2 id="paypal">PayPal</h2>
+<pre><code>paypal.com  
+omtrdc.net  
+mediaplex.com  
+paypalobjects.com  
+abmr.net  
+dotomi.com  
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<p><code>instagram.com</code></p>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com  
+ytimg.com  
+gstatic.com  
+google.com  
+googlevideo.com  
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com  
+gstatic.com  
+googleusercontent.com  
+google.com  
+googleapis.com  
+accounts.youtube.com  
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>line.me  
+line-apps.com  
+line-scdn.net  
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>kakao.com  
+google.com  
+m2.daumcdn.net  
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

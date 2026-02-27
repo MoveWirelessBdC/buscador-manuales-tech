@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ask a Question</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Ask a Question</h1>
+        <div class="card">
+            <div class="card-body">
+                <form id="question-form">
+                    <div class="form-group">
+                        <label for="question">Your Question</label>
+                        <input type="text" class="form-control" id="question" placeholder="Enter your question">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div id="answer-card" class="card" style="display: none;">
+            <div class="card-body">
+                <h5 class="card-title">Answer</h5>
+                <p id="answer"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('question-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+            const response = await fetch('/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ pregunta: question })
+            });
+            const data = await response.json();
+            document.getElementById('answer').innerText = data.respuesta;
+            document.getElementById('answer-card').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

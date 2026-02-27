@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2022_01_21.html" rel="prev"/>
+<link href="../2021/2021_12_10.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>22.01.05__stable__0.59.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-220105__stable__0590">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-220105__stable__0590">Release Version: 22.01.05__stable__0.59.0</h1>
+<h3 id="release-date-01052022">Release Date: 01/05/2022</h3>
+<p><strong>Note</strong>: This release includes both the 21.12.23__stable__0.58.0 and 22.01.05__stable__0.59.0 release versions.</p>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>The possibility of <strong>exporting</strong> the <strong>terms of use</strong>, <strong>marketing categories</strong> and <strong>communication channels</strong> from the system has been added, as well as <strong>exporting</strong> <strong>Loyalty Programs</strong>, <strong>Payment Plans</strong> and <strong>Portals</strong> with the appropriate permission.</li>
+<li>We have added the possibility to <strong>import</strong> forms with the appropriate permission.</li>
+<li>We have added the ability to send <strong>payment confirmation</strong> emails for the <strong>Coral Commerce</strong> gateway.</li>
+<li>We have added two new columns, <strong>Transaction ID</strong> and <strong>Payment method</strong>, to <strong>Statistics</strong> &gt; <strong>Raw data</strong> &gt; <strong>User sessions</strong> table.  The data is displayed for logins using payment gateways</li>
+<li>We have added the ability to set different <strong>background settings</strong> for desktop and mobile versions of the portal. Setting a different background is <strong>optional</strong>, by <strong>default</strong> the desktop version will use the same settings as the mobile version. This applies to existing portals as well.</li>
+<li>When <strong>adding</strong>, <strong>removing</strong>, <strong>stopping</strong> or <strong>renewing sublicenses</strong> - the status of the organization and its subsidiaries is immediately <strong>updated</strong>.</li>
+<li>Three new <strong>endpoints</strong> have been added to the ** REST API<strong>, returning the same data as in the charts in the </strong>location statistics**:<ul>
+<li><strong>Reporting</strong> &gt; <strong>Location</strong> &gt; <strong>Venue</strong> &gt; <strong>Passerby and Visitors</strong></li>
+<li><strong>Reporting</strong> &gt; <strong>Location</strong> &gt; <strong>Venue</strong> &gt; <strong>New &amp; Returning Visitors</strong></li>
+<li><strong>Reporting</strong> &gt; <strong>Location</strong> &gt; <strong>Venue</strong> &gt; <strong>Dwell-time distribution of Visitors</strong></li>
+</ul>
+</li>
+<li>We have added endpoint to the <strong>REST API</strong> to check device state - this corresponds to the data from the <strong>Location Management</strong> &gt; <strong>Management</strong> &gt; <strong>Devices State</strong> view.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<ul>
+<li>We have optimized <strong>anonymisation</strong> and <strong>parameter logging</strong> performance when handling the request as part of <strong>Captive Portal</strong> handling.</li>
+<li>We have implemented status checking for <strong>WAG Access Point (Cambium)</strong> which also obtains the <strong>IP address</strong> and <strong>serial number</strong> of the device.</li>
+<li>For <strong>Roles</strong> in <strong>Portal Management</strong> &gt; <strong>Licences and roles</strong> &gt; <strong>User roles</strong> and <strong>Users</strong> in <strong>Portal Management</strong> &gt; <strong>Structure</strong> &gt; <strong>Users</strong>, when creating and editing, it is no longer required to select at least one permission.</li>
+</ul>
+<h3 id="feature-updates">Feature Updates</h3>
+<ul>
+<li><strong>Extreme Network</strong> devices have now been integrated into the Platform which use the same mechanics as <strong>Aerohive</strong> devices.</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>We have added the following permissions to the Platform:</li>
+</ul>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>readLocationManagementData</td>
+<td>REST API device state</td>
+</tr>
+<tr>
+<td>statisticsTransactionIdAccess</td>
+<td>Allows the user to access the Transaction ID statistics in Raw Data &gt; User Sessions table</td>
+</tr>
+<tr>
+<td>exportFlowLoyalty</td>
+<td>Allows the user to export Loyalty programs</td>
+</tr>
+<tr>
+<td>importQuestionnaire</td>
+<td>Allows the user to import Forms</td>
+</tr>
+<tr>
+<td>exportPaymentPlan</td>
+<td>Allows the user to export Payment Plans</td>
+</tr>
+<tr>
+<td>exportPortal</td>
+<td>Allows the user to export Portals</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="resolved-issues">Resolved Issues</h2>
+<h3 id="gui-fixes">GUI Fixes</h3>
+<ul>
+<li>We have fixed the <strong>visibility</strong> of two buttons, <strong>remove selected</strong> and <strong>import</strong>, when managing devices in the <strong>organization structure</strong>.</li>
+</ul>
+<h3 id="system-fixes">System Fixes</h3>
+<ul>
+<li>The <strong>Nigerian Naira</strong> has now the correct currency breaks.</li>
+</ul>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

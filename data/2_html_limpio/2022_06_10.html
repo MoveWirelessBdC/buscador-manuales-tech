@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2022_06_24.html" rel="prev"/>
+<link href="2022_05_27.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>22.06.10__stable__0.70.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-220610__stable__0700">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-220610__stable__0700">Release Version: 22.06.10__stable__0.70.0</h1>
+<h3 id="release-date-06102022">Release Date: 06/10/2022</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>
+<p>We have added two new tabs in <strong>User Enrollment</strong> &gt; ** Access methods<strong> &gt; </strong>Payment Plans<strong> section: </strong>For Sessions<strong> and </strong>For User Accounts**.</p>
+<ul>
+<li>In the <strong>For Sessions</strong> tab you may <strong>create</strong> new, and <strong>edit</strong>, <strong>export</strong>, or <strong>delete</strong> the existing <strong>Payment Plans</strong> for single sessions (same as before).</li>
+<li>In the <strong>For User Accounts</strong> tab we have added a new table in which you may create Payment Plans (only in organisations that are configured to store User Accounts), edit and delete. This table also displays information about the available plans for the given <strong>User Account</strong> such as:<ul>
+<li><strong>Name</strong> - name of the plan</li>
+<li><strong>Price</strong> - price of the plan</li>
+<li><strong>Duration</strong> - the length of the plans duration</li>
+<li><strong>Transfer quota</strong> - the initial amount of data</li>
+<li><strong>Created in</strong> - in which organisation the plan was created</li>
+<li><strong>Action</strong> - allows you to edit or delete the plan</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>In <strong>User Enrollment</strong> &gt; ** Access methods<strong> &gt; </strong>User accounts<strong> we have added two new  tabs:  </strong>User Accounts<strong> and </strong>Notifications**.</p>
+<ul>
+<li>In the <strong>Notifications</strong> tab it is now possible:<ul>
+<li>edit, delete and create notifications</li>
+<li>send the notifications either by SMS, Email or both</li>
+<li>set the threshold when the notification will be sent either by remaining data or percentage.</li>
+<li>These ** notifications ** are sent to the ** User Accounts ** after using the transfer that was set in the notification section.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>In <strong>User Enrollment</strong> &gt; <strong>User journey</strong> &gt; <strong>Portal</strong> &gt; <strong>Portal editor</strong> section we have added a few new features:</p>
+<ul>
+<li>We have added the possibility to create a User Account <strong>Phone number</strong> type by logging in to the Captive Portal. This is possible with the multi-step login component <strong>Phone number registration</strong>. First use the Portal with the <strong>User registration</strong> component (Phone number with password), and then the Portal with the <strong>Phone number verification</strong> component.</li>
+<li>In the <strong>User Registration</strong> component for each form of registration we have added the possibility to enable <strong>Notifications</strong>. If this is enabled, users will be informed about the transfer they have used after they register.</li>
+<li>The <strong>Payment Plans</strong> component (first step in Payment Plans multi-step login) has gained the possibility to choose as well <strong>For User Accounts</strong> as <strong>For Sessions</strong>. It is now possible to use them in the <strong>Captive Portal</strong>.</li>
+<li>We have added the ability to use new <strong>$accountQuotaLeft</strong>, <strong>$accountQuotaValidity</strong> tags on <strong>Captive Portals</strong> showing the amount and the expiry date of remaining data on the logged in customer's account. This is possible in the <strong>Multimedia</strong> &gt; <strong>Text component</strong>.</li>
+</ul>
+</li>
+<li>
+<p>When importing / exporting <strong>Portals</strong>, we took into account new components of <strong>Payment Plans</strong> for <strong>User Accounts</strong>.</p>
+</li>
+<li>When moving the organisation in the tree, we have implemented a check whether the transferred <strong>organisation</strong> will not lose access to <strong>Payment Plans</strong> (for sessions and for accounts) used in <strong>Captive Portals</strong>.</li>
+<li>We have added the option to preview the <strong>Platform</strong> as a different user. This is available in <strong>Portal management</strong> &gt; <strong>Structure</strong> &gt; <strong>Users</strong> &gt; <strong>Option</strong> &gt; <strong>View as user</strong>.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<ul>
+<li>The translations for <strong>Payment Plans</strong> have been made more consistent in all locations.</li>
+<li>We have <strong>blocked</strong> the possibility to change the <strong>existing controller type</strong> so as not to cause errors.</li>
+<li>In <strong>Portal management</strong> &gt; <strong>Sending Centre</strong> &gt; <strong>Sending Configuration</strong> a new category, <strong>System</strong>, has been added. This category includes <strong>password reset</strong>, <strong>new user welcome</strong>, <strong>licences</strong>, <strong>reports</strong>, <strong>billing</strong>, <strong>calibration</strong>.</li>
+</ul>
+<h3 id="gui-updates">GUI Updates</h3>
+<ul>
+<li>In <strong>Portal management</strong> &gt; <strong>Structure</strong> we have made the <strong>Organisations</strong> tab more consistent and added additional information. Now you can view the settings for:<ul>
+<li>Data Administrator</li>
+<li>Account holder (set via properties)</li>
+<li>Email sending administrator</li>
+<li>SMS sending administrator</li>
+<li>Time zone</li>
+<li>Additional settings (set via properties): Service name, Country code, Default language, Currency</li>
+</ul>
+</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>We have added the following permissions to the Platform:</li>
+</ul>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userAccountPaymentPlanManager</td>
+<td>Allows the user to access the Payment Plan Manager for User Accounts</td>
+</tr>
+<tr>
+<td>userAccountNotifications</td>
+<td>Allows the user to access the notification tab view in User Accounts</td>
+</tr>
+<tr>
+<td>setDataTransferNotifications</td>
+<td>Allows the user to set and edit Data Transfer notifications</td>
+</tr>
+<tr>
+<td>viewAsUser</td>
+<td>Allows the user to view the Platform as a different user</td>
+</tr>
+<tr>
+<td>editSystemTarget</td>
+<td>Allows the user to access the System section in the Sending Centre Properties</td>
+</tr>
+<tr>
+<td>readChangeOrgAccountHolder</td>
+<td>Allows the user to display and change the Account Holder</td>
+</tr>
+</tbody>
+</table></div></div>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

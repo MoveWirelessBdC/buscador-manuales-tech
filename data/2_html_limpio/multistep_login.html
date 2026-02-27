@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="creating_portal.html" rel="prev"/>
+<link href="copying_portal.html" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Creating a Multistep Login - Platform documentation</title>
+<link href="../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#creating-a-multi-step-login-process">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="creating-a-multi-step-login-process">Creating a Multi-Step Login Process</h1>
+<p>The multi-step login process differs from other login processes in that it is created from two paired components:</p>
+<p><strong>Phone Number Input</strong> and <strong>Phone Number Verification</strong> is used for two-step phone number verification,
+<strong>Pay to Access</strong> and <strong>Payment Method</strong> is used for paid access.</p>
+<p>Both components must be reflected in Portals and the Page Flow. You must first create two Portals and then place them in the Page Flow in their proper order.</p>
+<p><strong>You should note that in order to use the Pay to Access method, you must first have a valid PayPal account which should be connected to the platform.</strong></p>
+<ol>
+<li>
+<p>First, it is necessary to create two Portals. To learn how to create a Portal, read the <a href="creating_portal.html">Creating a Portal</a> chapter.</p>
+</li>
+<li>
+<p>Within each Portal, place one of the components from the pair.</p>
+<p>Example: See an example of the <strong>Phone Number Verification</strong> in the <strong>Preview</strong> mode below.</p>
+<p><img alt="multistep login" src="../images/portal/multistep_login_1.png"/></p>
+</li>
+<li>
+<p>First, create a new Page Flow. To learn how to create a Page Flow, read the <a href="../page_flow/creating_and_editing_a_page_flow.html">Creating and Editing a Page Flow</a> chapter.</p>
+</li>
+<li>
+<p>Add one <strong>Portal Node</strong> for each Portal.</p>
+<p>Note: The editor limits the selection of available Portals based on which step in the flow that you want to add. It will not allow you to start the Flow from the second verification step.</p>
+<p><img alt="multistep login" src="../images/portal/multistep_login_2.png"/></p>
+</li>
+</ol>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="location_mode/editing_areas.html" rel="prev"/>
+<link href="density_alerting.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Geofencing - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#geofencing">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="geofencing">Geofencing</h1>
+<p>The <strong>Geofencing</strong> tool allows you to set SMS, email, or endpoint notifications when users enter and exit specified areas at your venue.</p>
+<h2 id="configuring-geofencing">Configuring Geofencing</h2>
+<ol>
+<li>
+<p>Go to the <strong>Location Management &gt; Geofencing</strong> section, and click the <strong>+</strong> button in the bottom right corner. </p>
+<p><img alt="geofencing" src="images/geofencing/geofencing_1.png"/></p>
+</li>
+<li>
+<p>In the new window:</p>
+<ul>
+<li>In the <strong>Name</strong> field, type the name of the Geofencing configuration</li>
+<li>From the <strong>Triggering Events</strong> toggle button, select on what actions should you receive notifications. You can choose <strong>All</strong>, <strong>Enters</strong> or <strong>Exits</strong>. For this instruction, it is <em>Enters</em>.</li>
+<li>From the <strong>Devices Triggered</strong> list, choose the type of devices you would like to be notified about: <strong>All</strong>, <strong>Named</strong>, or <strong>Selected</strong>.<br/>
+<strong>Note:</strong><br/>
+<strong>Named</strong> devices are the devices that have been given custom names by their users, for example, <em>My device</em> instead of MAC number.<br/>
+<strong>Selected</strong> devices are those that you choose from the dropdown list.</li>
+<li>From the <strong>Areas</strong> list select areas which you would like to get notified on.</li>
+</ul>
+<p>Then, click <strong>Next</strong> to proceed with the setup.</p>
+<p><img alt="geofencing" src="images/geofencing/geofencing_2.png"/></p>
+</li>
+<li>
+<p>In the next step, from the <strong>Notification Type</strong> toggle button, select the type of notification that you would like to receive. It can be <strong>SMS</strong>, <strong>Email</strong>, or <strong>Endpoint</strong>.</p>
+<h4 id="the-sms-notification">The SMS Notification</h4>
+<p>In the SMS Notification:</p>
+<ul>
+<li>Enter the content of the notification into the <strong>Notification Content</strong> field</li>
+<li>Select the country code and type the phone number in the <strong>Phone Number</strong> field.</li>
+</ul>
+<p>Then, click <strong>Next</strong> in the top right corner to proceed to the last step.</p>
+<p><img alt="geofencing" src="images/geofencing/geofencing_3b.png"/></p>
+<h4 id="the-email-notification">The Email Notification</h4>
+<p>In the Email Notification:</p>
+<ul>
+<li>Enter the content of the notification into the <strong>Notification Content</strong> field</li>
+<li>Type the subject of the email in the <strong>Subject</strong> field</li>
+<li>Enter the desired email address into the <strong>Email Address</strong> field</li>
+</ul>
+<p>Then, click <strong>Save</strong> in the top right corner to finish setting up Geofencing.</p>
+<p><img alt="geofencing" src="images/geofencing/geofencing_3a.png"/></p>
+<h4 id="the-endpoint-notification">The Endpoint Notification</h4>
+<p>Instead of an SMS or Email notification, the Platform server can send an HTTP request (POST request) to the specified Endpoint of a different server. </p>
+<p>To configure it:</p>
+<ul>
+<li>Select ** Endpoint** from the Notification type toggle button</li>
+<li>Type the content of notification in the <strong>Notification Content</strong> field. For this instruction, it is <em>[$area]: Customer limit exceeded</em></li>
+<li>Into the <strong>API URL</strong> field, enter the end URL to which the notification should be sent. For this instruction, it is <em><a href="https://mycompany.com/notifications">https://mycompany.com/notifications</a> </em>.</li>
+<li>In the <strong>Authorisation Token</strong> field, enter the token, which authorises the communication between servers. For this instruction, it is <em>abcd1234</em></li>
+</ul>
+<p>As a result, you would receive the below request:</p>
+<p><em>HTTP POST<br/>
+URL <a href="https://mycompany.com/notifications">https://mycompany.com/notifications</a><br/>
+Headers:<br/>
+Authorization: abcd1234 <br/>
+Request body:User: $user entered area: $area</em></p>
+<p><img alt="geofencing" src="images/geofencing/geofencing_3c.png"/></p>
+</li>
+<li>
+<p>The Geofencing is now set up.</p>
+<p><img alt="geofencing" src="images/geofencing/geofencing_4.png"/></p>
+</li>
+</ol>
+<h2 id="editing-a-geofencing-configuration">Editing a Geofencing Configuration</h2>
+<p>To edit the Geofencing configuration, click the <strong>More</strong> option in the top right corner of the desired configuration, and select <strong>Edit</strong> from the dropdown menu. Then, make the desired changes and finish modifying it by clicking <strong>Save</strong> in the Geofencing Editor.</p>
+<p><img alt="geofencing" src="images/geofencing/geofencing_5.png"/></p>
+<h2 id="deleting-a-geofencing-configuration">Deleting a Geofencing Configuration</h2>
+<p>To delete the Geofencing configuration, click the <strong>More</strong> option in the top right corner of the desired Geofencing configuration, and select <strong>Delete</strong> from the dropdown menu. Then, confirm deleting the configuration in the pop-up box.</p>
+<p><img alt="geofencing" src="images/geofencing/geofencing_6.png"/></p>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

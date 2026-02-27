@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2022_02_18.html" rel="prev"/>
+<link href="2022_01_21.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>22.02.04__stable__0.61.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-220204__stable__0610">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-220204__stable__0610">Release Version: 22.02.04__stable__0.61.0</h1>
+<h3 id="release-date-02042022">Release Date: 02/04/2022</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>We have integrated with the Platform a new type of AP, <strong>Mist</strong>. Due to the lack of <strong>Radius</strong> we have added a new mechanism for gathering transfer statistics for <strong>Mist</strong> sessions as well as a <strong>Disconnect Message</strong> support.</li>
+<li>In <strong>Portal Management &gt; Structure</strong> we have added a new controllers tab. <em>Cambium Controller</em> is the first available controller, it collects the settings that would need to be duplicated in all <em>Cambium</em> devices in the system connected to one controller. Also, we have added the possibility to choose <strong>Cambium Controller</strong> in Device type <strong>WAG Access Point (Cambium)</strong>.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<ul>
+<li>We have introduced <strong>memory cache for devices</strong> which will reduce database queries about <strong>devices</strong> which will <strong>speed up</strong> processing in several places such as the logging in process.</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>
+<p>The ability to <strong>delete</strong> all collected location data from the <strong>administrative level</strong> has been added.  We have also fixed missing cleanup of some <strong>localisation configurations</strong> when removing a <strong>venue</strong> or <strong>organisation</strong> and from now on the history of deleted venues or areas will be <strong>collected</strong>.</p>
+</li>
+<li>
+<p>We have added the following permission to the Platform:</p>
+</li>
+</ul>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>previewFlowTokenGroup</td>
+<td>Allows the user to preview the Token Group and download token data</td>
+</tr>
+<tr>
+<td>structureReadWriteControllers</td>
+<td>Allows the user to access the Controllers configuration</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="resolved-issues">Resolved Issues</h2>
+<h3 id="system-fixes">System Fixes</h3>
+<ul>
+<li>A check has been added for the <strong>moving</strong> of the <strong>organisation</strong> to ensure that this would not result in duplicate network names. If so, the transfer is <strong>blocked</strong>.</li>
+<li>Moving an organization shows all the <strong>SSIDs</strong> that would be orphaned, not only the first encountered one. </li>
+<li>We have fixed the issues with <strong>permissions</strong>, mainly in <strong>Token group</strong>, not allowing the correct passage through the editor and saving the entity in certain permission settings. The permission tree for <strong>Token groups</strong> has been improved to reflect what permissions are actually used.</li>
+</ul>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

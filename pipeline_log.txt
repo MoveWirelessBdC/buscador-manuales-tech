@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/danieldasilva/Desktop/proyecto_move_kb/main.py", line 3, in <module>
+    from dotenv import load_dotenv
+ModuleNotFoundError: No module named 'dotenv'

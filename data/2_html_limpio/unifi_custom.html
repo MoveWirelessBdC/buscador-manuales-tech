@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="tp_link_standalone.html" rel="prev"/>
+<link href="unify_74_plus.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Unifi Custom - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#unify-network-controller-configuration-guide-v73-or-below">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="unify-network-controller-configuration-guide-v73-or-below">Unify Network Controller Configuration Guide (v7.3 or below)</h1>
+<p><em>Also works (as workaround) with <strong>v7.4 or above</strong> when below configuration was done on <strong>v7.3 or below</strong> and was updated to newer version.</em></p>
+<p>To set up a Unifi device:</p>
+<ol>
+<li>
+<p>First, log in to the Unifi interface with your login credentials:</p>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_1.png"/></p>
+</li>
+<li>
+<p>When you have successfully logged in to the Unifi interface, go to the <strong>Settings &gt; Wireless Network</strong> section. </p>
+<p>Then, select the desired network and click on <strong>Edit</strong> in the <strong>Actions</strong> column.</p>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_2.png"/></p>
+</li>
+<li>
+<p>Now, in the <strong>Edit Wireless Network</strong> window:</p>
+<ul>
+<li>In the <strong>Name/SSID</strong> field, modify the name of the network, or leave an existing one.</li>
+<li>For the <strong>Enabled</strong> option, select the <strong>Enable This Network</strong> checkbox.</li>
+<li>From the list of the <strong>Security</strong> options, select <strong>Open</strong>.</li>
+<li>For the <strong>Guest Policy</strong> option, select the <strong>Apply Guest Policies</strong> checkbox.</li>
+<li>From the <strong>Network</strong> dropdown list, select <strong>LAN</strong>.</li>
+</ul>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_3.png"/></p>
+</li>
+<li>
+<p>When you have provided the network details, go to the <strong>Settings &gt; Guest Control</strong> section.</p>
+<p>Then, in the <strong>Guest Policies</strong> section:</p>
+<ul>
+<li>For the <strong>Guest Portal</strong> option, select the <strong>Enable Guest Portal</strong> checkbox.</li>
+<li>From the <strong>Authentication</strong> options, select <strong>Hotspot</strong>.</li>
+<li>From the <strong>Default Expiration</strong> dropdown list, select <strong>24 Hours</strong>.</li>
+<li>From the list of the <strong>Landing Page</strong> options, select <strong>Promotional URL</strong>, and enter the Administrator’s URL address into the field.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All the <strong>Redirection</strong> option checkboxes should stay <strong>deselected</strong>.</p>
+</div>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_4.png"/></p>
+<p>Next, scroll down and in the <strong>Portal Customisation</strong> section:</p>
+<ul>
+<li>From the <strong>Template Engine</strong> options, select <strong>AngularJS</strong>.</li>
+<li>For the <strong>Override Default Templates</strong> option, select the <strong>Override Templates With Custom Changes</strong> checkbox.</li>
+</ul>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_5.png"/></p>
+<p>Following, in the <strong>Hotspot</strong> section:</p>
+<ul>
+<li>For the <strong>RADIUS</strong> option, select the <strong>Enable RADIUS-Based Authorization</strong> checkbox.</li>
+</ul>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_6.png"/></p>
+</li>
+<li>
+<p>Now, go to the <strong>Guest Control &gt; Profiles &gt; RADIUS</strong> section and click the <strong>Create New RADIUS Profile</strong> button. </p>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_7.png"/></p>
+<p>Then, in the <strong>Edit RADIUS Profile</strong> window:</p>
+<ul>
+<li>Into the <strong>Profile Name</strong> field, enter the name of the RADIUS Profile. For this instruction, it is <code>GuestWiFi</code>.</li>
+<li>For the <strong>RADIUS Auth Server</strong> option:<ul>
+<li>Into the <strong>IP Address</strong> field, enter your Platform IP address. For this instruction, it is <code>35.234.150.70</code>.</li>
+<li>Into the <strong>Port</strong> field, enter the IP port. For this instruction, it is <code>1812</code>.</li>
+<li>In the <strong>Password Shared Secret</strong> field, type the shared secret password. For this instruction, it is <code>bAZev44u</code>.</li>
+</ul>
+</li>
+<li>For the <strong>Accounting</strong> option, select the <strong>Enable Accounting</strong> checkbox.</li>
+<li>For the <strong>Interim Update</strong> option, select the <strong>Enable Interim Update</strong> checkbox.</li>
+<li>Into the <strong>Interim Update Interval</strong> field, enter the desired number of seconds. For this instruction, it is <code>10</code>. </li>
+<li>For the <strong>RADIUS Accounting Server</strong> option:<ul>
+<li>Into the <strong>IP Address</strong> field, enter your Platform IP address. For this instruction, it is <code>35.234.150.70</code>.</li>
+<li>Into the <strong>Port</strong> field, enter the IP port. For this instruction, it is <code>1812</code>.</li>
+<li>In the <strong>Password Shared Secret</strong> field, type the shared secret password. For this instruction, it is <code>bAZev44u</code>.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_8.png"/></p>
+</li>
+<li>
+<p>After you have finished setting up the RADIUS profile, go back to the <strong>Guest Control &gt; Profiles &gt; RADIUS</strong> section:</p>
+<ul>
+<li>From the <strong>Profile</strong> dropdown list, select the newly created RADIUS Profile. For this instruction, it is <code>GuestWiFi</code>.</li>
+<li>From the <strong>Authentication Type</strong> dropdown list, select <strong>CHAP</strong>.</li>
+</ul>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_9.png"/></p>
+</li>
+<li>
+<p>Finally, scroll to the <strong>Access Control</strong> section, and in the <strong>Pre-Authorization Access</strong> field, enter the access IP. For this instruction, it is <code>35.234.150.70/32</code>.</p>
+<p><img alt="unifi custom" src="images/unifi_custom/ubiquiti_10.png"/></p>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul>
+<li>
+<p>Files that you receive from your Administrator should be located in the following folder on the controller machine:
+<code>/usr/lib/unifi/data/sites/default/app-unifi-hotspot-portal</code></p>
+</li>
+<li>
+<p>You should also insert your URL address in the <code>const wifiPortal</code> line to ensure the correct configuration: </p>
+</li>
+</ul>
+<p><code>javascript
+const wifiPortal = "Replace this with your server address, starting with http:// or https://";</code></p>
+<ul>
+<li>Once the access point is configured, provide your Administrator with the device's MAC address and Network details to allow them to set it up on the Platform server.</li>
+</ul>
+</div>
+<h2 id="references">References</h2>
+<p>Below, you can find the list of entities that can be added to the Walled Garden during the configuration process. After you have finished adding them, continue configuring the Access Control.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The below entities are <strong>optional</strong> for the configuration. Using them may impact the <strong>Popup</strong> option which may not work as expected. You should also note that all of these entities use the <em>https</em> which requires the configuration of an appropriate cert for the proper redirection to the designated web address.</p>
+</div>
+<h3 id="domain">Domain</h3>
+<pre><code>*.domain.com
+</code></pre>
+<h4 id="ip">IP</h4>
+<p>For Domain Europe: <code>35.241.143.144</code><br/>
+For Domain North and South America: <code>35.245.165.143</code><br/>
+For Domain Asia: <code>35.240.186.103</code></p>
+<h3 id="ios-optional">iOS (optional)</h3>
+<pre><code>www.appleiphonecell.com  
+captive.apple.com  
+www.apple.com  
+www.itools.info  
+www.ibook.info  
+www.airport.us  
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com  
+*.gstatic.com  
+clients3.google.com
+</code></pre>
+<h3 id="microsoft-required-for-loging-in-with-microsoft">Microsoft (required for loging in with Microsoft)</h3>
+<pre><code>msftncsi.com  
+*.msftncsi.com
+login.microsoftonline.com
+aadcdn.msftauth.net
+aadcdn.msauth.net
+login.live.com  
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com  
+facebook.net  
+akamaihd.net  
+digicert.com  
+fbcdn.net  
+fb.com  
+fbsbx.com  
+*.facebook.com  
+*.facebook.net  
+*.akamaihd.net  
+*.digicert.com  
+*.fbcdn.net  
+*.fb.com  
+*.fbsbx.com  
+</code></pre>
+<h4 id="ip_1">IP</h4>
+<pre><code>5.178.32.0/20  
+195.27.154.0/24  
+80.150.192.0/24  
+77.67.96.0/22  
+212.119.27.0/25  
+2.16.0.0/13  
+66.171.231.0/24  
+31.13.24.0/21  
+31.13.64.0/18  
+212.245.45.0/24  
+213.254.17.0/24  
+46.33.70.0/24  
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com  
+twimg.com  
+abs.twitter.com  
+*.twitter.com  
+*.twimg.com  
+*.abs.twitter.com 
+</code></pre>
+<h4 id="ip_2">IP</h4>
+<pre><code>199.16.156.0/22  
+199.59.148.0/22  
+199.96.56.0/21  
+192.133.76.0/22  
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com  
+oauth.vk.com  
+vk.me  
+*.vk.com  
+*.oauth.vk.com  
+*.vk.me
+</code></pre>
+<h3 id="paypal">PayPal</h3>
+<pre><code>paypal.com  
+omtrdc.net  
+mediaplex.com  
+paypalobjects.com  
+abmr.net  
+dotomi.com  
+*.paypal.com  
+*.omtrdc.net  
+*.mediaplex.com  
+*.paypalobjects.com  
+*.abmr.net  
+*.dotomi.com  
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<pre><code>instagram.com
+</code></pre>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com  
+ytimg.com  
+gstatic.com  
+google.com  
+googlevideo.com  
+*.youtube.com  
+*.ytimg.com  
+*.gstatic.com  
+*.google.com  
+*.googlevideo.com 
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com  
+gstatic.com  
+googleusercontent.com  
+google.com  
+googleapis.com  
+accounts.youtube.com  
+*.accounts.google.com  
+*.googleusercontent.com  
+*.google.com  
+*.googleapis.com  
+*.accounts.youtube.com 
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>*.line.me  
+*.line-apps.com  
+*.line-scdn.net  
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>*.kakao.com  
+*.google.com  
+*.m2.daumcdn.net  
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

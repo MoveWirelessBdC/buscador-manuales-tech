@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2023_04_14.html" rel="prev"/>
+<link href="2023_03_17.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>23.03.31__stable__0.91.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-230331__stable__0910">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-230331__stable__0910">Release Version: 23.03.31__stable__0.91.0</h1>
+<h3 id="release-date-31032023">Release Date: 31/03/2023</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>Added acceptance frequency to <strong>Service Documents</strong>, you can now set a period after which a user will need to re accept the terms.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<h3 id="feature-updates">Feature Updates</h3>
+<ul>
+<li>
+<p>Reports are now sent using templates customised in the Sending Centre. Email customisation is no longer available in Report Manager.</p>
+</li>
+<li>
+<p>The ability to change the content of daily/weekly/monthly reports is now available in the Portal Management &gt; Sending Centre &gt; Email customisation.</p>
+</li>
+<li>
+<p>A navbar has been added to the report view - it displays the organisation's time zone and gives you the possibility to log out or go to the Platform.</p>
+</li>
+<li>
+<p>Now, when a user is unable to view a specific report, instead of the error page, they will see a dialog with possibility to logout or redirect to the main page.</p>
+</li>
+</ul>
+<h3 id="gui-updates">GUI Updates</h3>
+<ul>
+<li>
+<p>We have made a change to the report name length. The maximum character limit for report names is now 50 characters.</p>
+</li>
+<li>
+<p>We have removed the deprecated Token formatter</p>
+</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>
+<p>Added mechanism for deleting Reports and their scheduled and delivered entities when deleting an organisation.</p>
+</li>
+<li>
+<p>Created dedicated permissions for Access Methods in REST API and used them in endpoints instead of UI ones.</p>
+</li>
+<li>
+<p>Message sender REST API is using new own permissions instead of using the ones for Organisation management.</p>
+</li>
+</ul>
+<p>We have added the following permissions to the Platform:</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reportTemplates</td>
+<td>Allows the user to customise content and formats of Report messages</td>
+</tr>
+<tr>
+<td>readUserAccountsData</td>
+<td>-</td>
+</tr>
+<tr>
+<td>writeUserAccountsData</td>
+<td>-</td>
+</tr>
+<tr>
+<td>readFlowTokenData</td>
+<td>-</td>
+</tr>
+<tr>
+<td>writeFlowTokenData</td>
+<td>-</td>
+</tr>
+<tr>
+<td>readFreeTokenData</td>
+<td>-</td>
+</tr>
+<tr>
+<td>writeFreeTokenData</td>
+<td>-</td>
+</tr>
+<tr>
+<td>readMessageSenderData</td>
+<td>-</td>
+</tr>
+<tr>
+<td>writeMessageSenderData</td>
+<td>-</td>
+</tr>
+</tbody>
+</table></div></div>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

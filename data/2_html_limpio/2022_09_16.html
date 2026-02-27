@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2022_09_30.html" rel="prev"/>
+<link href="2022_09_02.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>22.09.16__stable__0.77.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-220916__stable__0770">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-220916__stable__0770">Release Version: 22.09.16__stable__0.77.0</h1>
+<h3 id="release-date-09162022">Release Date: 09/16/2022</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>We have overhauled the <strong>Social Media</strong> feature which now allows to create multiple configurations in an organisation  in <strong>User Enrollment</strong> &gt; <strong>Access methods</strong> &gt; <strong>Social Media</strong> as well as added new options in the <strong>Portal Editor</strong>.</li>
+<li>
+<p>Social Media manager:</p>
+<ul>
+<li>two tabs have been added:<ul>
+<li><strong>All configurations</strong> - shows all (own and parent organisations), allows to create new, edit existing and delete</li>
+<li><strong>Primary configurations</strong> - shows which configurations are automatically used to log in on the <strong>Captive Portal</strong>, you may choose <strong>own</strong> or leave <strong>original</strong> setting</li>
+</ul>
+</li>
+<li>you may <strong>expand</strong> each configuration to show all the details (details are dependant on the type of Social Media)</li>
+<li>the <strong>Create new</strong>, <strong>Edit</strong> and <strong>Delete</strong> options have been added<ul>
+<li><strong>Create new</strong> - In order for the configuration to be automatically applied as Primary in the Captive Portal, it must be set manually by going to the Primary tab.</li>
+<li><strong>Edit</strong> - You cannot change the Social Media platform for the existing configuration</li>
+<li><strong>Delete</strong> - You cannot delete a configuration which is used as <strong>Custom</strong> on the <strong>Captive Portal</strong> or is set as the <strong>Primary</strong></li>
+</ul>
+</li>
+<li>
+<p>In the <strong>Social Media</strong> component in <strong>Portal Editor</strong> we have added:</p>
+<ul>
+<li>a <strong>toggle button</strong> which enables the user to choose which configuration will be applied in the Captive Portal during logging in: <strong>Primary</strong> or <strong>Custom</strong></li>
+<li>the option to choose which configuration to use from the <strong>dropdown list</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For proper operation of logging in with the <strong>Social Media</strong> component, it must be configured.</p>
+</div>
+<ul>
+<li>We have added the possibility to import and export Social Media configuration settings in the Captive Portal.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>We have added the option to edit licences in <strong>Portal Management</strong> &gt; <strong>Licences and roles</strong> &gt; <strong>Licence manager</strong>.</p>
+</li>
+<li>The following options are now editable:<ul>
+<li>Licence Order number</li>
+<li>Plan</li>
+<li>Description</li>
+<li>Validity time</li>
+<li>AP Capacity</li>
+</ul>
+</li>
+<li>Modification of <strong>Transfer limits</strong> is unavailable during editing.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<ul>
+<li>We have removed the <strong>Social Media</strong> properties from the <strong>REST API</strong> as they are no longer properties. Using the previous names of properties for <strong>Social Media</strong> they will be treated by the methods of this <strong>API</strong> as the name of a <strong>dynamic property</strong>.</li>
+<li>We have <strong>blocked</strong> the moving of <strong>organisations</strong> if:<ul>
+<li>a <strong>Primary</strong> configuration is selected in the <strong>subtree</strong>, which will not be available after the transfer</li>
+<li>there is a <strong>Portal</strong> in the <strong>subtree</strong> with a selected <strong>Custom</strong> configuration that will not be available after the transfer</li>
+</ul>
+</li>
+<li>The <strong>internal alert</strong> for comparison of the historical load of the <strong>Platform</strong> has been improved by changing the comparison from “the previous day” to “from a week ago” and adding <strong>support</strong> for real use hours of the installation which allowed to improve <strong>thresholds</strong> and detect potential problems earlier.</li>
+<li>We have cleaned up the processing logs for <strong>user profiles</strong>.</li>
+</ul>
+<h3 id="feature-updates">Feature Updates</h3>
+<ul>
+<li>We have removed all the old <strong>Social Media</strong> configuration views.</li>
+</ul>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

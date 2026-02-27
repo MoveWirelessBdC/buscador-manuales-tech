@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../reporting/dashboard.html" rel="prev"/>
+<link href="campaign_overview.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Marketing Campaign Setup - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#marketing-campaign-setup">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="marketing-campaign-setup">Marketing Campaign Setup</h1>
+<h2 id="organisation-settings">Organisation settings</h2>
+<h4 id="1-firstly-you-should-make-sure-that-your-organisation-is-data-administrator-and-your-emailsms-sending-configuration-is-admin">1. Firstly you should make sure that your organisation is <strong>Data Administrator</strong> and your <strong>Email/SMS</strong> sending configuration is <strong>admin</strong>.</h4>
+<ul>
+<li>Go to: <strong>Portal Management</strong> &gt; <strong>Structure</strong> &gt; <strong>Organisation</strong> and Select additional settings. ( 3 vertical dots on the left of the organisation name).
+<img alt="marketing" src="images/mark_info/mark_info_0.png"/></li>
+</ul>
+<h4 id="2-create-sms-configuration">2. Create SMS Configuration:</h4>
+<p>To create SMS configuration go to: <strong>Portal Management</strong> &gt; <strong>Sending centre</strong> &gt; <strong>Sending Configuration</strong> &gt; <strong>SMS</strong> tab.
+<img alt="marketing" src="images/mark_info/mark_info_87.png"/>
+<strong>Note</strong>: To begin creating an <strong>SMS configuration</strong>, you should first ensure that you have a client account on the dedicated <strong>Gateway</strong> platform.</p>
+<ul>
+<li>
+<p>To create a new <strong>SMS configuration</strong>, click the <strong>+</strong> button in the bottom right corner of the window.
+<img alt="marketing" src="images/mark_info/mark_info_88.png"/></p>
+</li>
+<li>
+<p>Now, in the <strong>SMS</strong> settings window:</p>
+</li>
+<li>
+<p>In the <strong>Name</strong> field, type the name of the <strong>SMS</strong> configuration;</p>
+</li>
+<li>
+<p>From the <strong>Gateway</strong> dropdown list, select the desired gateway. For this instruction, it is Default. Then, click <strong>Next</strong> in the top right corner to proceed further.
+<img alt="marketing" src="images/mark_info/mark_info_3.png"/></p>
+</li>
+<li>
+<p>In the next window:</p>
+</li>
+<li>Into the <strong>SMS Gateway URL</strong> field, enter the designated gateway URL;</li>
+<li>From the <strong>SMS API Encoding</strong> dropdown list, select the desired encoding. For this instruction, it is UTF-8.</li>
+</ul>
+<p>Finally, click <strong>Save</strong> in the top right corner to finish creating the configuration.
+<img alt="marketing" src="images/mark_info/mark_info_4.png"/></p>
+<ul>
+<li>
+<p>The SMS configuration is now created. You should note that your sub-organisations can inherit it, and will be able to use it for their own SMS gateway configuration.</p>
+</li>
+<li>
+<p>Now, to finish the configuration process, you must assign the newly created configuration to the appropriate Property. To learn how to do this, read the Active Configurations section of this chapter.</p>
+</li>
+</ul>
+<h4 id="3-create-email-configuration">3. Create Email Configuration</h4>
+<ul>
+<li>Go to: <strong>Portal Management</strong> &gt; <strong>Sending centre</strong> &gt; <strong>Sending Configuration</strong> &gt; <strong>Email</strong> tab.
+<img alt="marketing" src="images/mark_info/mark_info_89.png"/></li>
+</ul>
+<p><strong>Note</strong>: To begin creating an Email configuration, you should first ensure that you have a client account on the dedicated Gateway platform.</p>
+<ul>
+<li>To create a new Email configuration, click the <strong>+</strong> button in the bottom right corner of the window.</li>
+<li>Now, in the <strong>Email Settings</strong> window:</li>
+<li>In the <strong>Name</strong> field, type the name of the Email configuration;</li>
+<li>From the <strong>Gateway</strong> dropdown list, select the desired gateway. For this instruction, it is Default.</li>
+<li>
+<p>Then, click <strong>Next</strong> in the top right corner to proceed further.
+<img alt="marketing" src="images/mark_info/mark_info_5.png"/></p>
+</li>
+<li>
+<p>In the next window, you should provide the Email configuration details</p>
+</li>
+<li>The <strong>Auth Enabled</strong> dropdown list allows you to specify whether the Email Authentication is enabled or not, by selecting true (for yes) or false (if no);</li>
+<li>In the <strong>Host Name</strong> field, type the host web address;</li>
+<li>Into the <strong>Password field</strong>, enter the gateway password;</li>
+<li>Into the <strong>Port</strong> field, enter the gateway port;</li>
+<li>In the <strong>Source Mail</strong> field, enter the email address from which the messages will be sent;</li>
+<li>The <strong>SSL Enabled</strong> dropdown list allows you to specify whether the Email dispatch is secured with the SSL certificate, by selecting true (for yes) or false (if no);</li>
+<li>The <strong>TSL Enabled</strong> dropdown list allows you to specify whether the Email dispatch is secured with the TSL certificate, by selecting true (for yes) or false (if no);</li>
+<li>From the <strong>Transport Protocol</strong> dropdown list, select the protocol by which the emails are dispatched - SMTP or SMTPS;</li>
+<li>In the <strong>Username</strong> field, enter the gateway username;</li>
+<li>In the <strong>Sender Name</strong> field, type the name or text, which will display in the email title.</li>
+</ul>
+<p>After you have finished providing the details, click <strong>Save</strong> in the top right corner to finish creating the configuration.</p>
+<ul>
+<li>The <strong>SMS</strong> configuration is now created. You should note that your sub-organisations can <strong>inherit</strong> it, and will be able to use it for their own <strong>SMS</strong> and <strong>Email</strong> gateway configuration. </li>
+</ul>
+<p>Now, to finish the configuration process, you must assign the newly created configuration to the appropriate Property.</p>
+<h4 id="4-select-active-configuration">4. Select Active configuration</h4>
+<ul>
+<li>
+<p>Go to: <strong>Portal Management</strong> &gt; <strong>Sending centre</strong> &gt; <strong>Sending Configuration</strong> &gt; <strong>ACTIVE CONFIGURATION</strong> tab.
+<img alt="marketing" src="images/mark_info/mark_info_90.png"/></p>
+</li>
+<li>
+<p>Select appropriate SMS and/or Email configurations, and set them up for Marketing Campaigns as Active Configurations.
+<img alt="marketing" src="images/mark_info/mark_info_91.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_9.png"/></p>
+</li>
+</ul>
+<h2 id="user-agreements">User Agreements</h2>
+<h3 id="1-create-marketing-category">1. Create Marketing Category</h3>
+<ul>
+<li>
+<p>Go to the <strong>User Enrollment</strong> → <strong>User Agreements</strong> section and select the <strong>Marketing Categories</strong> option.
+<img alt="marketing" src="images/mark_info/mark_info_10.png"/></p>
+</li>
+<li>
+<p>In the bottom right corner, click the <strong>+</strong> button.
+<img alt="marketing" src="images/mark_info/mark_info_11.png"/></p>
+</li>
+<li>
+<p>In the first step:</p>
+<ul>
+<li>Type the Marketing Category’s name into the <strong>Marketing Category name</strong> field</li>
+<li>From the <strong>Offer frequency</strong> dropdown list, select how often the document should be displayed to the users. For this instruction, it is <em>Once</em>.</li>
+</ul>
+</li>
+<li><strong>Note</strong>: only when users give their consent to receive offers, can these offers be sent to them.</li>
+<li>
+<p>After you have finished providing these details, click <strong>Next</strong> in the top right corner of the window.
+<img alt="marketing" src="images/mark_info/mark_info_12.png"/></p>
+</li>
+<li>
+<p>In the following step, compose the text of the <strong>Marketing Category</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_13.png"/></p>
+</li>
+<li>
+<p>In the last step, you can review the summary of selected settings and preview the Marketing Category by clicking the <strong>Preview Marketing Category</strong> button.
+<img alt="marketing" src="images/mark_info/mark_info_14.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_15.png"/></p>
+</li>
+<li>
+<p>The document has now been created as a <strong>Draft</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_16.png"/></p>
+</li>
+<li>
+<p><strong>All User Agreement</strong> documents including <strong>Marketing Categories</strong> are initially created as <strong>Drafts</strong>. Before they can be added to the Portal, they must be <strong>published</strong>.</p>
+</li>
+</ul>
+<h4 id="publishing-a-marketing-category">Publishing a Marketing Category</h4>
+<ul>
+<li>Go to the <strong>User Enrollment</strong> → <strong>User Agreements</strong> → <strong>Marketing Categories</strong> section and select the document which you would like to publish.</li>
+<li>
+<p>In the selected <strong>Marketing Category</strong> panel, click the <strong>More</strong> option and select <strong>Publish</strong> from the dropdown menu. Then, confirm publishing the Document in the pop-up box.
+<img alt="marketing" src="images/mark_info/mark_info_17.png"/></p>
+</li>
+<li>
+<p>The Document’s status has now been changed to <strong>Published</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_18.png"/></p>
+</li>
+</ul>
+<h3 id="2-create-a-communication-channel">2. Create a Communication Channel</h3>
+<p>The <strong>Communication Channels</strong> function allows you to ask users about their preferred method of receiving marketing offers. </p>
+<ul>
+<li>
+<p>Go to the <strong>User Enrollment</strong> → <strong>User Agreements</strong> section and select the <strong>Communication Channels</strong> option.
+<img alt="marketing" src="images/mark_info/mark_info_19.png"/></p>
+</li>
+<li>
+<p>In the bottom right corner of the window, click the <strong>+</strong> button to add a new Communication Channel.
+<img alt="marketing" src="images/mark_info/mark_info_20.png"/></p>
+</li>
+<li>
+<p>In the first step:</p>
+</li>
+<li>Type the Communication Channel name in the <strong>Communication Channel name</strong> field</li>
+<li>(Optional) Allow users to edit the initially chosen preferences in their GDPR panel by turning the <strong>Allow Users</strong> to <strong>Edit</strong> switch <strong>ON</strong></li>
+<li>
+<p>Then, click <strong>Next</strong> to proceed.
+<img alt="marketing" src="images/mark_info/mark_info_21.png"/></p>
+</li>
+<li>
+<p>In the following step:</p>
+</li>
+<li>
+<p>Composing both the <strong>Consent</strong> and the <strong>Selection</strong> texts the <strong>Selection Text</strong> appears at the top of the list of Communication Channels available for selection. Then, click <strong>Next</strong> to continue.
+<img alt="marketing" src="images/mark_info/mark_info_22.png"/> </p>
+</li>
+<li>
+<p>Now, select Communication Channels which you would like to offer to users for selection. You can choose the predefined ones by selecting the <strong>Predefined</strong> option from the toggle button, or select the <strong>Custom</strong> option to add additional ones.
+To remove options, click the <strong>Bin</strong> button next to the desired channel. You can also specify the default status of these methods to <strong>selected by default</strong> by turning the switches <strong>ON</strong> and <strong>OFF</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_23.png"/></p>
+</li>
+<li>
+<p>In the last step, you can review the summary of selected settings and preview the Communication Channels by clicking the <strong>Preview Communication Channel</strong> button.
+<img alt="marketing" src="images/mark_info/mark_info_24.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_25.png"/></p>
+</li>
+<li>
+<p>The document has now been created as a <strong>Draft</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_26.png"/></p>
+</li>
+</ul>
+<h4 id="publishing-communication-channels">Publishing Communication Channels</h4>
+<ul>
+<li>Go to the <strong>User Enrollment</strong> → <strong>User Agreements</strong> → <strong>Communication Channels</strong> section and select the document which you would like to publish.</li>
+<li>
+<p>In the selected Communication Channels panel, click the <strong>More</strong> option and select <strong>Publish</strong> from the dropdown menu. Then, confirm publishing the Document in the pop-up box.
+<img alt="marketing" src="images/mark_info/mark_info_27.png"/></p>
+</li>
+<li>
+<p>The Document’s status has now been changed to <strong>Published</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_28.png"/></p>
+</li>
+</ul>
+<h2 id="user-journey">User Journey</h2>
+<h4 id="1-create-captive-portal-with-marketing-categories-and-communication-channels">1. Create Captive Portal with Marketing Categories and Communication Channels</h4>
+<ul>
+<li>
+<p>Go to the <strong>User Enrollment</strong> → <strong>User Journey</strong> section and click the <strong>Portal</strong> option.
+<img alt="marketing" src="images/mark_info/mark_info_29.png"/></p>
+</li>
+<li>
+<p>On the <strong>Portal Manager</strong> page, click <strong>+</strong> to create a new Portal in the bottom right corner.
+<img alt="marketing" src="images/mark_info/mark_info_30.png"/></p>
+</li>
+<li>
+<p>Type the name of the Portal and select its language. In the upper right corner, click <strong>Next</strong> to confirm your selection.
+<img alt="marketing" src="images/mark_info/mark_info_31.png"/></p>
+</li>
+<li>
+<p>On the <strong>Portal Editor</strong> page select the <strong>Basics</strong> option from the menu on the left.
+<img alt="marketing" src="images/mark_info/mark_info_32.png"/></p>
+</li>
+<li>
+<p>Now, drag the <strong>Marketing Categories</strong> tile to the Portal workspace and drop it inside.
+<img alt="marketing" src="images/mark_info/mark_info_33.png"/></p>
+</li>
+<li>
+<p>In the menu on the left, select the needed document from the dropdown list and click <strong>+</strong>
+<img alt="marketing" src="images/mark_info/mark_info_34.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_35.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_37.png"/></p>
+</li>
+<li>
+<p>The selected document now appears in the workspace.
+<img alt="marketing" src="images/mark_info/mark_info_38.png"/></p>
+</li>
+<li>
+<p>You can add more than one document with marketing categories
+<img alt="marketing" src="images/mark_info/mark_info_39.png"/></p>
+</li>
+<li>
+<p>Now click <strong>+</strong> to add a new component in the bottom right corner.
+<img alt="marketing" src="images/mark_info/mark_info_40.png"/></p>
+</li>
+<li>
+<p>Select again the <strong>Basics</strong> option from the menu on the left and drag the <strong>Communication channels</strong> tile to the Portal workspace and drop it inside.
+<img alt="marketing" src="images/mark_info/mark_info_41.png"/></p>
+</li>
+<li>
+<p>In the menu on the left, select the needed document from the dropdown list
+<img alt="marketing" src="images/mark_info/mark_info_42.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_43.png"/></p>
+</li>
+<li>
+<p>The selected document now appears in the workspace.
+<img alt="marketing" src="images/mark_info/mark_info_44.png"/></p>
+</li>
+<li>
+<p>In the upper right corner, click <strong>Save</strong> to confirm your design changes.
+<img alt="marketing" src="images/mark_info/mark_info_45.png"/></p>
+</li>
+<li>
+<p>Before saving, you can preview the <strong>Portal</strong> for both web and mobile versions. To do this, click <strong>Next</strong> in the upper right corner of the page. If you would like to skip this step, click <strong>Skip and Save</strong> in the upper right corner.
+<img alt="marketing" src="images/mark_info/mark_info_47.png"/></p>
+</li>
+</ul>
+<h4 id="2-create-a-captive-portal-with-the-appropriate-login-method">2. Create a Captive Portal with the appropriate login method.</h4>
+<p>Messages from marketing campaigns are sent only to people who have shared their Email and / or phone number via the login path.
+   It is imperative to create a <strong>Captive Portal</strong> with such a login method which will allow the collection of this data.</p>
+<h4 id="you-can-use-these-login-methods">You can use these login methods:</h4>
+<ul>
+<li>
+<p><strong>Login</strong> &gt; <strong>Form</strong> - A questionnaire about Email, Phone number (possibly about Date of birth or Gender for narrowing the target group at a later time).
+<img alt="marketing" src="images/mark_info/mark_info_48.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_49.png"/></p>
+</li>
+<li>
+<p><strong>Login</strong> &gt; <strong>Email</strong>
+<img alt="marketing" src="images/mark_info/mark_info_50.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_51.png"/></p>
+</li>
+<li>
+<p><strong>Login</strong> &gt; <strong>User registration</strong>
+<img alt="marketing" src="images/mark_info/mark_info_52.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_53.png"/></p>
+</li>
+<li>
+<p><strong>Multi step login</strong> &gt; <strong>Phone number verification</strong>
+<img alt="marketing" src="images/mark_info/mark_info_54.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_55.png"/></p>
+</li>
+</ul>
+<h4 id="3-create-page-flow-with-previously-created-captive-portals-and-internet-access">3. Create Page Flow with previously created Captive Portals and Internet access.</h4>
+<ul>
+<li>
+<p>Go to the <strong>User Enrollment</strong> → <strong>User Journey</strong> section and click the <strong>Page flow</strong> option.
+<img alt="marketing" src="images/mark_info/mark_info_56.png"/></p>
+</li>
+<li>
+<p>In the <strong>Page Flow Manager</strong>, click <strong>+</strong> in the bottom right corner.
+<img alt="marketing" src="images/mark_info/mark_info_57png.png"/></p>
+</li>
+<li>
+<p>In the <strong>Settings</strong> panel, type the Flow name. In the top right corner, click <strong>Next</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_58.png"/></p>
+</li>
+<li>
+<p>In the <strong>Page Flow Editor</strong>, click <strong>+</strong> to create the first node. Then, from the list, select the <strong>Portal</strong> option.
+<img alt="marketing" src="images/mark_info/mark_info_59.png"/></p>
+</li>
+<li>
+<p>On the <strong>Portals Available</strong> page, select the Portal with login method that you created earlier. In the upper right corner, click <strong>Select</strong> to confirm your choice.
+<img alt="marketing" src="images/mark_info/mark_info_60.png"/></p>
+</li>
+<li>
+<p>Portal has been added.
+<img alt="marketing" src="images/mark_info/mark_info_61.png"/></p>
+</li>
+<li>
+<p>Add another portal to the login path - with <strong>Marketing Categories</strong> and <strong>Communication Channels</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_62.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_63.png"/></p>
+</li>
+<li>
+<p>Another portal has been added.
+<img alt="marketing" src="images/mark_info/mark_info_64.png"/></p>
+</li>
+<li>
+<p>Add Internet Access node to login path.
+<img alt="marketing" src="images/mark_info/mark_info_65.png"/></p>
+</li>
+<li>
+<p>On the <strong>Network Parameters</strong> page, configure the network settings. To confirm changes, click <strong>Save</strong> in the upper right corner.
+<img alt="marketing" src="images/mark_info/mark_info_66.png"/></p>
+</li>
+<li>
+<p>Finish creating the login path and click <strong>Save</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_67.png"/></p>
+</li>
+</ul>
+<h4 id="4-attach-the-created-page-flow-to-the-network-that-you-share-with-your-clients-to-log-into-wi-fi">4. Attach the created Page Flow to the network that you share with your clients to log into Wi-Fi.</h4>
+<ul>
+<li>
+<p>Go to the <strong>User Enrollment</strong> → <strong>User Journey</strong> section and select the <strong>Access Settings</strong> option.
+<img alt="marketing" src="images/mark_info/mark_info_68.png"/></p>
+</li>
+<li>
+<p>In the <strong>Network Manager</strong>, click the <strong>More</strong> option. Then, from the dropdown list, select <strong>Attach Flow</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_69.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_70.png"/></p>
+</li>
+<li>
+<p>On the <strong>Page Flows Available</strong> page, select the Page Flow you just created. In the upper right corner, click <strong>Select</strong> to confirm.
+<img alt="marketing" src="images/mark_info/mark_info_71.png"/></p>
+</li>
+<li>
+<p>The <strong>Page Flow</strong> is now published.
+<img alt="marketing" src="images/mark_info/mark_info_72.png"/></p>
+</li>
+<li>
+<p>After your customers log into the network and share their contact details you can create a <strong>Marketing Campaign</strong>.</p>
+</li>
+</ul>
+<h2 id="marketing-campaign">Marketing campaign</h2>
+<ol>
+<li>
+<p>Go to the <strong>Marketing</strong> &gt; <strong>Campaigns section</strong>, and click <strong>+</strong> in the bottom right corner to create a new campaign .
+<img alt="marketing" src="images/mark_info/mark_info_73.png"/></p>
+</li>
+<li>
+<p>Select the desired type of campaign by clicking on the appropriate tile.  Then, follow the configuration steps in the <strong>Campaign Editor</strong>.
+<strong>Note</strong>: One-shot campaign is the basic available type of campaign.
+<img alt="marketing" src="images/mark_info/mark_info_74.png"/></p>
+</li>
+<li>
+<p>In the <strong>Campaign Overview</strong> step, type the name of the campaign in the Name field, and enter the campaign <strong>description</strong> into the Description field. (The description is not displayed to end-users).
+<img alt="marketing" src="images/mark_info/mark_info_75.png"/></p>
+</li>
+<li>
+<p>In the <strong>Target Group</strong> step, select the desired target group by clicking on the appropriate tile. If you have no target group yet, you can create a new one or select the existing one from the default section.</p>
+</li>
+</ol>
+<p><strong>Note</strong>: If data about gender and age were collected in the login process, you can choose a narrowed target group, and if not - select ALL.
+<img alt="marketing" src="images/mark_info/mark_info_76.png"/></p>
+<ol>
+<li>
+<p>In the <strong>Marketing Categories</strong> step, you can choose the marketing categories by which the selected group should be targeted.
+<img alt="marketing" src="images/mark_info/mark_info_77.png"/></p>
+<ul>
+<li>Messages will be sent to users who agreed to these categories while logging in.</li>
+<li>You can also choose the SKIP option and then will be sent regardless of the consent.</li>
+</ul>
+</li>
+<li>
+<p>In the <strong>Contact Methods</strong> step, you can choose the contact methods to reach your users.</p>
+</li>
+<li>Messages will be sent to users who, by going through the login path, agreed to be contacted by Email or SMS.</li>
+</ol>
+<p>By default, both SMS and email are selected. To deactivate a contact method, turn the switch next to it <strong>OFF</strong>.</p>
+<p>Next, determine the number of users to whom you would like to send the message in the <strong>Number of SMS</strong> and/or <strong>Number of Emails</strong> fields.</p>
+<p><strong>Tip</strong>: The contact method at the top of the list is the primary one. You can manage the priority of these methods by dragging and dropping them according to your preferences.</p>
+<ul>
+<li>If the Only verified addresses checkbox is marked, messages will be sent only to the confirmed Email addresses/phone numbers, if the checkbox is left unmarked, messages will be sent to ALL users.</li>
+<li>
+<p><strong>Note</strong>: The Email addresses/phone numbers collected through the questionnaire are unconfirmed.
+<img alt="marketing" src="images/mark_info/mark_info_78.png"/></p>
+</li>
+<li>
+<p>In the <strong>Message</strong> step, you can compose the message which you would like to send to your users. Depending on your selection in the previous step, this may be an SMS, an email, or both. Type the text in the <strong>Message Content</strong> field.
+<img alt="marketing" src="images/mark_info/mark_info_79.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_80.png"/>
+<img alt="marketing" src="images/mark_info/mark_info_81.png"/>
+<strong>NOTE</strong>: It is possible to send a test Email or SMS during the message creating process.</p>
+</li>
+<li>
+<p>In the <strong>Delivery Schedule</strong> step, set the campaign delivery details - date and time.
+<img alt="marketing" src="images/mark_info/mark_info_82.png"/></p>
+</li>
+<li>
+<p>In the <strong>Summary</strong> step, you can review the campaign details. To finish the configuration process and schedule the campaign, click <strong>Send Campaign</strong> in the top right corner.
+<img alt="marketing" src="images/mark_info/mark_info_83.png"/></p>
+</li>
+<li>
+<p>The campaign is now set to be dispatched at the designated time.
+<img alt="marketing" src="images/mark_info/mark_info_84.png"/></p>
+</li>
+</ul>
+<p><strong>IMPORTANT</strong>: Make sure that <strong>before</strong> sending the campaign to <strong>real</strong> customers, it is <strong>checked</strong> on the test database of Emails / phone numbers.</p>
+<p>After the campaign is completed, you can view its results by clicking <strong>Check results</strong>.
+<img alt="marketing" src="images/mark_info/mark_info_85.png"/></p>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

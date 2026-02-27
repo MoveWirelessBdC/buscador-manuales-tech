@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="basic_authentication.html" rel="prev"/>
+<link href="locationApi.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>WiFiUserProfile - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#post-wifiuserprofile">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="post-wifiuserprofile">POST / WiFiUserProfile</h1>
+<h2 id="description">Description</h2>
+<p>The <strong>WiFiUserProfile</strong> API is a push API that sends user data about users who successfully log in to WiFi or change
+their data in the GDPR panel. It is sent every time a WiFi user gets access to the Internet, and/or makes changes to
+their data.</p>
+<p>It can be used to integrate the platform with services delivered by external providers, for instance, CRM software.</p>
+<p>Push Method:<br/>
+<strong>POST</strong></p>
+<h2 id="push-url">Push URL</h2>
+<p>The <strong>Push URL</strong> is the URL of the server which receives the collected data.</p>
+<ul>
+<li>It must start with <strong>https://</strong></li>
+<li>It is set in <strong>Portal Management → Properties → Advanced properties</strong>: the keys are <em>wiFiUserProfilePushApiUrl</em> and
+  <em>wiFiUserProfilePushApiBasicAuthCredential</em><ul>
+<li><em>wiFiUserProfilePushApiUrl</em> sets the Push API</li>
+<li><em>wiFiUserProfilePushApiBasicAuthCredential</em> is <strong>optional</strong>, and when defined, it enables transferring user
+  profiles to the URL with Basic Authentication. <br/>
+<strong>Note: It must have a specific format: "login:password".</strong></li>
+</ul>
+</li>
+<li>When a user logs in to WiFi or changes their data in the GDPR panel, the entire path is searched for the above
+  properties: from the organisation in which they log in, to root. Then, the profiles are sent to the Push URL.</li>
+<li>It is recommended to use the properties in an organisation which acts as the Data Administrator</li>
+</ul>
+<p><strong>Note:</strong> If the notification option is <strong>enabled</strong> in the parent organisation, then, when a user logs in to the network
+in a sub-organization, this sub-organisation will also trigger a notification.</p>
+<h2 id="message">Message</h2>
+<p>Format: JSON object<br/>
+Message elements:</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstName</code></td>
+<td>String / null</td>
+<td>First name</td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td>String / null</td>
+<td>Last name</td>
+</tr>
+<tr>
+<td><code>dateOfBirth</code></td>
+<td>Long / null</td>
+<td>Timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>gender</code></td>
+<td>String / null</td>
+<td>Gender</td>
+</tr>
+<tr>
+<td><code>photoUrl</code></td>
+<td>String / null</td>
+<td>Photo URL</td>
+</tr>
+<tr>
+<td><code>locale</code></td>
+<td>String / null</td>
+<td>Localisation</td>
+</tr>
+<tr>
+<td><code>devicesIds</code></td>
+<td>List of strings</td>
+<td>Device IDs</td>
+</tr>
+<tr>
+<td><code>activeOrganization</code></td>
+<td>ActiveOrganizationData / null</td>
+<td>ID of organization into which user has logged in</td>
+</tr>
+<tr>
+<td><code>visitedOrganizationIds</code></td>
+<td>OrganizationData / null</td>
+<td>IDs of visited organisations</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>AddressData / null</td>
+<td>Address</td>
+</tr>
+<tr>
+<td><code>emailData</code></td>
+<td>EmailData / null</td>
+<td>Email data</td>
+</tr>
+<tr>
+<td><code>phoneData</code></td>
+<td>PhoneData / null</td>
+<td>Phone data</td>
+</tr>
+<tr>
+<td><code>socialMediaProfileActivity</code></td>
+<td>SocialMediaProfileActivity / null</td>
+<td>Social Media profile activity</td>
+</tr>
+<tr>
+<td><code>termsSettings</code></td>
+<td>TermsSettings / null</td>
+<td>Term settings</td>
+</tr>
+<tr>
+<td><code>isProfileRestricted</code></td>
+<td>True / false</td>
+<td>When true, it means the user’s data is not used</td>
+</tr>
+<tr>
+<td><code>dateRegistered</code></td>
+<td>Long</td>
+<td>Timestamp in milliseconds of profile creation date</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="activeorganizationdata">ActiveOrganizationData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Long</td>
+<td>Organisation ID</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td>When name is not reachable for some reason, the value is “ORGANIZATION_NAME_NOT_FOUND”</td>
+</tr>
+<tr>
+<td><code>dynamicProperties</code></td>
+<td>Map (String -&gt; String)</td>
+<td>Map containing list of dynamically set properties for this organization. Keys are property names and values are property values.</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="organizationdata">OrganizationData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Long</td>
+<td>Organisation ID</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td>When name is not reachable for some reason, the value is “ORGANIZATION_NAME_NOT_FOUND”</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="addressdata">AddressData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addressLine1</code></td>
+<td>String / null</td>
+<td>Address line 1</td>
+</tr>
+<tr>
+<td><code>addressLine2</code></td>
+<td>String / null</td>
+<td>Address line 2</td>
+</tr>
+<tr>
+<td><code>building</code></td>
+<td>String / null</td>
+<td>Building details</td>
+</tr>
+<tr>
+<td><code>postCode</code></td>
+<td>String / null</td>
+<td>Postal Code</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td>String / null</td>
+<td>City</td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td>String / null</td>
+<td>Region</td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td>String / null</td>
+<td>Country</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="emaildata">EmailData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>emailAddress</code></td>
+<td>String</td>
+<td>Email address</td>
+</tr>
+<tr>
+<td><code>confirmationDate</code></td>
+<td>Long / null</td>
+<td>Timestamp in milliseconds. When null, it means the email is not confirmed</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="phonedata">PhoneData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>phoneNumber</code></td>
+<td>String</td>
+<td>Phone number</td>
+</tr>
+<tr>
+<td><code>confirmationDate</code></td>
+<td>Long / null</td>
+<td>Timestamp in milliseconds. When null. it means the phone is not confirmed.</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="socialmediaprofileactivity">SocialMediaProfileActivity</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>socialMediaType</code></td>
+<td>String</td>
+<td>Type of Social Media</td>
+</tr>
+<tr>
+<td><code>socialMediaProfileId</code></td>
+<td>String</td>
+<td>Social Media Profile</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="termssettings">TermsSettings</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>termsDetails</code></td>
+<td>List of TermsDetailsData</td>
+<td>Lists detailed Terms data</td>
+</tr>
+<tr>
+<td><code>categoryDetails</code></td>
+<td>List of CategoryDetailsData</td>
+<td>Lists detailed category data</td>
+</tr>
+<tr>
+<td><code>communicationChannelsDetails</code></td>
+<td>List of CommunicationChannelsDetailsData</td>
+<td>Lists detailed communication channels data</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="termsdetailsdata">TermsDetailsData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>versionId</code></td>
+<td>String</td>
+<td>Document version</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>String</td>
+<td>When tag name is not reachable for some reason, value is "TERMS_NAME_NOT_FOUND”</td>
+</tr>
+<tr>
+<td><code>isAccepted</code></td>
+<td>Boolean</td>
+<td>User accepted terms</td>
+</tr>
+<tr>
+<td><code>modificationTimestamp</code></td>
+<td>Long</td>
+<td>Timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>deviceId</code></td>
+<td>String / null</td>
+<td>Device ID</td>
+</tr>
+<tr>
+<td><code>organization</code></td>
+<td>OrganizationData / null</td>
+<td>Organisation details</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="categorydetailsdata">CategoryDetailsData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>versionId</code></td>
+<td>String</td>
+<td>Document version</td>
+</tr>
+<tr>
+<td><code>tag/code&gt;</code></td>
+<td>String</td>
+<td>When tag name is not reachable for some reason, the value is "MARKETING_CATEGORY_NAME_NOT_FOUND”</td>
+</tr>
+<tr>
+<td><code>isAccepted</code></td>
+<td>Boolean</td>
+<td>User accepted marketing categories</td>
+</tr>
+<tr>
+<td><code>modificationTimestamp</code></td>
+<td>Long</td>
+<td>Timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>deviceId</code></td>
+<td>String / null</td>
+<td>Device ID</td>
+</tr>
+<tr>
+<td><code>organization</code></td>
+<td>OrganizationData / null</td>
+<td>Organisation details</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="communicationchannelsdetailsdata">CommunicationChannelsDetailsData</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>versionId</code></td>
+<td>String</td>
+<td>Document version</td>
+</tr>
+<tr>
+<td><code>modificationTimestamp</code></td>
+<td>Long</td>
+<td>Timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>deviceId</code></td>
+<td>String / null</td>
+<td>Device ID</td>
+</tr>
+<tr>
+<td><code>selectedCommunicationMethods</code></td>
+<td>List of strings</td>
+<td>Lists selected communication methods</td>
+</tr>
+<tr>
+<td><code>organization</code></td>
+<td>OrganizationData / null</td>
+<td>Organisation details</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="example">Example</h2>
+<pre><code>{
+  "firstName": "Jon",
+  "lastName": "Doe",
+  "dateOfBirth": 57888000000,
+  "gender": "Male",
+  "photoUrl": null,
+  "locale": null,
+  "devicesIds": [
+    "5d19bc43dc366538e2cc0340"
+  ],
+  "activeOrganization": {
+    "id": 2137,
+    "name": "OrganizationWhereLoggedIn",
+    "dynamicProperties": {
+      "customPropertyName1": "customPropertyValue1",
+      "otherProperty": "customPropertyValue2"
+    }
+  },
+  "visitedOrganizationIds": [
+    {
+      "id": 10015,
+      "name": "TestOrganization"
+    }
+  ],
+  "address": {
+    "addressLine1": "My Address Line 1",
+    "addressLine2": "My Address Line 2",
+    "building": "31A",
+    "postCode": "11-111",
+    "city": "Krakow",
+    "region": null,
+    "country": "Poland"
+  },
+  "emailData": {
+    "emailAddress": "test@test.test",
+    "confirmationDate": null
+  },
+  "phoneData": null,
+  "socialMediaProfileActivity": [
+    {
+      "socialMediaType": "Twitter",
+      "socialMediaProfileId": "123"
+    }
+  ],
+  "termsSettings": {
+    "termsDetails": [
+      {
+        "versionId": "5cb0b1e449d7485cb39a439b",
+        "tag": "Terms 1",
+        "isAccepted": true,
+        "modificationTimestamp": 1561967718724,
+        "deviceId": "5d19bc43dc366538e2cc0340",
+        "organization": {
+          "id": 10015,
+          "name": "TestOrganization"
+        }
+      }
+    ],
+    "categoryDetails": [
+      {
+        "versionId": "5d19f4e4dc366554ca6a847d",
+        "tag": "category details",
+        "isAccepted": true,
+        "modificationTimestamp": 1561982286114,
+        "deviceId": "5d19f545dc366554ca6a8490",
+        "organization": {
+          "id": 10015,
+          "name": "TestOrganization"
+        }
+      },
+      {
+        "versionId": "5d0a20f18c86197b3e6e0cb6",
+        "tag": "category details 2",
+        "isAccepted": false,
+        "modificationTimestamp": 1561982286114,
+        "deviceId": "5d19f545dc366554ca6a8490",
+        "organization": {
+          "id": 10015,
+          "name": "TestOrganization"
+        }
+      }
+    ],
+    "communicationChannelsDetails": [
+      {
+        "versionId": "5d19f360dc3665431e90a6b4",
+        "modificationTimestamp": 1561982019208,
+        "deviceId": "5d19f43bdc366554ca6a8457",
+        "selectedCommunicationMethods": [
+          "E-mail",
+          "SMS",
+          "On-screen message",
+          "Social media",
+          "Custom method"
+        ],
+        "organization": {
+          "id": 10015,
+          "name": "TestOrganization"
+        }
+      }
+    ]
+  },
+  "isProfileRestricted": true,
+  "dateRegistered": 1551982019208
+}
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

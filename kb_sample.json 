@@ -1,0 +1,308 @@
+[
+    {
+        "source": "2020_02_21.md",
+        "title": "20.02.21\\_\\_stable\\_\\_0.10.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-200221__stable__0100)\n\n# Release Version: 20.02.21\\_\\_stable\\_\\_0.10.0\n\n### Release Date: 02/21/2020",
+        "type": "manual"
+    },
+    {
+        "source": "2020_02_21.md",
+        "title": "New Features",
+        "content": "* We have added the following permissions:\n\n| Permission Name | Description |\n| --- | --- |\n| setAccessibleNetworkFlowTokenGroup | Allows a user to set up an Accessible Network in a Token Group |\n| setValidityTimeFlowTokenGroup | Allows a user to set up Network Parameters in a Token Group |\n| ruckusCustomSip | Allows a user to set up and preview the Ruckus Custom SIP. |\n| ruckusCustomSipMap | Allows a user to set up and preview the Ruckus Custom SIP Map |",
+        "type": "manual"
+    },
+    {
+        "source": "2020_02_21.md",
+        "title": "Updates",
+        "content": "* We have added the **Access Limits** step in the Token group Creator which enables you to select the Network which can be accessed via Tokens, and specify the validity period of Tokens.\n* We have expanded the **Participation Rates** and **Devices per Type** tables in the WiFi Users statistics by the additional columns; their display can be adjusted in the table options.",
+        "type": "manual"
+    },
+    {
+        "source": "2020_02_21.md",
+        "title": "Bug Fixes",
+        "content": "* We have fixed sorting issues in the **Participation Rates** and **Devices per Type** tables in the WiFi Users statistics.\n* The calculation of data displayed in the **Average User Count per Hour** table in the WiFi Users statistics has been improved, and the table now shows data as expected.\n* We have also resolved problems with data display in the **WiFi Users** table in the *Raw Data*\\* statistics.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_05_13.md",
+        "title": "22.05.13\\_\\_stable\\_\\_0.68.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-220513__stable__0680)\n\n# Release Version: 22.05.13\\_\\_stable\\_\\_0.68.0\n\n### Release Date: 05/13/2022",
+        "type": "manual"
+    },
+    {
+        "source": "2022_05_13.md",
+        "title": "Updates",
+        "content": "* We have added a new condition which checks if a transfer is available on the account of the logged in user. Also the option to disable the **transfer limit validation** in **User Login** component in **Portals** has been added. This component allows the user to log in without an available transfer, go through the condition and direct through the appropriate path, and if the **Internet Access Node** is reached the internet connection will not be established anyhow.\n* We have added **localisation** support based on Bluetooth data for **Arista**.\n\n### System Updates\n\n* We have added the following permissions to the Platform:\n\n| Permission Name | Description |\n| --- | --- |\n| accountUserTransferCondition | Allows the user to add Data Transfer condition to Page Flows |\n| userLoginDisableTransferValidation | Allows the user to access the Disable transfer limit validation in User Login component in Portal editor |",
+        "type": "manual"
+    },
+    {
+        "source": "2022_05_13.md",
+        "title": "Resolved Issues",
+        "content": "### GUI Fixes\n\n* We have fixed an issue where it was not possible to enter the **Location Management** > **Management** > **Engine** view, where you select Engine configuration mode, if a **venue** was previously running without calibration mode.\n\n### System Fixes\n\n* We have fixed the issue in the **Licence Package Creator** where the **date picker** (licence start and end) has been changed to the new **Duration selector**.",
+        "type": "manual"
+    },
+    {
+        "source": "2023_07_07.md",
+        "title": "23.07.07\\_\\_stable\\_\\_0.98.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-230707__stable__0980)\n\n# Release Version: 23.07.07\\_\\_stable\\_\\_0.98.0\n\n### Release Date: 07/07/2023",
+        "type": "manual"
+    },
+    {
+        "source": "2023_07_07.md",
+        "title": "Updates",
+        "content": "### System Updates\n\n* We are continuing the process of removing old deprecated features connected with previous Captive Portal engine\n* We have improved CoA logs and debug capabilities\n* We have optimised internal statistics computation process communication to reduce database load.",
+        "type": "manual"
+    },
+    {
+        "source": "2023_07_07.md",
+        "title": "Resolved Issues",
+        "content": "### GUI Fixes\n\n* We have fixed an issue in the Portal Editor where removing a layout component would cause the drag-and-drop mechanism to stop working\n\n### System Fixes\n\n* We have fixed applying limits of WiFiUserAccount when a user registers on Portal and adds top-up\n* We have fixed an issue with \"Show unformatted text\" Action button and Phone number inputs. Returning from the page shown by the action button would fail to restore contents of any phone number inputs on the portal, resulting in an error page being shown to the user.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_09_30.md",
+        "title": "22.09.30\\_\\_stable\\_\\_0.78.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-220930__stable__0780)\n\n# Release Version: 22.09.30\\_\\_stable\\_\\_0.78.0\n\n### Release Date: 30/09/2022",
+        "type": "manual"
+    },
+    {
+        "source": "2022_09_30.md",
+        "title": "New Features",
+        "content": "* We have added a new **Date and Time** condition to the **User journey** configuration. It enables selecting the date ranges within which the user will be directed along a specific path to the next stage of the flow.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_09_30.md",
+        "title": "Updates",
+        "content": "* We have updated the integration with the **Pepwave Access Points** so that when redirecting users to the captive portal, SSIDs are identified correctly.\n\n### Feature Updates\n\n* We have introduced updates in the behaviour of social media end user logins in case of lack of social media configuration. Such cases are now detected and logged in the troubleshooting section, and a platform error screen is shown to the end user.\n* We have added the possibility to set the amount of characters in tokens when creating token groups via GUI and API. The available range of characters is between 5 and 30.\n* We have removed the old licence engine and all the related views, data, permissions, styles, translation keys and code.\n\n### System Updates\n\n* We have improved the security of cookies used to identify sessions and users.\n* We have fixed a bug reported by the Security tests that consisted in disclosing to the user information about the names of libraries utilised by the system. Messages that may contain such information have been removed from the response returned to the user.\n\n### Feature Fixes\n\n* We have fixed listing of available Social Media **primary** configurations while configuring GDPR in **Portal Management > Domain customisation**.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_05_27.md",
+        "title": "22.05.27\\_\\_stable\\_\\_0.69.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-220527__stable__0690)\n\n# Release Version: 22.05.27\\_\\_stable\\_\\_0.69.0\n\n### Release Date: 05/27/2022",
+        "type": "manual"
+    },
+    {
+        "source": "2022_05_27.md",
+        "title": "Updates",
+        "content": "* The **Notification settings** have been removed from **User Accounts** to the organisation level, and now it is only possible to enable or disable notifications for each account.\n* We have added a new **Notification** tab in **User Enrollment** > **Access methods** > **User accounts** section. The table has a default notification set for each Account Holder and it is now possible to create, edit and delete these notifications.\n* We have added a new **phone number** type to the **WiFi User Account** and the creation is only available in the **Platform’s GUI**. A new login type has also been added to the **User Login** component in **Portals**, which allows you to login to accounts with phone numbers in **Captive Portals**.\n* The presentation of the **User Account** table has been changed to make it consistent with other views. It now shows **User Account** data defined only in the current organisation (excluding those from the sub-organisation). It also speeds up the loading of this table in organisations with a large number of sub-organisations.\n\n### System Updates\n\n* We have blocked the Platform application from indexing in search engines.\n* We have added the following permissions to the Platform:\n\n| Permission Name | Description |\n| --- | --- |\n| userAccountNotifications | Allows the user to access the notification tab view in User Accounts |\n| setDataTransferNotifications | Allows the user to set and edit Data Transfer notifications |",
+        "type": "manual"
+    },
+    {
+        "source": "2022_05_27.md",
+        "title": "Resolved Issues",
+        "content": "### System Fixes\n\n* We have added support for **Chilli** based devices with the nochallenge library option enabled in the firmware. Before the update, this affected **Altai** Access Points with the latest firmware.\n* We have fixed the price display in **Payment Plans** in **Captive Portal**.\n* We have fixed the **Disconnect Message** for **Aruba Central** access point.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_04_29.md",
+        "title": "22.04.29\\_\\_stable\\_\\_0.67.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-220429__stable__0670)\n\n# Release Version: 22.04.29\\_\\_stable\\_\\_0.67.0\n\n### Release Date: 22/29/2022",
+        "type": "manual"
+    },
+    {
+        "source": "2022_04_29.md",
+        "title": "Updates",
+        "content": "* We have updated the **PayPal** API to version 2 for **API Payments** in **Flows**.\n* New **endpoints** based on organisation **ID** (instead of venue name) have been added to **API** for Historical location. Old endpoints have been labeled as **Deprecated**.\n* The **panic button** and **geofencing** processing is now tied to the current area **mapping mechanism** used in the current location statistics. Previous processing of location data for the old statistics has been further disabled.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_04_29.md",
+        "title": "Resolved Issues",
+        "content": "### System Fixes\n\n* We have fixed linguistic inconsistencies in **Dashboard** > **Behaviour** and **Reporting** > **Location** > **Venue**.\n* We have fixed the **HTTP error codes** for several GUI endpoints where we previously incorrectly responded with **500 Internal Server Error**, when in fact it was a **bad request**.\n* We have fixed an issue that during an unsuccessful attempt to update the license statuses another attempt is made after 30s.",
+        "type": "manual"
+    },
+    {
+        "source": "2024_04_12.md",
+        "title": "24.04.12\\_\\_stable\\_\\_0.118.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-240329__stable__01170-240412__stable__01180)\n\n# Release Version: 24.03.29\\_\\_stable\\_\\_0.117.0 & 24.04.12\\_\\_stable\\_\\_0.118.0\n\n### Release Date: 12/04/2024\n\nNote: This release includes both the 24.03.29\\_\\_stable\\_\\_0.117.0 and 24.04.12\\_\\_stable\\_\\_0.118.0 release versions.",
+        "type": "manual"
+    },
+    {
+        "source": "2024_04_12.md",
+        "title": "New Features",
+        "content": "* We have implemented OTP (One-Time Password) authentication for WiFi access through WhatsApp Business via **TapTalk**\n  integration.  \n  For proper operation:\n  + enable this function in the Phone number component (Advanced section) in the Captive Portal editor\n  + set the following properties in the organisation:\n\n    | Property name | Description |\n    | --- | --- |\n    | tapTalkWhatsAppApiKey | Secret used for TapTalk Business API authorization. |\n    | tapTalkWhatsAppApiUrl | API url used for TapTalk WhatsApp Business. By default is set to: `https://onetalk-api.taptalk.io/api/integration/v1/inbox/send_templated_message_whatsappba` |\n    | tapTalkWhatsAppChannelId | ChannelID used for TapTalk WhatsApp Business. |\n    | tapTalkWhatsAppLanguageCode | Language used for TapTalk WhatsApp Business. |\n    | tapTalkWhatsAppTemplateName | Template name used for TapTalk WhatsApp Business. |",
+        "type": "manual"
+    },
+    {
+        "source": "2024_04_12.md",
+        "title": "Updates",
+        "content": "### Feature Updates\n\n* We have introduced changes to the **Marketing Campaigns** feature. These include changes to the appearance of the\n  campaign list and a redesign of the campaign editor to make it easier to use.  \n  For more information, please visit our What’s\n  New [April 2024 Update: A New Horizon in Digital Marketing](../../whats_new/2024/04.html) chapter.\n\n### GUI Updates\n\n* We have improved the **Troubleshooting** table by improving issue type description and recommended solution steps.\n\n### System Updates\n\n* We have updated the logging storage and processing system.\n* In response to a discovered bug in the Meraki platform, we have enhanced our software to better manage the incorrect\n  Meraki TLV (Type-Length-Value) encoding of attributes in RADIUS packets, while providing enhanced validation.",
+        "type": "manual"
+    },
+    {
+        "source": "2024_04_12.md",
+        "title": "Resolved Issues",
+        "content": "### GUI Fixes\n\n* We have resolved the issue where the popup failed to close after navigating away from the relevant view.",
+        "type": "manual"
+    },
+    {
+        "source": "2025_06_06.md",
+        "title": "25.06.06\\_\\_stable\\_\\_0.148.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-250606__stable__01480)\n\n# Release Version: 25.06.06\\_\\_stable\\_\\_0.148.0\n\n### Release Date: 06/06/2025",
+        "type": "manual"
+    },
+    {
+        "source": "2025_06_06.md",
+        "title": "New Features",
+        "content": "* We have integrated two new types of Access Points - **Gemtek** and **Arcadyan BR440 CPE** - which can now be added to the Platform.",
+        "type": "manual"
+    },
+    {
+        "source": "2025_06_06.md",
+        "title": "Updates",
+        "content": "### Feature Updates\n\n* We have improved the internal login analysis feature by adding entries for CoA events.\n* We have improved the user interface of internal, test-only tool for manual session disconnection.\n* We have made several improvements to the forgotten-password flow in the captive portal, the most significant being the fix to front-end validation for new passwords.\n\n### System Updates\n\n* We have extended detection to include additional manufacturers’ captive-portal detection URLs, so end-users are no longer redirected to empty pages after logging in.\n* We have improved the initial set-up of MQTT client used for device localization.",
+        "type": "manual"
+    },
+    {
+        "source": "2025_06_06.md",
+        "title": "Resolved Issues",
+        "content": "### GUI Fixes\n\n* We have fixed the creation date display in the campaign list view. The date in **Marketing** > **Campaigns** now respects the currently selected time zone.",
+        "type": "manual"
+    },
+    {
+        "source": "verified_condition.md",
+        "title": "Verified User - Platform documentation",
+        "content": "[Skip to content](#configuring-the-verified-user-condition)\n\n# Configuring the Verified User Condition\n\nThe **Verified User Conditions** enable you to differentiate those users who verify their email addresses during logins from those who do not.\n\n1. Add the Condition Node. To learn how to do this read the [Adding a Condition Node](../adding_condition.html) chapter.\n2. In the **Condition Editor**, select the **Verified User** option. Then, in the upper right corner, click **Next**.\n\n   ![internet access node creating](../../images/adding_nodes/condition_node_age_1.png)",
+        "type": "manual"
+    },
+    {
+        "source": "2022_10_14.md",
+        "title": "22.10.14\\_\\_stable\\_\\_0.79.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-221014__stable__0790)\n\n# Release Version: 22.10.14\\_\\_stable\\_\\_0.79.0\n\n### Release Date: 14/10/2022",
+        "type": "manual"
+    },
+    {
+        "source": "2022_10_14.md",
+        "title": "New Features",
+        "content": "* We have added an integration with the SMS **Cequens** gateway.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_10_14.md",
+        "title": "Updates",
+        "content": "### Feature Updates\n\n* We have added the option to edit condition nodes with existing connections, so that they don't get deleted while editing a node. It is possible to add or remove conditions, which results in changing existing connections, so before saving a Flow, you need to make sure it is built correctly. Changing the condition type deletes all existing connections and requires connecting the condition from scratch.\n\n### GUI Updates\n\n* We have introduced new columns: **Brand**, **Model**, **Operating System**, **Operating System version**, **Browser** and **Browser versions** to the device-related part of the User Sessions table in **Reporting > Statistics > Raw Data**.\n* A new pie chart **Device Brands** has been added to **Reporting > Statistics > Wi-Fi Users**. It presents the percentage breakdown of the device brands with which users connect to the WiFi.\n* We have removed the COVID-19 badge for **Density alerting** from the left menu.\n\n### System Updates\n\n* Due to a stricter security policy, our API no longer accepts cross-origin requests. See <https://web.dev/cross-origin-resource-sharing/> for a thorough explanation of the topic.\n* We have added mechanisms that clean up leftover WiFi User data when an organisation is deleted.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_10_14.md",
+        "title": "Resolved Issues",
+        "content": "### GUI Fixes\n\n* We have fixed the wrong colour of the toggle button in **Portal editor > Multi-step login > Payment Plans**.\n\n### System Fixes\n\n* We have fixed the Internet access node custom URL redirect for URLs containing unicode characters.",
+        "type": "manual"
+    },
+    {
+        "source": "gathering_data.md",
+        "title": "Gathering Calibration Data - Platform documentation",
+        "content": "[Skip to content](#gathering-calibration-data)\n\n# Gathering calibration data\n\nThe next step of the calibration is to gather calibration data. In this\nstep, you basically tell the platform that you are about to go and gather\ndata from all the calibrating points on the given floor on the given\nchannel band and then perform it. The whole procedure is divided into\ntwo stages, the first is to create a link with a map of calibration\npoints (steps 1-3) and the second is to perform the calibration at every\ncalibration point (steps 4-10). For the second stage, it is recommended\nto read all the steps before performing the action.\n\nNote\n\n* The calibration should be conducted within the opening hours of the venue.\n* Every time the venue or the access points change, calibration should\n  be done again. To learn more, read the [Calibrating after editing a venue](recalibration.html) chapter.\n* Before performing the calibration, it is useful to forget all other\n  Wi-Fi connections so that your mobile device does not connect\n  automatically to a different connection while calibrating.\n\nTo gather calibration data:\n\n1. Go to **Location Management → Calibration**.\n2. In the **Create link to calibration** panel:\n\n   * From the **Venue** list, select the name of your venue.\n   * Into the **Calibration device MAC address** field, type a MAC address of the device that you will use for calibration.\n   * From the **Calibration name** list, select the name of your calibration.\n   * From the **Floor** list, select the floor number on which you are going to perform the calibration.\n   * Select the channel band at which you calibrate the access point (**2.4 GHz channel band** or **5 GHz channel band**).\n   * **Only for advanced users**: If you want to allow adding new\n     calibration points while you calibrate, enable the **Allow new points** option.   \n     While this is not recommended, it may be necessary for those venues where it's difficult to add a point to the plan.\n\n   ![generate link](images/image165.png)\n3. Click **Generate link**. As a result, the system generates\n   a link to the venue plan that you can open on your mobile device:\n\n   * To copy the link, click **Copy to clipboard**.\n   * To send the link to your mobile device, in the **Phone** section,\n     from the list, select the area code of your country, then type\n     your phone number and click **Send link via sms**.\n\n   Note\n\n   The generated link is active for 10 minutes. If you do not start performing the calibration within this time frame, or you will have a break longer than 10 minutes, the link will expire and you'll need to [add a new calibration](creating_calibration.html).\n\n   ![generate link full screen](images/image166.png)\n\n   Tip\n\n   Calibration can be done simultaneously by more than one person. To do this, you need to add a calibration for everyone and you will be able to keep track of other people’s calibration progress on your device.\n4. Connect the device defined via the MAC address to the proper Wi-Fi\n   channel. Open the link generated in step 3.\n5. Go to one of the places where you placed a calibration point on the\n   plan.\n6. Hold your mobile device so that you do not obstruct the antenna of\n   the device.\n7. On the plan, click a calibration point.\n\n   ![calibration points map app](images/image167.png)\n8. At the top of the screen, click **Calibrate**. As a result, the\n   **Calibration Point** window with a compass opens and its arrow\n   points to the top of the screen. **Note the point indicated by the\n   compass arrow.**\n9. Slowly rotate yourself 360 degrees clockwise. One rotation\n   should take 30 seconds and the arrow should always indicate\n   the same point it indicated at the beginning.\n\n   ![calibration rotation](images/image168.png)\n\n   Note\n\n   In case you want to abort the calibration process, click **Cancel Calibration**.\n\n   The **Calibration Point** window closes, and the marker point of the calibration point\n   changes its colour.\n\n   Tip\n\n   Different marker point colours have different meanings. Just after calibrating a particular point:\n\n   * ![green point](images/image169.png) means that the calibration of that point was successful.\n   * ![red point](images/image170.png) means that the calibration of that point was unsuccessful.\n\n   When you go to the next point, the just calibrated point changes its colour (depending on the already gathered data) to the colour of the channel band it's calibrated for:\n\n   * ![blue point](images/image171.png) means that the point is not calibrated on any channel band.\n   * ![purple point](images/image172.png) means that the point is calibrated only on the channel band 2.4 GHz.\n   * ![orange point](images/image173.png) means that the point is calibrated only on the channel band 5 GHz.\n   * ![dark blue point](images/image174.png) means that the point is calibrated on both channel bands.\n10. If the calibration was successful, go to the next calibration point\n    from the map and repeat steps 6-10. Repeat these steps for all the\n    points on a given floor.\n11. If the calibration was unsuccessful, repeat the steps 6-10 for the\n    same calibration point.\n12. **Only for advanced users:** If in step 2 you selected the\n    **Allow new points** option, you can add them now. On the map, click\n    a particular place where you want to add a new calibration point and\n    calibrate it straight away.\n\n    Note\n\n    Not calibrated new points will not be saved.\n\n**What to do next**: [Configure engine](configuring_engine_location.html)",
+        "type": "manual"
+    },
+    {
+        "source": "2022_02_18.md",
+        "title": "22.02.18\\_\\_stable\\_\\_0.62.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-220218__stable__0620)\n\n# Release Version: 22.02.18\\_\\_stable\\_\\_0.62.0\n\n### Release Date: 02/18/2022",
+        "type": "manual"
+    },
+    {
+        "source": "2022_02_18.md",
+        "title": "New Features",
+        "content": "* In **User Enrollment** > **User journey** > **Portal** we have implemented a new feature that allows the user to import previously exported Portals from the **Platform**. We have also added the ability to **rename** imported entities - including single renaming as well as adding a **prefix** to all names.",
+        "type": "manual"
+    },
+    {
+        "source": "2022_02_18.md",
+        "title": "Updates",
+        "content": "### Feature Updates\n\n* The **Users Now** table on the **Dashboard** has been changed to **Sessions Now** so that it shows data about individual active sessions, and not about sessions grouped by their profiles.\n\n### System Updates\n\n* We have added the following permissions to the Platform:\n\n| Permission Name | Description |\n| --- | --- |\n| importFlowResource | Allows the user to import resources |\n| exportFlowResource | Allows the user to export resources |",
+        "type": "manual"
+    },
+    {
+        "source": "2022_02_18.md",
+        "title": "Resolved Issues",
+        "content": "### System Fixes\n\n* When importing **Accounts**, the IDs of SSIDs to which the account can log in are now checked whether they are in the same organisation.\n* We have fixed the incorrect requirement of **access Organisations** permission in order to create platform users.\n* We have fixed an issue with several **multi-step** editors where a user using the browser's **back button** would not be asked for confirmation before discarding unsaved changes.\n* You can now change the **case** of the letters when changing the name of **Roles**.\n* The method of calculating **average connection** duration on the **Dashboard** has been corrected - now sessions going through **midnight** will be taken into account correctly.",
+        "type": "manual"
+    },
+    {
+        "source": "removing_ap.md",
+        "title": "Removing Access Points - Platform documentation",
+        "content": "[Skip to content](#removing-access-points)\n\n# Removing access points\n\nIn case you've made a mistake in the MAC address of the access point or you're\nusing a new access point, you may need to remove an access point\nfrom the pane.\n\nTo remove access points:\n\n1. Go to **Location Management → Management** and then click the **List of devices** tile.\n2. Next to the MAC address of the access point you want to delete, click ![delete button](images/delete_button.png). Click **Confirm**.\n\n![delete access point](images/delete_ap.png)",
+        "type": "manual"
+    },
+    {
+        "source": "2024_04_26.md",
+        "title": "24.04.26\\_\\_stable\\_\\_0.119.0 - Platform documentation",
+        "content": "[Skip to content](#release-version-240426__stable__01190)\n\n# Release Version: 24.04.26\\_\\_stable\\_\\_0.119.0\n\n### Release Date: 26/04/2024",
+        "type": "manual"
+    },
+    {
+        "source": "2024_04_26.md",
+        "title": "New Features",
+        "content": "* We have introduced a new login option using **OpenID**\n* We have added a new payment method for the login via Payment plans - **TunaiPay** payment gateway.   \n  For the proper operation of the TunaiPay payment gateway, the following properties must be set in the organisation:\n\n  | Property name | Description |\n  | --- | --- |\n  | tunaiPayEnableIntegration | Enables the option of TunaiPay payment in the Payment Method component. |\n  | tunaiPayApiHost | Defines the url for the TunaiPay gateway. |\n  | tunaiPayApiUser | Defines the api user for the TunaiPay gateway. |\n  | tunaiPayApiKey | Defines the api key for the TunaiPay gateway. |\n  | tunaiPayPaymentMethod | Defines the payment method for the TunaiPay gateway. |",
+        "type": "manual"
+    },
+    {
+        "source": "2024_04_26.md",
+        "title": "Resolved Issues",
+        "content": "### GUI Fixes\n\n* Refreshing the page while in the User editor (Portal management > Structure > Users) no longer results in a blank screen. Structure view now restores the previously selected Organisation when exiting editors for Organisation, Venue, Users, Devices after a page refresh.",
+        "type": "manual"
+    },
+    {
+        "source": "meraki.md",
+        "title": "Meraki - Platform documentation",
+        "content": "[Skip to content](#meraki-configuration-guide)\n\n# Meraki Configuration Guide",
+        "type": "manual"
+    },
+    {
+        "source": "meraki.md",
+        "title": "Prerequisites and Basic Configuration",
+        "content": "To configure the Meraki Access Point with the platform, you should first fulfill specific prerequisites, and prepare the Basic Configuration.\n\n### Configuration Prerequisites\n\nYou should ensure that:\n\n* You have created and configured the account in the Meraki Management Platform. In this account, you should **enable** the following options:\n\n  + The **Domain-Based Walled Garden**,\n  + The **RADIUS Accounting For Splash** page,\n* The Meraki Access Point is connected to the Meraki Management Platform which you can access via this link: <https://account.meraki.com/secure/login/dashboard_login>, and are online.\n\nAfter you have finished these steps, prepare the basic configuration of the device (SSID, association with APs, etc.).\n\n### Basic Configuration\n\nBelow, you can find the table providing the data for the **Production Environments**, which are the cloud servers of the platform.\n\n| Name | URL | IP |\n| --- | --- | --- |\n| Linkyfi UVA | uva.linkyfi.com | 35.245.165.143 |",
+        "type": "manual"
+    },
+    {
+        "source": "meraki.md",
+        "title": "Configuring the Meraki Management System",
+        "content": "The configuration of the Meraki Management System requires setting up successively: the **Access Control**, the **Splash Page**, and **This Platform**.\n\n### Configuring the Access Control\n\nTo configure the Access Control:\n\n1. To go to the **Access Control**, hover your mouse over the **Wireless** section in the menu. Then, in the dropdown menu, select the **Access Control** option which is located under the *Configure*\\* category.\n\n   ![meraki configuration](images/meraki/config_meraki_1.png)\n2. Now, from the **SSID** dropdown list, you can select the SSID on which this platform’s access should be configured. For this instruction, it is *SSID\\_NAME*.\n3. In the **Network Access** section, select the **Pre-Shared Key With** option, and choose **WPA2** from the dropdown list. Then, define the key which users should enter to associate.\n\n   ![meraki configuration](images/meraki/config_meraki_2.png)\n4. To set up the **Splash Page**, select the **Sign-On With** option from the checklist and choose *My RADIUS Server* from the dropdown list.\n\n   ![meraki configuration](images/meraki/config_meraki_3.png)\n5. Now, to configure the **RADIUS** for the **Splash Page**, click the **Add a Server** link. Then, enter the **Server** details:\n\n   a) Into the **Host Field**, enter the **RADIUS Server IP Address**. For this instruction, it is *35.241.143.144*.  \n   b) In the **Port Field**, type *1812*.  \n   c) Into the **Secret Field**, enter your **Shared Secret**. For this instruction, it is *bAZev44u*\n\n   ![meraki configuration](images/meraki/config_meraki_4.png)\n\n   Note\n\n   If you need to configure the **RADIUS Backup Servers**, repeat step 4. In such case, into the **Host** field, type your **Backup RADIUS Server Address**.\n6. Now, to configure the **RADIUS Accounting** function:\n\n   Note\n\n   Currently, due to the security policy, the Accounting for Splash Page/Captive Portal is blocked by defalut, even if enabled in the user interface. To enable this option, you should contact the Cisco support.\n\n   a) From the **RADIUS Accounting** dropdown list, select the **RADIUS Accounting Is Enabled** option.  \n   Tip: In case the **RADIUS Accounting Is Enabled** option is not available, the **RADIUS Accounting** function is not used on the Splash Page. To solve this, contact the Meraki Help Desk by creating a new case. To do this, go to the **Help \\*\\* Cases** section, and type \"Please enable RADIUS accounting for the Splash Page.\" in the appropriate field.\n\n   b) To set up the **RADIUS Accounting Servers** panel, click the **Add a Server** link, and provide the **Server** details:  \n   - In the **Host** field, type the **RADIUS Server IP Address**. For this instruction, it is *35.241.143.144*.\n   - Into the **Port** field, enter the **Port**. For this instruction, it is *1813*.\n   - Into the **Secret** field, enter your **Shared Secret**. For this instruction, it is *bAZev44u*\n\n   ![meraki configuration](images/meraki/config_meraki_5.png)\n\n   Note\n\n   If you need to configure the **RADIUS Backup Servers**, repeat step 6. In such case, into the **Host** field, enter the **Backup RADIUS Server Address**.\n7. Now, in the **Enable Data-Carrier Detect?** section, select the **DCD Is Disabled** from the dropdown list, and from the **Captive Portal Strength** list choose **Block All Access Until the Sign-On Is Complete**.\n\n   ![meraki configuration](images/meraki/config_meraki_6.png)\n\n   ![meraki configuration](images/meraki/config_meraki_7.png)\n8. Then, continue to configure the **Walled Garden**:\n\n   a) From the **Walled Garden** dropdown list, select the **Walled Garden Is Enabled** option.  \n   b) Into the **Walled Garden Ranges** field, type the entries from the **References** section according to your preferences\n\n   Tip\n\n   In case of problems with setting up the **Domain Addresses** in the **Walled Garden** ranges field, the **Domain-Based Walled Garden** function may be disabled. To solve this, contact the Meraki Help Desk by creating a new case. To do this, go to the **Help \\*\\* Cases** and type \"Please enable the Domain-Based Walled Garden for the Splash Page.\" in the appropriate field.\n\n   ![meraki configuration](images/meraki/config_meraki_8.png)\n9. To finish the configuration of the Access Control, click the **Save Changes** button.\n\n### Configuring the Splash Page\n\nTo configure the Splash Page:\n\n1. To go to the **Splash Page**, hover your mouse over the **Wireless** section in the menu. Then, in the dropdown menu, select the **Splash Page** option which is located under the **Configure** category.\n\n   ![meraki configuration](images/meraki/config_meraki_9.png)\n2. From the **SSID** dropdown list, select the **SSID** on which the platform access should be configured. For this instruction, it is *SSID\\_NAME*.\n\n   ![meraki configuration](images/meraki/config_meraki_10.png)\n3. In the **Custom Splash URL** section, select the **Or Provide a URL Where Users Will Be Redirected** option from the checklist, and enter the website address to which the users should be redirected into the empty field. Such address should have the following format:\n   *<http://domainname.com/login?essid=>***\\*Name of SSID***\\**.\n\n   ![meraki configuration](images/meraki/config_meraki_11.png)\n4. In the **Splash Behavior > Where Should Users Go After the Splash Page?** section, choose the **A Different URL** option from the checklist, and type the website address into the empty field. Such address should have the following format:\n   *<http://domainname.com/welcome?essid=>***\\*Name of SSID***\\**.\n\n   ![meraki configuration](images/meraki/config_meraki_12.png)\n5. To finish the configuration process, click the **Save Changes** button.\n\n### Configuring a Meraki Device on This Platform\n\nNote\n\nTo configure the Platform, you need the **SSIDs** from the Splash Page configuration.\n\nThis Platform’s configuration consists of two steps: **adding the device to the Platform**, and **configuring the Network**.\n\n#### Adding the Device to the Platform\n\nTo add the Meraki device to the platform:\n\n1. Firstly, log in to the platform. Then, go to the **Portal Management → Structure** section and select **Devices** from the navigation bar.\n\n   Note\n\n   Make sure that you are in the appropriate organisation. To do this, select the desired one from the right panel or the top bar; it should be highlighted in blue.\n2. Now, click **+** in the bottom right corner to add a device.\n\n   ![meraki configuration](images/meraki/meraki_1.png)\n3. In the **Add Devices** window, enter the device details:\n\n   * From the **Device Type** dropdown list, select the type of the device,\n     Into the **Device Name** field, type the device name; in most cases, it is a device’s MAC address,\n   * In the **IP Address** field ,enter the device’s IP address (recommended),\n   * In the **Serial Number** field, enter the device’s serial number,\n   * Into the **Descriptive Name** field, type a descriptive name of the device,\n     Then, click **Save** in the top right corner to confirm the details and proceed further.\n\n   ![meraki configuration](images/meraki/meraki_2.png)\n4. The device is now added to your organisation.\n\n#### Configuring the Network\n\nTo learn how to configure the Network, read the [Creating Access Settings](../user_guide/user_enrollment/create_access_settings.html)",
+        "type": "manual"
+    },
+    {
+        "source": "meraki.md",
+        "title": "References",
+        "content": "Below, you can find the list of entities which can be added to the Walled Garden during the configuration process. After you have finished adding them, continue configuring the Access Control.\n\nNote\n\nThe below entities are **optional** for the configuration. Using them may impact the **Popup** option which may not work as expected. You should also note that all of these entities use the *https* which requires the configuration of an appropriate cert for the proper redirection to the designated web address.\n\n### Domain\n\n```\n*.domain.com\n\n```\n\n#### IP\n\nFor Domain Europe: `35.241.143.144`  \nFor Domain North and South America: `35.245.165.143`  \nFor Domain Asia: `35.240.186.103`\n\n### iOS (optional)\n\n```\nwww.appleiphonecell.com  \ncaptive.apple.com  \nwww.apple.com  \nwww.itools.info  \nwww.ibook.info  \nwww.airport.us  \nwww.thinkdifferent.us\n\n```\n\n### Android\n\n```\nconnectivitycheck.android.com  \n*.gstatic.com  \nclients3.google.com\n\n```\n\n### Microsoft (required for loging in with Microsoft)\n\n```\nmsftncsi.com  \n*.msftncsi.com\nlogin.microsoftonline.com\naadcdn.msftauth.net\naadcdn.msauth.net\nlogin.live.com  \n\n```\n\n### Facebook\n\n```\nfacebook.com  \nfacebook.net  \nakamaihd.net  \ndigicert.com  \nfbcdn.net  \nfb.com  \nfbsbx.com  \n*.facebook.com  \n*.facebook.net  \n*.akamaihd.net  \n*.digicert.com  \n*.fbcdn.net  \n*.fb.com  \n*.fbsbx.com  \n\n```\n\n#### IP\n\n```\n5.178.32.0/20  \n195.27.154.0/24  \n80.150.192.0/24  \n77.67.96.0/22  \n212.119.27.0/25  \n2.16.0.0/13  \n66.171.231.0/24  \n31.13.24.0/21  \n31.13.64.0/18  \n212.245.45.0/24  \n213.254.17.0/24  \n46.33.70.0/24  \n\n```\n\n### Twitter\n\n```\ntwitter.com  \ntwimg.com  \nabs.twitter.com  \n*.twitter.com  \n*.twimg.com  \n*.abs.twitter.com \n\n```\n\n#### IP\n\n```\n199.16.156.0/22  \n199.59.148.0/22  \n199.96.56.0/21  \n192.133.76.0/22  \n\n```\n\n### VKontakte\n\n```\nvk.com  \noauth.vk.com  \nvk.me  \n*.vk.com  \n*.oauth.vk.com  \n*.vk.me\n\n```\n\n### PayPal\n\n```\npaypal.com  \nomtrdc.net  \nmediaplex.com  \npaypalobjects.com  \nabmr.net  \ndotomi.com  \n*.paypal.com  \n*.omtrdc.net  \n*.mediaplex.com  \n*.paypalobjects.com  \n*.abmr.net  \n*.dotomi.com  \n\n```\n\n### Instagram\n\n```\ninstagram.com\n\n```\n\n### YouTube\n\n```\nyoutube.com  \nytimg.com  \ngstatic.com  \ngoogle.com  \ngooglevideo.com  \n*.youtube.com  \n*.ytimg.com  \n*.gstatic.com  \n*.google.com  \n*.googlevideo.com \n\n```\n\n### Google\n\n```\naccounts.google.com  \ngstatic.com  \ngoogleusercontent.com  \ngoogle.com  \ngoogleapis.com  \naccounts.youtube.com  \n*.accounts.google.com  \n*.googleusercontent.com  \n*.google.com  \n*.googleapis.com  \n*.accounts.youtube.com \n\n```\n\n### Line.me\n\n```\n*.line.me  \n*.line-apps.com  \n*.line-scdn.net  \n\n```\n\n### Kakao\n\n```\n*.kakao.com  \n*.google.com  \n*.m2.daumcdn.net  \n\n```",
+        "type": "manual"
+    },
+    {
+        "source": "get_started_with_user_journey.md",
+        "title": "Get started with User Journey - Platform documentation",
+        "content": "[Skip to content](#get-started-with-user-journey)\n\n# Get started with User Journey",
+        "type": "manual"
+    },
+    {
+        "source": "get_started_with_user_journey.md",
+        "title": "What is a User Journey and why is it important?",
+        "content": "In general, a user journey is a map of steps which reflect users’ interaction with a product. It can be used in 2 ways: **to demonstrate** how the users are currently interacting with your product and **to design** their proper interaction with it.\n\n### Why is it important?\n\nWhen building a product or an interface, it is essential to create a friendly environment for the users. By friendly, we mean clear, not misleading and, most importantly, well-thought-out. For the more transparent it is, the more actively they will use it.",
+        "type": "manual"
+    },
+    {
+        "source": "get_started_with_user_journey.md",
+        "title": "Why should you create a User Journey for your users?",
+        "content": "The User Journey feature allows you to design the way your users connect with your WiFi. It is **a graphic illustration of a login path**. You can arrange each step and decide what to display on your users’ screens. You can use it just for welcoming purposes but also for marketing ones.\n\nLook at the example of a user journey created in our system.\n\n![sample user journey](images/getting_started_with_user_journey/sample_user_journey.png)\n\n**START** represents the moment a user connects to your WiFi. They are then redirected to the Portal which in this case is a login page. There, they fill in the **Form**. After clicking the **SUBMIT** button, they are given internet access for 1 hour. The Portal automatically redirects them to the Website of your choice, for instance to your company’s site.\n\nIt is but an example of what your users’ journey can look like. You can shape it freely according to your needs. For example, you can use the free space on the login page for marketing purposes, gather the data you need from a Form, or give your users access to the Internet for a limited time. You can also use several Portals in the Page flow to extend the contact with end users and to expose them to more content. It’s all up to you.",
+        "type": "manual"
+    },
+    {
+        "source": "get_started_with_user_journey.md",
+        "title": "How can you use the User Journey in your business?",
+        "content": "As already mentioned, you can use it to create a personalised login path, but there are other ways your business can profit from it.\n\n### Monetisation\n\nThe Portal is the first level of contact with your users. On the login page, you can not only gather information about the users but also display other media, like advertisements or information about discounts. You can do the same with all of the other Portals which you have created in the Page flow. You can also resell the Portal’s free space to advertisers to display marketing content.\n\nThe adverts match the exact target group, so all parties benefit: end users get what they are interested in, advertisers profit from returns on advertising, and your venue benefits from monetising your WiFi instead of only paying for it.\n\n### Loyal customers\n\nThe adverts on the Portal will always match the end users. This will make them more eager to come back to your venue for more great offers. They may soon become your loyal customers.\n\n### Ready to create your first User Journey? [Read the User Journey overview.](../user_guide/user_enrollment/uj_overview.html)",
+        "type": "manual"
+    },
+    {
+        "source": "page_flow_overview.md",
+        "title": "Page Flow Overview - Platform documentation",
+        "content": "[Skip to content](#page-flow-overview)\n\n# Page Flow Overview\n\nAs described in the User Journey Overview, a Page Flow (also called a Flow) is a graphic illustration of a login path which you can adjust according to your preferences.\n\nBefore you start building a Page Flow, prepare the initial idea of what your login path should look like in order to reflect it in the system.",
+        "type": "manual"
+    },
+    {
+        "source": "page_flow_overview.md",
+        "title": "The Structure of a Page Flow",
+        "content": "“START” represents the moment when a user connects to your WiFi. This is also when you start to build your users’ login path. Then, you design the login process and form the structure which will be displayed to users at each stage.\n\nThe windows that represent each step are called **nodes**. There are four types of nodes in the system: **Portal**, **Internet Access**, **Condition** and **Message**. You may access them by clicking the blue circle on the right side of a particular node:\n\n![add nodes](../images/uj_page_flow_add_nodes.png)\n\nBy selecting **Portal**, you will be able to add a Portal to the Flow. You can select an already existing one or create a new one from scratch. Portals are used to gather user data through different methods of logging-in and various Forms.\n\n**Internet access** gives users access to WiFi and enables them to set up network parameters. Since internet access is the main goal of the Flow, it is the core node in each login path. It can appear at different stages depending on how complex your user journey is.\n\n**Condition** allows you to display personalised content to various user groups. For instance, based on the gender you may redirect your users to different Portals and send them advertisements aligned with their preferences.\n\nThere are several options from which you can address your users, including:\n\n* user profile data: age, gender\n* login data: account user, roaming user, service document, social login user, verified user\n* other: locale, operating system, property, time of day",
+        "type": "manual"
+    }
+]

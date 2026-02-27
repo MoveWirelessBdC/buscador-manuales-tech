@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="pms/configuring_PMS.html" rel="prev"/>
+<link href="../portal_management/adding_an_organisation.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Troubleshooting - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#troubleshooting">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p>The <strong>Troubleshooting</strong> section allows you to track all the configuration issues between Access Points and Page Flows in
+your Organisation. To access it, go to the <strong>User Enrollment</strong> section in the left menu, and select <strong>Troubleshooting</strong>
+from the dropdown list.</p>
+<p><img alt="troubleshooting" src="images/troubleshooting.png"/></p>
+<p>In the <strong>Configuration Issues</strong> table you can find details of issues which occur in your Organisation and
+Sub-Organisation:</p>
+<ul>
+<li>the <strong>Date</strong> column shows the date an issue occurred,</li>
+<li>the <strong>Issue Type</strong> column informs about the type of this issue,</li>
+<li>the <strong>Count</strong> column displays the number of problems that need resolving,</li>
+<li>the <strong>Device ID</strong> column provides the ID of the Device in which the issue has occurred,</li>
+<li>the <strong>Organisation</strong> column displays the Organisation which is impacted by the issue,</li>
+<li>the <strong>Request Information</strong> column provides you with the detailed information on the Access Point (AP Name) and
+  Network (SSID Name) in which the issue has occurred.</li>
+</ul>
+<h2 id="configuration-issues">Configuration Issues</h2>
+<p>The most common configuration issues that you might encounter include <strong>AP not found</strong>, <strong>SSID not found</strong>, <strong>SSID and
+AP not found</strong>, <strong>Flow not attached to Network</strong>, <strong>Licence error encountered</strong>, <strong>Social config not found</strong>, and
+<strong>Login loop encountered</strong>.</p>
+<h3 id="ap-not-found">AP not found</h3>
+<p>The message <code>AP not found</code> highlights issues related to the AP (Access Point). It could indicate that the AP name in the
+Platform is misspelled or incorrect, the AP has not been added to the Platform, or has been added but to an incorrect
+Organisation.</p>
+<p>To resolve this issue, you should verify the AP setup in both the AP and the Platform, ensuring accuracy on both ends.</p>
+<h3 id="ssid-not-found">SSID not found</h3>
+<p>The message <code>SSID not found</code> indicates issues related to the Network (SSID). This could mean that the specified Network
+cannot be found on the Platform, has not been added to it, or differs from the Network configured on the AP (Access
+Point).</p>
+<p>To resolve this issue, you should examine the Network setup in both the AP and the Platform, ensuring accuracy on both
+ends.</p>
+<h3 id="ssid-and-ap-not-found">SSID and AP not found</h3>
+<p>The message <code>SSID and AP not found</code> points to issues with both the AP (Access Point) and the Network (SSID), combining
+the two scenarios mentioned above.</p>
+<p>To resolve this issue, you should inspect the Network and AP setups in both the AP and the Platform, ensuring their
+accuracy across all aspects.</p>
+<h3 id="flow-not-attached-to-network">Flow not attached to Network</h3>
+<p>The message <code>Flow not attached to Network</code> indicates that no Page Flow has been connected to the specified Network
+(SSID).</p>
+<p>To resolve this issue, you should link the desired Page Flow to this Network.</p>
+<h3 id="licence-error-encountered">Licence error encountered</h3>
+<p>The message <code>Licence error encountered</code> indicates that processing could not be performed due to a licensing error within
+the Organisation.</p>
+<p>To resolve this issue, you should ensure that the Organisation has a proper and valid Licence set up on the Platform.</p>
+<h3 id="social-config-not-found">Social config not found</h3>
+<p>The message <code>Social config not found</code> indicates that processing could not be performed due to the absence of a Social
+Media login configuration.</p>
+<p>To resolve this issue, you should ensure that the Organisation either has a primary Social Media configuration selected,
+or the Captive Portal used in the Page Flow utilises a custom selected Social Media configuration. Please note that this
+issue may occur with various types of social media.</p>
+<h3 id="login-loop-encountered">Login loop encountered</h3>
+<p>The message <code>Login loop encountered</code> indicates that processing was halted due to the detection of a login loop. This
+typically suggests that either the RADIUS is incorrectly set up, or it is being blocked by some firewalls.</p>
+<p>To resolve this issue, you should ensure that the proper RADIUS configuration is applied on AP (Access Point) and that
+the Platform's RADIUS server is reachable from the AP. Additionally, verify that there are no firewalls blocking UDP
+communication on ports 1812 and 1813.</p>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

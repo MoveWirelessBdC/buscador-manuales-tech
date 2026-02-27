@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="unifi_custom.html" rel="prev"/>
+<link href="vriot.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Unifi 7.4+ - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#unify-network-controller-configuration-guide-v74-or-above">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="unify-network-controller-configuration-guide-v74-or-above">Unify Network Controller Configuration Guide (v7.4 or above)</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To configure Unifi V7.4 and above access point controllers with the platform, you should fulfill specific prerequisites and prepare the basic configuration.</p>
+<h2 id="the-configuration-prerequisites">The Configuration Prerequisites</h2>
+<ul>
+<li>For Unifi V7.4 and above make sure to prepare the following:</li>
+<li>Check the version of Unifi Controller. It must be version 7.4 or the latest version.</li>
+<li>Make sure that <strong>https://&lt;controller_domain&gt;:&lt;port&gt;</strong> or <strong>http://&lt;controller_ip&gt;:&lt;port&gt;</strong> of the controller is in Public and able to reach Platform’s corresponding cloud server.</li>
+<li>Prepare a user credential with “Site Administrator” role in Unifi. Please take note of Username and Password.</li>
+</ul>
+<h2 id="configuring-wlan">Configuring WLAN</h2>
+<ol>
+<li>Go to <strong>Settings&gt;WiFi&gt;Create New</strong></li>
+<li>Fill-up the name for the SSID in the <strong>Name field</strong>.</li>
+<li>Under <strong>Broadcasting APs</strong>, make sure the WLAN will be broadcast to the proper Access points or Group of Access points.</li>
+<li>In the <strong>Hotspot 2.0</strong> section, select <strong>Captive Portal</strong>.</li>
+<li>In the <strong>Security Protocol</strong>, select <strong>Open</strong>.</li>
+<li>Click <strong>Save</strong> or apply changes.
+    <img alt="unify_74_plus" src="images/unify_74_plus/images_0.jpg"/></li>
+</ol>
+<h2 id="configuring-the-hotspot-manager">Configuring the Hotspot Manager</h2>
+<p>The configuration of the hotspot enables establishing the proper network connection, followed by the redirection to the captive portal.</p>
+<p>Go to Unifi Web UI, on the left menu click <strong>Insights</strong> then <strong>Hotspot Manager</strong> icon and then click <strong>Landing Page</strong>.</p>
+<ol>
+<li>Click <strong>Branding&gt;Success Landing Page</strong> then under <strong>Custom URL</strong> set https://&lt;platform_domain&gt;/welcome
+    <img alt="unify_74_plus" src="images/unify_74_plus/img_1.png"/></li>
+<li>Click <strong>Authentication&gt;One Way Methods</strong> then under <strong>External Portal Server</strong> set the IP Address of Platform then click <strong>Save</strong>.
+    <img alt="unify_74_plus" src="images/unify_74_plus/img_2.png"/></li>
+<li>Click <strong>Settings Check</strong> the following settings:<ul>
+<li>Enable <strong>Show Landing Page</strong></li>
+<li>Enable <strong>Secure Portal</strong></li>
+<li>Enable <strong>Domain</strong> and set to <strong>&lt;platform_domain&gt;</strong> (e.g. platform.com) (Don’t include http/https)
+<img alt="unify_74_plus" src="images/unify_74_plus/img_3.png"/></li>
+</ul>
+</li>
+<li><strong>Settings&gt;Authorization Access&gt;Pre-Authorization Allowances</strong>, add the following entries:<ul>
+<li><strong>&lt;platform_domain&gt;</strong> (domain of corresponding Platform server installation)</li>
+<li>x.x.x.x/32 (IP Address of corresponding Platform installation)</li>
+<li>Other domains and IPs that need to be whitelisted if needed.</li>
+<li>Click <strong>Save</strong> to confirm your settings.</li>
+</ul>
+</li>
+</ol>
+<h2 id="adding-the-access-point">Adding the Access Point</h2>
+<p>To add the access point:</p>
+<ol>
+<li>Log in to the Platform.</li>
+<li>Click <strong>Portal Management</strong>, and then <strong>Structure</strong>.</li>
+<li>Go to the <strong>Devices</strong> tab.</li>
+<li>Click the <strong>(+)</strong> button to add the device.
+    <img alt="unify_74_plus" src="images/unify_74_plus/img_5.png"/></li>
+<li>In the <strong>Add a new device</strong> panel:<ul>
+<li>From the <strong>AP Type list</strong>, select <strong>Unifi v7.4 or Above</strong>.</li>
+<li>Into the <strong>AP MAC</strong> field, type the MAC Address of the AP.
+<img alt="unify_74_plus" src="images/unify_74_plus/img_6.png"/></li>
+<li>Click <strong>Next</strong></li>
+<li>Into the <strong>API Domain field</strong>, type <em>https://&lt;controller_domain&gt;:&lt;port&gt;</em> or <em>http://&lt;controller_ip&gt;:&lt;port&gt;</em> of the Unifi Controller.</li>
+<li>Into the <strong>API Username and Password</strong>, type the Admin Username and Password that has <strong>Site Admin Access</strong> to Unifi Controller.
+<img alt="unify_74_plus" src="images/unify_74_plus/img_7.png"/></li>
+</ul>
+</li>
+<li>Click the <strong>Save</strong> button.</li>
+</ol>
+<h2 id="configuring-the-network">Configuring the Network</h2>
+<p>To configure the network:</p>
+<ol>
+<li>Click <strong>User Enrollment&gt;User Journey&gt;Access Settings</strong>.</li>
+<li>
+<p>Click the <strong>Create a new network</strong> button:</p>
+<ul>
+<li>In the <strong>Network Name</strong> field, enter the SSID configured during the WLAN setup.
+<img alt="unify_74_plus" src="images/unify_74_plus/img_8.png"/></li>
+<li>Click <strong>Save</strong>.</li>
+<li>Click the three dots, then select <strong>Attach Flow</strong>.</li>
+<li><strong>Select the Flow</strong> (The flow depends on customer requirements. Typically, we use a test flow for connection testing.)</li>
+<li>Click <strong>Select</strong></li>
+</ul>
+<p><img alt="unify_74_plus" src="images/unify_74_plus/img_9.png"/>
+<img alt="unify_74_plus" src="images/unify_74_plus/img_10.png"/></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The SSID created in the Unifi Controller should also be the same as the SSID in the Platform.</p>
+</div>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

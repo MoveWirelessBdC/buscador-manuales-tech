@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="WiFiUserProfile.html" rel="prev"/>
+<link href="Accounting.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Location API - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#location-api">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="location-api">Location API</h1>
+<p>The <strong>Location API</strong> enables the identification of user location. You can find the Location API endpoints listed below.</p>
+<p>To view the additional Location API, go to the <a href="/API">API Documentation</a>, and see the <strong>Historical Location</strong> section.</p>
+<h2 id="get-locationvenueidalllocations">GET /location/{venueId}/allLocations</h2>
+<p>It returns information on all users and their position at the venue which can be displayed in the Device Mapper. The user location is determined in relation to the point (0,0) specified in the Venue configuration.</p>
+<h3 id="request">Request</h3>
+<p>Authentication: <em>Basic Auth</em><br/>
+Method: <em>GET</em><br/>
+URL: <em>/location/{venueId}/allLocations</em> </p>
+<p>URL parameters:</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>venueId</td>
+<td>string</td>
+<td>ID of the Venue visible in Portal Management / Structure / Venues</td>
+</tr>
+</tbody>
+</table></div></div>
+<h3 id="responses">Responses</h3>
+<h4 id="success-response">Success response</h4>
+<p>Code: <em>200</em> </p>
+<h4 id="description">Description</h4>
+<p>Format: JSON object  </p>
+<p>Response elements:</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>locations</td>
+<td>object</td>
+<td>keys: macs of devices, values: corresponding positions of devices</td>
+</tr>
+</tbody>
+</table></div></div>
+<p>Position element:</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>string</td>
+<td>User's location against x axis</td>
+</tr>
+<tr>
+<td>y</td>
+<td>string</td>
+<td>User's position against the y axis</td>
+</tr>
+<tr>
+<td>floor</td>
+<td>integer</td>
+<td>Floor number where Device is located</td>
+</tr>
+</tbody>
+</table></div></div>
+<h4 id="example">Example</h4>
+<pre><code>{
+ "12:34:56:78:FF:AA": {
+   "x": "-37.9",
+   "y": "46.5",
+   "floor": 1
+ },
+ "10:30:47:61:12:AF": {
+   "x": "-150.5",
+   "y": "28.7",
+   "floor": 1
+ }
+}
+
+</code></pre>
+<h4 id="error-responses">Error responses</h4>
+<p>Code: <em>404 Not found</em> </p>
+<p>Description: <em>The provided venueId in the URL parameters does not exist</em></p>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

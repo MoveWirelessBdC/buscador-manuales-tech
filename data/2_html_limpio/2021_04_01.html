@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2021_04_15.html" rel="prev"/>
+<link href="2021_03_18.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>21.04.01__stable__0.39.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-210401__stable__0390">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-210401__stable__0390">Release Version: 21.04.01__stable__0.39.0</h1>
+<h3 id="release-date-04012021">Release Date: 04/01/2021</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>
+<p>The <strong>Data Transfer</strong> option in the <strong>Licences</strong> feature now allows you to set up an automatic billing option for your Clients to request a top-up and pay for it instantly.</p>
+</li>
+<li>
+<p>We have implemented time zone support for User Account, which makes them more precise and allows you to manage their data transfer top-ups more accurately.</p>
+</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<h3 id="gui-updates">GUI Updates</h3>
+<ul>
+<li>In the <strong>Marketing Categories</strong> creator, we have renamed the:<strong>Display Offer</strong> dropdown list to <strong>Offer Frequency</strong>. We have also renamed the <strong>Never</strong> option to "Once" to avoid confusion. The previous name implied the category would not be displayed at all when in reality, it would be displayed once and then never re-offered.</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>To improve the system performance, we have introduced a new efficient encoding in our analytics for the most common location events. For certain events, the message size has reduced by 50-60%, and the encoding/decoding speed has increased by up to 20 times.</li>
+</ul>
+<h2 id="resolved-issues">Resolved Issues</h2>
+<h3 id="gui-fixes">GUI Fixes</h3>
+<ul>
+<li>The Licence Details view would take too long to load. We have improved it, and it should now load far more quickly.</li>
+</ul>
+<h3 id="system-fixes">System Fixes</h3>
+<ul>
+<li>
+<p>We have changed the marketing campaign's implementation to reach a more diverse group of users than it used to. Before, when an Organisation wanted to send marketing offers to a thousand users out of 1 million held, the system would select the first thousand users from the list. Now, it chooses them arbitrarily from the whole set. </p>
+</li>
+<li>
+<p>Until now, the CoA packages would be sent only to the IP address defined in the Device's IP field. We have extended it so that CoA packages are also sent to all values defined in devices’ custom SIP maps.</p>
+</li>
+<li>
+<p>In the <strong>Properties</strong> section, we have restricted the visibility of Organisation names for users who do not have access to preview them. As a result, information on an Organisation from which properties are inherited is by default hidden.</p>
+</li>
+</ul>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

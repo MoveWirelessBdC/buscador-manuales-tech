@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="terabee.html" rel="prev"/>
+<link href="tp_link_standalone.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>TP-Link Omada Controller - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#tp-link-omada-controller-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="tp-link-omada-controller-configuration-guide">TP-Link Omada Controller Configuration Guide</h1>
+<p>To configure the TP-Link Omada Controller access point you should set it up with an Open WiFi network.</p>
+<ol>
+<li>
+<p>To begin the configuration process, log in to the TP-Link Omada controller interface with your credentials.</p>
+<p><img alt="tp-link controller" src="images/tp_link_controller/tp_link_controller_1.png"/></p>
+</li>
+<li>
+<p>When you have successfully logged in to the device interface, go to the <strong>Authentication &gt; Portal</strong> option.</p>
+<p>Then, in the Portal configuration window:</p>
+<ul>
+<li>For the <strong>Portal</strong> option, turn the switch <strong>ON</strong>.</li>
+<li>In the <strong>Basic Info</strong> section:<ul>
+<li>From the <strong>SSID &amp; Network</strong> dropdown list, select the desired network.</li>
+<li>From the <strong>Authentication Type</strong> dropdown list, select <strong>External RADIUS Server</strong>.</li>
+<li>From the <strong>Authentication Timeout</strong> dropdown list, select the desired time interval. For this instruction, it is <code>8 hours</code>.</li>
+<li>From the <strong>RADIUS Profile</strong> dropdown list, select an already existing RADIUS Profile or create a new one (see step 3).</li>
+</ul>
+</li>
+</ul>
+<p><img alt="tp-link controller" src="images/tp_link_controller/tp_link_controller_2.png"/></p>
+</li>
+<li>
+<p>To create a new RADIUS Profile, click the blue <strong>Manage RADIUS Profile</strong> link. Then, in the <strong>Create New RADIUS Profile</strong> section:</p>
+<ul>
+<li>Into the <strong>Name</strong> field, enter the name of the RADIUS profile.</li>
+<li>Into the <strong>Authentication Server IP</strong> field, enter the server’s IP address. For this instruction, it is <code>35.234.150.70</code>.</li>
+<li>Into the <strong>Authentication Port</strong> field, enter the server’s port. For this instruction, it is <code>1812</code>.</li>
+<li>In the <strong>Authentication Password</strong> field, type the server’s password. For this instruction, it is <code>bAZev44u</code>.</li>
+<li>For the <strong>RADIUS Accounting</strong> option, select the <strong>Enable</strong> checkbox.</li>
+<li>For the <strong>Interim Update</strong> option, select the <strong>Enable</strong> checkbox.</li>
+<li>Into the <strong>Interim Update Interval</strong> field, enter the desired number of seconds. For this instruction, it is <code>600</code>.</li>
+<li>Into the <strong>Accounting Server IP</strong> field, enter the server’s IP. For this instruction, it is <code>35.234.150.70</code>.</li>
+<li>Into the <strong>Accounting Port</strong> field, enter the server’s port. For this instruction, it is <code>1813</code>.</li>
+<li>In the <strong>Accounting Password</strong> field, type the server’s password. For this instruction, it is <code>bAZev44u</code>.</li>
+</ul>
+<p>Then, click the <strong>Confirm</strong> button at the bottom left to save the new RADIUS Profile.</p>
+<p><img alt="tp-link controller" src="images/tp_link_controller/tp_link_controller_3.png"/></p>
+</li>
+<li>
+<p>Next, scroll down to set up authentication options and access control:</p>
+<ul>
+<li>For the <strong>Authentication Mode</strong> option, select <strong>PAP</strong>.</li>
+<li>For the <strong>Portal Customization</strong> option, select <strong>External Web Portal</strong> and enter the portal’s URL address. For this instruction, it is <code>http://35.234.150.70/login</code>.</li>
+<li>For the <strong>HTTPS Redirection</strong> option, select the <strong>Enable</strong> checkbox.</li>
+<li>For the <strong>Landing Page</strong> option, select <strong>The Promotional URL</strong> and enter the URL address. For this instruction, it is <code>http://35.234.150.70/welcome</code>.</li>
+</ul>
+<p><img alt="tp-link controller" src="images/tp_link_controller/tp_link_controller_4.png"/></p>
+<p>In the <strong>Access Control</strong> section, for the <strong>Pre-Authentication Access List</strong>, select the <strong>Enable</strong> checkbox.</p>
+<p>Then, manage the <strong>Pre-Authentication Access List</strong> by adding or removing the desired entries.</p>
+<p><img alt="tp-link controller" src="images/tp_link_controller/tp_link_controller_5.png"/></p>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Once the access point is configured, provide your Administrator with the device's MAC address and Network details to allow them to set it up on the Platform server.</p>
+</div>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

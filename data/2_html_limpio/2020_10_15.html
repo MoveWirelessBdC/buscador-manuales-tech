@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2020_10_29.html" rel="prev"/>
+<link href="2020_10_01.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>20.10.15__stable__0.27.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-201015__stable__0270">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-201015__stable__0270">Release Version: 20.10.15__stable__0.27.0</h1>
+<h3 id="release-date-10152020">Release Date: 10/15/2020</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>We have introduced the long-awaited update to the <strong>Licences</strong> feature which is now visually consistent with the rest of the Platform and provides a smart creation and overview of Licence Packages and Sublicences.</li>
+<li>Due to a close connection of User Roles with Licence Plans, we have moved the <strong>Role Manager</strong> to a new <strong>Licences and Roles</strong> section in the main menu.</li>
+<li>You can now upload User Accounts to the Platform in one bulk instead of creating them one by one by importing them from a CSV file. </li>
+<li>We have introduced a new <strong>Call Authentication</strong> Portal component which is integrated with the <strong>Vonage</strong> (formerly <strong>Nexmo</strong>) sending gate and allows you to create a two-step login flow where users would authenticate their internet access by calling a specific phone number. </li>
+<li>We have integrated the <strong>SMPP 3.4</strong> protocol with the Message Sender.</li>
+<li>We have enabled storing User Account password <strong>unhashed</strong> to allow you to print them on the User Account tokens.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<ul>
+<li>You can now set up time zones offset from UTC by incomplete hours for Organisations.</li>
+<li>We have added the following permissions to the Platform:</li>
+</ul>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>topUpUserAccountTransferLimit</td>
+<td>Allows the user to top up data transfer for User Accounts</td>
+</tr>
+<tr>
+<td>showRetrievableUserAccountPasswords</td>
+<td>Allows the user to display passwords in the List of User Accounts table and to preview and print them on User Account tokens (requires the setup of the 'allowWifiUserAccountPasswordRetrieval' property which determines how User Account passwords are saved in the Platform)</td>
+</tr>
+<tr>
+<td>sublicenceWrite</td>
+<td>Allows a user to create a Sublicence</td>
+</tr>
+<tr>
+<td>licencePackageWrite</td>
+<td>Allows a user to create a Licence Package</td>
+</tr>
+<tr>
+<td>sublicenceDelete</td>
+<td>Allows a user to delete a Sublicence</td>
+</tr>
+<tr>
+<td>licencePackageDelete</td>
+<td>Allows a user to delete a Licence Package</td>
+</tr>
+<tr>
+<td>areaLocationStatistics</td>
+<td>Allows the user to access the Area statistics</td>
+</tr>
+<tr>
+<td>licenceCustomPlanSelection</td>
+<td>Allows the user to select a custom Plan for Licences</td>
+</tr>
+<tr>
+<td>licencePackageRead</td>
+<td>Allows the user to access Licence Packages</td>
+</tr>
+<tr>
+<td>sublicenceRead</td>
+<td>Allows the user to access Sublicences</td>
+</tr>
+<tr>
+<td>userTemplates</td>
+<td>Allows the user to customise content and formats of the User Account messages</td>
+</tr>
+<tr>
+<td>licenceTemplates</td>
+<td>Allows the user to customise content and formats of Licence messages</td>
+</tr>
+<tr>
+<td>callAuthentication</td>
+<td>Allows the user to add Call Authentication components to Portals</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<ul>
+<li>The internal monitoring has been improved to faster detect potential database problems.</li>
+<li>We have revised our Location Engine and improved the MAC hashing performance. </li>
+<li>We have also modified the login level for the mosquitto platform component responsible for communicating with the Ruckus device.</li>
+<li>We have increased the sensitivity of monitoring detecting problems with the Platform availability.</li>
+<li>We have fixed the problem where the single Tokens table would not display when the Network used by single tokens has been deleted.</li>
+</ul>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

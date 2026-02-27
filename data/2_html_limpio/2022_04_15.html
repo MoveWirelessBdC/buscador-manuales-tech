@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="2022_04_29.html" rel="prev"/>
+<link href="2022_04_01.html" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>22.04.15__stable__0.66.0 - Platform documentation</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#release-version-220415__stable__0660">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="release-version-220415__stable__0660">Release Version: 22.04.15__stable__0.66.0</h1>
+<h3 id="release-date-04152022">Release Date: 04/15/2022</h3>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>We have reorganised the tile view in <strong>Portal Management</strong> &gt; <strong>Properties</strong>:<ul>
+<li>Now for the old <em>Advanced</em> and <em>Dynamic</em> sections there is one common fullscreen <strong>Advanced</strong> view.</li>
+<li>The tile for <em>Dynamic</em> has been removed, and these properties are displayed in <strong>Advanced</strong> in the <em>Dynamic</em> group.</li>
+<li>We have also added new and clear permissions which give access to individual sections in this view.</li>
+</ul>
+</li>
+<li>The new <strong>Advanced</strong> properties view has been completely overhauled.     <ul>
+<li>The main view has been divided into two parts. </li>
+<li>On the left side is the folder view - here the properties have been divided into groups according to their functionality and reference, and there is a search box which allows a folder to be found.</li>
+<li>On the right is a table displaying properties from the currently selected folder.</li>
+<li>The new table is divided into <strong>5 sections</strong>:<ul>
+<li><strong>Key</strong> is displayed for each property.</li>
+<li><strong>Value</strong> which is currently set.</li>
+<li><strong>Group</strong> in which the property is located.</li>
+<li><strong>Origin</strong> of the property and whether the value is default or own.</li>
+<li><strong>Action</strong> displays the property description as well as the options to set, edit or reset the property.</li>
+</ul>
+</li>
+<li>A search box for the table allows you to search for properties by their key or value.</li>
+<li>An additional option of filtering by <strong>Origin value</strong> has been added where you may choose to only display ** own ** / ** default ** / ** all properties **.</li>
+<li>In the <strong>Action</strong> section the <strong>“Eye”</strong> icon allows you to see a more detailed description of the property via a popup. Here the key of the property is shown as well as whether the property is propagable or not propagable. Detailed description of the property is also shown and is <strong>only</strong> available in <strong>English</strong>.</li>
+<li><strong>Old</strong> and <strong>deprecated</strong> properties have been hidden via permissions.</li>
+</ul>
+</li>
+<li>We have added additional information to logs about sending messages, so far,there was only an indication of the specific organisation for which the sending took place, but now the full organisation path upto the root has been added.</li>
+</ul>
+<h2 id="updates">Updates</h2>
+<ul>
+<li>When editing the own Platform account details (email, name, phone number, etc.) in <strong>Account settings</strong> &gt; <strong>Profile</strong>, the current password <strong>must be</strong> provided for verification. Incorrectly entering the password works the same as when logging in and failed attempts may cause temporary blocking of the accounts which is set to 5 tries as the default setting.</li>
+<li>The <strong>Aruba Central Rest API</strong> has been integrated with the Platform, specifically the <strong>Disconnect User</strong> action.</li>
+<li>We have improved the processing of localisation events for <strong>Visible Wifi User Profiles</strong> which uses mechanisms related to current <strong>Localisation Statistics</strong>.</li>
+<li>We have set the <strong>enableFlowTokens</strong> property to <strong>true</strong> as the default so that the new tokens work correctly in each new organisation without the need for additional settings changes.</li>
+<li>We have added the possibility to change the colour palette for the Traffic Map in <strong>Dashboard</strong> &gt; <strong>Behaviour</strong> &gt; <strong>Traffic Map</strong> and in <strong>Reporting</strong> &gt; <strong>Location</strong> &gt; <strong>Venue</strong> &gt; <strong>TrafficMap</strong>. In the <strong>heatmapPalette</strong> property (group / Reporting / Location) you can set a list of colour values separated by commas.</li>
+</ul>
+<h3 id="system-updates">System Updates</h3>
+<ul>
+<li>We have added the following permissions to the Platform:</li>
+</ul>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Permission Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>internetAccessProperties</td>
+<td>Allows the user to access internet access properties</td>
+</tr>
+<tr>
+<td>socialMedia</td>
+<td>Allows the user to configure social media</td>
+</tr>
+</tbody>
+</table></div></div>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>

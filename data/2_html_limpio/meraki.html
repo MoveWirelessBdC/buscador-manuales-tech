@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="js-focus-visible js" data-js-focus-visible="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="huawei.html" rel="prev"/>
+<link href="mist.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Meraki - Platform documentation</title>
+<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../styles/header.css" rel="stylesheet"/>
+
+</head>
+<body data-md-color-accent="pink" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#meraki-configuration-guide">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 72px;">
+<div class="md-sidebar__scrollwrap" style="height: 570px;">
+<div class="md-sidebar__inner">
+
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="meraki-configuration-guide">Meraki Configuration Guide</h1>
+<h2 id="prerequisites-and-basic-configuration">Prerequisites and Basic Configuration</h2>
+<p>To configure the Meraki Access Point with the platform, you should first fulfill specific prerequisites, and prepare the Basic Configuration.</p>
+<h3 id="configuration-prerequisites">Configuration Prerequisites</h3>
+<p>You should ensure that:</p>
+<ul>
+<li>
+<p>You have created and configured the account in the Meraki Management Platform. In this account, you should <strong>enable</strong> the following options:</p>
+<ul>
+<li>The <strong>Domain-Based Walled Garden</strong>,</li>
+<li>The <strong>RADIUS Accounting For Splash</strong> page,</li>
+</ul>
+</li>
+<li>
+<p>The Meraki Access Point is connected to the Meraki Management Platform which you can access via this link: <a href="https://account.meraki.com/secure/login/dashboard_login">https://account.meraki.com/secure/login/dashboard_login</a>, and are online.</p>
+</li>
+</ul>
+<p>After you have finished these steps, prepare the basic configuration of the device (SSID, association with APs, etc.).</p>
+<h3 id="basic-configuration">Basic Configuration</h3>
+<p>Below, you can find the table providing the data for the <strong>Production Environments</strong>, which are the cloud servers of the platform.</p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linkyfi UVA</td>
+<td>uva.linkyfi.com</td>
+<td>35.245.165.143</td>
+</tr>
+</tbody>
+</table></div></div>
+<h2 id="configuring-the-meraki-management-system">Configuring the Meraki Management System</h2>
+<p>The configuration of the Meraki Management System requires setting up successively: the <strong>Access Control</strong>, the <strong>Splash Page</strong>, and <strong>This Platform</strong>.</p>
+<h3 id="configuring-the-access-control">Configuring the Access Control</h3>
+<p>To configure the Access Control:</p>
+<ol>
+<li>
+<p>To go to the <strong>Access Control</strong>, hover your mouse over the <strong>Wireless</strong> section in the menu. Then, in the dropdown menu, select the <strong>Access Control</strong> option which is located under the <em>Configure</em>* category. </p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_1.png"/></p>
+</li>
+<li>
+<p>Now, from the <strong>SSID</strong> dropdown list, you can select the SSID on which this platform’s access should be configured. For this instruction, it is <em>SSID_NAME</em>.</p>
+</li>
+<li>
+<p>In the <strong>Network Access</strong> section, select the <strong>Pre-Shared Key With</strong> option, and choose <strong>WPA2</strong> from the dropdown list. Then, define the key which users should enter to associate.</p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_2.png"/></p>
+</li>
+<li>
+<p>To set up the <strong>Splash Page</strong>, select the <strong>Sign-On With</strong> option from the checklist and choose <em>My RADIUS Server</em> from the dropdown list.</p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_3.png"/></p>
+</li>
+<li>
+<p>Now, to configure the <strong>RADIUS</strong> for the <strong>Splash Page</strong>, click the <strong>Add a Server</strong> link. Then, enter the <strong>Server</strong> details:</p>
+<p>a) Into the <strong>Host Field</strong>, enter the <strong>RADIUS Server IP Address</strong>. For this instruction, it is <em>35.241.143.144</em>.<br/>
+b) In the <strong>Port Field</strong>, type <em>1812</em>.<br/>
+c) Into the <strong>Secret Field</strong>, enter your <strong>Shared Secret</strong>. For this instruction, it is <em>bAZev44u</em></p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_4.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you need to configure the <strong>RADIUS Backup Servers</strong>, repeat step 4. In such case, into the <strong>Host</strong> field, type your <strong>Backup RADIUS Server Address</strong>.</p>
+</div>
+</li>
+<li>
+<p>Now, to configure the <strong>RADIUS Accounting</strong> function:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, due to the security policy, the Accounting for Splash Page/Captive Portal is blocked by defalut, even if enabled in the user interface. To enable this option, you should contact the Cisco support.</p>
+</div>
+<p>a) From the <strong>RADIUS Accounting</strong> dropdown list, select the <strong>RADIUS Accounting Is Enabled</strong> option.<br/>
+Tip: In case the <strong>RADIUS Accounting Is Enabled</strong> option is not available, the <strong>RADIUS Accounting</strong> function is not used on the Splash Page. To solve this, contact the Meraki Help Desk by creating a new case. To do this, go to the <strong>Help ** Cases</strong> section, and type "Please enable RADIUS accounting for the Splash Page." in the appropriate field.</p>
+<p>b) To set up the <strong>RADIUS Accounting Servers</strong> panel, click the <strong>Add a Server</strong> link, and provide the <strong>Server</strong> details:<br/>
+- In the <strong>Host</strong> field, type the <strong>RADIUS Server IP Address</strong>. For this instruction, it is <em>35.241.143.144</em>.
+- Into the <strong>Port</strong> field, enter the <strong>Port</strong>. For this instruction, it is <em>1813</em>.
+- Into the <strong>Secret</strong> field, enter your <strong>Shared Secret</strong>. For this instruction, it is <em>bAZev44u</em></p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_5.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you need to configure the <strong>RADIUS Backup Servers</strong>, repeat step 6. In such case, into the <strong>Host</strong> field, enter the <strong>Backup RADIUS Server Address</strong>.</p>
+</div>
+</li>
+<li>
+<p>Now, in the <strong>Enable Data-Carrier Detect?</strong> section, select the <strong>DCD Is Disabled</strong> from the dropdown list, and from the <strong>Captive Portal Strength</strong> list choose <strong>Block All Access Until the Sign-On Is Complete</strong>.</p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_6.png"/></p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_7.png"/></p>
+</li>
+<li>
+<p>Then, continue to configure the <strong>Walled Garden</strong>:</p>
+<p>a) From the <strong>Walled Garden</strong> dropdown list, select the <strong>Walled Garden Is Enabled</strong> option.<br/>
+b) Into the <strong>Walled Garden Ranges</strong> field, type the entries from the <strong>References</strong> section according to your preferences</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In case of problems with setting up the <strong>Domain Addresses</strong> in the <strong>Walled Garden</strong> ranges field, the <strong>Domain-Based Walled Garden</strong> function may be disabled. To solve this, contact the Meraki Help Desk by creating a new case. To do this, go to the <strong>Help ** Cases</strong> and type "Please enable the Domain-Based Walled Garden for the Splash Page." in the appropriate field.</p>
+</div>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_8.png"/></p>
+</li>
+<li>
+<p>To finish the configuration of the Access Control, click the <strong>Save Changes</strong> button.</p>
+</li>
+</ol>
+<h3 id="configuring-the-splash-page">Configuring the Splash Page</h3>
+<p>To configure the Splash Page:</p>
+<ol>
+<li>
+<p>To go to the <strong>Splash Page</strong>, hover your mouse over the <strong>Wireless</strong> section in the menu. Then, in the dropdown menu, select the <strong>Splash Page</strong> option which is located under the <strong>Configure</strong> category.</p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_9.png"/></p>
+</li>
+<li>
+<p>From the <strong>SSID</strong> dropdown list, select the <strong>SSID</strong> on which the platform access should be configured. For this instruction, it is <em>SSID_NAME</em>.</p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_10.png"/></p>
+</li>
+<li>
+<p>In the <strong>Custom Splash URL</strong> section, select the <strong>Or Provide a URL Where Users Will Be Redirected</strong> option from the checklist, and enter the website address to which the users should be redirected into the empty field. Such address should have the following format: 
+<em><a href="http://domainname.com/login?essid=">http://domainname.com/login?essid=</a><strong><em>*Name of SSID</em></strong>*</em>.</p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_11.png"/></p>
+</li>
+<li>
+<p>In the <strong>Splash Behavior &gt; Where Should Users Go After the Splash Page?</strong> section, choose the <strong>A Different URL</strong> option from the checklist, and type the website address into the empty field. Such address should have the following format: 
+<em><a href="http://domainname.com/welcome?essid=">http://domainname.com/welcome?essid=</a><strong><em>*Name of SSID</em></strong>*</em>.</p>
+<p><img alt="meraki configuration" src="images/meraki/config_meraki_12.png"/></p>
+</li>
+<li>
+<p>To finish the configuration process, click the <strong>Save Changes</strong> button.</p>
+</li>
+</ol>
+<h3 id="configuring-a-meraki-device-on-this-platform">Configuring a Meraki Device  on This Platform</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To configure the Platform, you need the <strong>SSIDs</strong> from the Splash Page configuration. </p>
+</div>
+<p>This Platform’s configuration consists of two steps: <strong>adding the device to the Platform</strong>, and <strong>configuring the Network</strong>.</p>
+<h4 id="adding-the-device-to-the-platform">Adding the Device to the Platform</h4>
+<p>To add the Meraki device to the platform:</p>
+<ol>
+<li>
+<p>Firstly, log in to the platform. Then, go to the <strong>Portal Management → Structure</strong>  section and select <strong>Devices</strong> from the navigation bar. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that you are in the appropriate organisation. To do this, select the desired one from the right panel or the top bar; it should be highlighted in blue.</p>
+</div>
+</li>
+<li>
+<p>Now, click <strong>+</strong> in the bottom right corner to add a device.</p>
+<p><img alt="meraki configuration" src="images/meraki/meraki_1.png"/></p>
+</li>
+<li>
+<p>In the <strong>Add Devices</strong> window, enter the device details:</p>
+<ul>
+<li>From the <strong>Device Type</strong> dropdown list, select the type of the device,
+Into the <strong>Device Name</strong> field, type the device name; in most cases, it is a device’s MAC address,</li>
+<li>In the <strong>IP Address</strong> field ,enter the device’s IP address (recommended),</li>
+<li>In the <strong>Serial Number</strong> field, enter the device’s serial number,</li>
+<li>Into the <strong>Descriptive Name</strong> field, type a descriptive name of the device,
+Then, click <strong>Save</strong> in the top right corner to confirm the details and proceed further.</li>
+</ul>
+<p><img alt="meraki configuration" src="images/meraki/meraki_2.png"/></p>
+</li>
+<li>
+<p>The device is now added to your organisation.</p>
+</li>
+</ol>
+<h4 id="configuring-the-network">Configuring the Network</h4>
+<p>To learn how to configure the Network, read the <a href="../user_guide/user_enrollment/create_access_settings.html">Creating Access Settings</a></p>
+<h2 id="references">References</h2>
+<p>Below, you can find the list of entities which can be added to the Walled Garden during the configuration process. After you have finished adding them, continue configuring the Access Control.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The below entities are <strong>optional</strong> for the configuration. Using them may impact the <strong>Popup</strong> option which may not work as expected. You should also note that all of these entities use the <em>https</em> which requires the configuration of an appropriate cert for the proper redirection to the designated web address.</p>
+</div>
+<h3 id="domain">Domain</h3>
+<pre><code>*.domain.com
+</code></pre>
+<h4 id="ip">IP</h4>
+<p>For Domain Europe: <code>35.241.143.144</code><br/>
+For Domain North and South America: <code>35.245.165.143</code><br/>
+For Domain Asia: <code>35.240.186.103</code></p>
+<h3 id="ios-optional">iOS (optional)</h3>
+<pre><code>www.appleiphonecell.com  
+captive.apple.com  
+www.apple.com  
+www.itools.info  
+www.ibook.info  
+www.airport.us  
+www.thinkdifferent.us
+</code></pre>
+<h3 id="android">Android</h3>
+<pre><code>connectivitycheck.android.com  
+*.gstatic.com  
+clients3.google.com
+</code></pre>
+<h3 id="microsoft-required-for-loging-in-with-microsoft">Microsoft (required for loging in with Microsoft)</h3>
+<pre><code>msftncsi.com  
+*.msftncsi.com
+login.microsoftonline.com
+aadcdn.msftauth.net
+aadcdn.msauth.net
+login.live.com  
+</code></pre>
+<h3 id="facebook">Facebook</h3>
+<pre><code>facebook.com  
+facebook.net  
+akamaihd.net  
+digicert.com  
+fbcdn.net  
+fb.com  
+fbsbx.com  
+*.facebook.com  
+*.facebook.net  
+*.akamaihd.net  
+*.digicert.com  
+*.fbcdn.net  
+*.fb.com  
+*.fbsbx.com  
+</code></pre>
+<h4 id="ip_1">IP</h4>
+<pre><code>5.178.32.0/20  
+195.27.154.0/24  
+80.150.192.0/24  
+77.67.96.0/22  
+212.119.27.0/25  
+2.16.0.0/13  
+66.171.231.0/24  
+31.13.24.0/21  
+31.13.64.0/18  
+212.245.45.0/24  
+213.254.17.0/24  
+46.33.70.0/24  
+</code></pre>
+<h3 id="twitter">Twitter</h3>
+<pre><code>twitter.com  
+twimg.com  
+abs.twitter.com  
+*.twitter.com  
+*.twimg.com  
+*.abs.twitter.com 
+</code></pre>
+<h4 id="ip_2">IP</h4>
+<pre><code>199.16.156.0/22  
+199.59.148.0/22  
+199.96.56.0/21  
+192.133.76.0/22  
+</code></pre>
+<h3 id="vkontakte">VKontakte</h3>
+<pre><code>vk.com  
+oauth.vk.com  
+vk.me  
+*.vk.com  
+*.oauth.vk.com  
+*.vk.me
+</code></pre>
+<h3 id="paypal">PayPal</h3>
+<pre><code>paypal.com  
+omtrdc.net  
+mediaplex.com  
+paypalobjects.com  
+abmr.net  
+dotomi.com  
+*.paypal.com  
+*.omtrdc.net  
+*.mediaplex.com  
+*.paypalobjects.com  
+*.abmr.net  
+*.dotomi.com  
+</code></pre>
+<h3 id="instagram">Instagram</h3>
+<pre><code>instagram.com
+</code></pre>
+<h3 id="youtube">YouTube</h3>
+<pre><code>youtube.com  
+ytimg.com  
+gstatic.com  
+google.com  
+googlevideo.com  
+*.youtube.com  
+*.ytimg.com  
+*.gstatic.com  
+*.google.com  
+*.googlevideo.com 
+</code></pre>
+<h3 id="google">Google</h3>
+<pre><code>accounts.google.com  
+gstatic.com  
+googleusercontent.com  
+google.com  
+googleapis.com  
+accounts.youtube.com  
+*.accounts.google.com  
+*.googleusercontent.com  
+*.google.com  
+*.googleapis.com  
+*.accounts.youtube.com 
+</code></pre>
+<h3 id="lineme">Line.me</h3>
+<pre><code>*.line.me  
+*.line-apps.com  
+*.line-scdn.net  
+</code></pre>
+<h3 id="kakao">Kakao</h3>
+<pre><code>*.kakao.com  
+*.google.com  
+*.m2.daumcdn.net  
+</code></pre>
+</article>
+</div>
+
+</div>
+</main>
+
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+</body></html>
