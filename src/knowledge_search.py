@@ -4,11 +4,11 @@ import logging
 import os
 import numpy as np
 import faiss
-from openai import OpenAI
+import google.generativeai as genai
 import config
 
-client = OpenAI()
-
+# Configurando Gemini con la API Key obtenida (asegúrese de que GEMINI_API_KEY esté en su .env)
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 class KnowledgeSearch:
     def __init__(self):
         self.index = None
@@ -41,7 +41,13 @@ class KnowledgeSearch:
     def find_relevant_chunks(self, query: str, top_k: int = 3):
         """Encuentra los fragmentos más relevantes usando el índice FAISS."""
         try:
-            query_vector = np.array(client.embeddings.create(input=[query], model=config.OPENAI_EMBEDDING_MODEL).data[0].embedding, dtype='float32')
+            # Obtener embedding del query usando Gemini
+            response = genai.embed_content(
+                model="models/text-embedding-004",
+                content=query,
+                task_type="retrieval_query",
+            )
+            query_vector = np.array(response['embedding'], dtype='float32')
             query_vector = np.expand_dims(query_vector, axis=0) # Faiss espera un array 2D
 
             # Realizar la búsqueda en el índice FAISS

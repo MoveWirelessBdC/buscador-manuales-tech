@@ -1,10 +1,11 @@
 # src/ai_model.py
 import logging
-from openai import OpenAI
+import os
+import google.generativeai as genai
 import config
 
-client = OpenAI()
-# En src/ai_model.py
+# Configuramos Gemini con la API Key del entorno
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 SYSTEM_PROMPT = """
 **Instrucción Maestra: Tu respuesta DEBE ser exclusivamente en español.** No importa el idioma del CONTEXTO, tu salida final tiene que ser 100% en español.
@@ -37,16 +38,22 @@ def generate_response(contexto: str, pregunta: str) -> str:
     logging.info(f"Contexto enviado a la IA: {contexto}")
 
     try:
-        completion = client.chat.completions.create(
-            model=config.AI_MODEL_NAME,
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": f"CONTEXTO:\n{contexto}\n\n---\n\nPREGUNTA:\n{pregunta}"}
-            ],
-            temperature=0.3,
-            max_tokens=config.AI_GENERATION_CONFIG.get("max_tokens", 1024)
+        # Iniciamos el modelo Gemini 1.5 Flash con System Instructions
+        model = genai.GenerativeModel(
+            model_name="gemini-1.5-flash",
+            system_instruction=SYSTEM_PROMPT
         )
-        return completion.choices[0].message.content
+        
+        prompt_completo = f"CONTEXTO:\n{contexto}\n\n---\n\nPREGUNTA:\n{pregunta}"
+        
+        response = model.generate_content(
+            prompt_completo,
+            generation_config=genai.types.GenerationConfig(
+                temperature=0.3,
+                max_output_tokens=1024,
+            )
+        )
+        return response.text
     except Exception as e:
-        logging.error(f"Error al generar respuesta de OpenAI: {e}", exc_info=True)
-        return "Ha ocurrido un problema al contactar el servicio de IA."
+        logging.error(f"Error al generar respuesta de Gemini: {e}", exc_info=True)
+        return "Ha ocurrido un problema al contactar el servicio de IA de Gemini."

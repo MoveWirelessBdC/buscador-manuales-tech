@@ -1,6 +1,7 @@
 Flask
 gunicorn
-openai
+google-generativeai
+faiss-cpu
 numpy
 python-dotenv
 playwright
@@ -9,4 +10,5 @@ markdownify
 yt-dlp
 requests
 google-cloud-speech
-google-cloud-storage
+google-cloud-storagefaiss-cpu
+
