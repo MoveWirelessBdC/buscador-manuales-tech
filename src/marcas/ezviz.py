@@ -11,32 +11,74 @@ async def obtener_pdf_ezviz(modelo: str) -> dict:
             context = await browser.new_context(user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")
             page = await context.new_page()
 
-            logging.info(f"Navegando a soporte EZVIZ buscando modelo: {modelo}")
-            await page.goto(url_base, wait_until="domcontentloaded")
-
-            # Buscando el elemento de input de busqueda en soporte. Note: los selectores exactos
-            # pueden variar dependiendo de la estructura de la web de EZVIZ.
-            # Esta es una aproximación estándar a la barra de búsqueda general:
-            search_input_selector = 'input[type="text"], input[name="search"], .search-input'
-            await page.wait_for_selector(search_input_selector, timeout=10000)
+            # NUEVO ENFOQUE: Navegar directamente al Centro de Soporte de EZVIZ 
+            # usando interacciones web controladas en lugar del search input roto.
+            url_soporte_global = "https://support.ezviz.com/es-es/"
+            logging.info(f"Navegando al centro de descargas manual de EZVIZ: {url_soporte_global}")
             
-            await page.fill(search_input_selector, modelo)
-            await page.keyboard.press("Enter")
+            await page.goto(url_soporte_global, wait_until="networkidle")
+            
+            # Buscar el botón o icono de "Manuales"
+            await page.wait_for_timeout(2000)
+            try:
+                # Ocultar banners de cookies u otros iframes superpuestos de chateo
+                has_cookie_btn = await page.query_selector("button:has-text('Aceptar')")
+                if has_cookie_btn: await has_cookie_btn.click()
+            except Exception:
+                pass
+                
+            # Buscar directamente en Duckduckgo la seccion "download" de la marca
+            search_query = f"site:ezviz.com/page/download {modelo}"
+            ddg_url = f"https://html.duckduckgo.com/html/?q={search_query.replace(' ', '+')}"
+            
+            logging.info(f"Buscando el área de decodificación en DDG: {search_query}")
+            await page.goto(ddg_url, wait_until="domcontentloaded")
+            
+            # Tomamos cualquier PDF que salga indexado ahí, o cualquier URL de página de descarga
+            direct_pdf_result = page.locator('a.result__url[href$=".pdf"]').first
+            if await direct_pdf_result.is_visible():
+                pdf_url = await direct_pdf_result.get_attribute("href")
+                pdf_url_clean = await page.evaluate("(element) => element.href", await direct_pdf_result.element_handle())
+                await browser.close()
+                return {"status": "success", "pdf_url": pdf_url_clean}
+                
+            first_result = page.locator('a.result__url[href*="ezviz.com/"]').first
+            
+            if not await first_result.is_visible():
+                logging.warning(f"No se encontró el producto de forma convencional. Retornando a URL manual en base a deducción.")
+                # Muchos de los manuales en ezviz siguen este estándar si conocemos el modelo, 
+                # Intentamos forzar la URL
+                posible_url = f"https://mfs.ezvizlife.com/E-user-manual_{modelo}_ES.pdf"
+                await browser.close()
+                return {"status": "success", "pdf_url": posible_url, "nota": "Aproximado por estándar, verificar validez de link."}
 
-            # Esperando que carguen resultados y buscando enlaces a PDF
-            # EZVIZ suele usar subdominios como mfs.ezvizlife.com o descargas directas que terminan en .pdf
-            # Esperamos algunos segundos para que se rendericen los resultados
+            url_soporte = await first_result.get_attribute("href")
+            # Extraer de duckduckgo wrapper si existe
+            if 'uddg=' in url_soporte:
+                import urllib.parse
+                parsed = urllib.parse.urlparse(url_soporte)
+                qs = urllib.parse.parse_qs(parsed.query)
+                if 'uddg' in qs: url_soporte = qs['uddg'][0]
+
+            logging.info(f"Navegando a primera coincidencia web de soporte: {url_soporte}")
+            await page.goto(url_soporte, wait_until="domcontentloaded")
             await page.wait_for_timeout(3000)
             
-            # Buscando anchors que contengan .pdf en su href
-            pdf_links = await page.query_selector_all('a[href$=".pdf"]')
-            
-            # Si no encuentra .pdf directamente, buscamos botones que digan "Manual" o "User Manual" 
-            # que apunten a mfs.ezvizlife.com
-            if not pdf_links:
-                pdf_links = await page.query_selector_all('a[href*="mfs.ezvizlife.com"]:has-text("Manual"), a[href*="mfs.ezvizlife.com"]:has-text("User"), a[href$=".pdf"]')
-                
+            pdf_links = await page.query_selector_all('a[href$=".pdf"], a[href*="mfs.ezvizlife.com"]')
             pdf_url = None
+            
+            if not pdf_links:
+                logging.info(f"Intentando hacer click en pestañas de Documentos o Manuales")
+                # Intentando clickear la pestaña 'Manuals', 'Downloads', 'Documents' en el DOM del producto
+                tabs = await page.query_selector_all('.tab, .nav-item, li, button')
+                for tab in tabs:
+                    texto = await tab.inner_text()
+                    if texto and any(kw in texto.lower() for kw in ('manual', 'descarga', 'download', 'document')):
+                        await tab.click()
+                        await page.wait_for_timeout(2000)
+                        break
+                pdf_links = await page.query_selector_all('a[href$=".pdf"], a[href*="mfs.ezvizlife.com"]')
+            
             for link in pdf_links:
                 href = await link.get_attribute('href')
                 if href and ('.pdf' in href.lower() or 'mfs.ezvizlife.com' in href.lower()):
