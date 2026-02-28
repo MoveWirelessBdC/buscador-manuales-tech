@@ -7,60 +7,38 @@ Este proyecto tiene dos componentes principales:
 
 ## Arquitectura General
 
-El sistema está diseñado para ser desplegado en Google Cloud, utilizando los siguientes servicios:
+El sistema está diseñado para ser desplegado en Google Cloud y ejecutado en entornos locales, e incluye las siguientes tecnologías y servicios principales:
 
-*   **Google Cloud Run:** Para ejecutar la API de consultas de forma escalable.
-*   **Google Cloud Storage:** Para almacenar los artefactos generados por el pipeline (HTML, transcripciones, y la base de conocimiento final).
-*   **Google Cloud Speech-to-Text:** Para transcribir el contenido de los videos.
-*   **OpenAI API:** Para generar los *embeddings* vectoriales y las respuestas a las preguntas.
+*   **Google Cloud Storage y Cloud Run:** Para almacenar artefactos y desplegar el backend.
+*   **Google Gemini AI:** Motor del sistema conversacional (`gemini-1.5-flash`) y de la creación de *embeddings* vectoriales (`text-embedding-004`).
+*   **FAISS:** Base de datos vectorial optimizada instalada en local.
+*   **Playwright (Asíncrono):** Para la automatización web tipo RPA (Robotic Process Automation), permitiendo interactuar con sitios de soporte oficiales y evadir barreras anti-bot.
+*   **APIs Híbridas (DuckDuckGo + Navegación Directa):** Para la localización de manuales PDF de distintas marcas tecnológicas corporativas.
 
 ## Componentes del Proyecto
 
-### 1. Pipeline de Datos (`main.py` y `src/`)
+### 1. Servidor de Consultas / Endpoints (`api.py`)
 
-El pipeline automatiza la creación de la base de conocimiento. Se ejecuta localmente y sube los resultados a Google Cloud Storage.
+Una aplicación robusta construida sobre Flask que expone interfaces de atención al usuario:
 
-**Pasos del Pipeline:**
+*   `POST /query` -> **Buscador IA Base de Conocimiento:**
+    1. Acepta una pregunta (ej. `{"pregunta": "¿Cómo instalo la cámara?"}`).
+    2. Convierte la pregunta a vector 3D mediante **Google Gemini**.
+    3. Busca los fragmentos literarios más exactos en la base de datos local **FAISS**.
+    4. Envía el contexto estructurado al modelo **Gemini 1.5 Flash**.
+    5. Retorna la respuesta oficial en español y con recomendaciones de lectura.
 
-1.  **Extractor (`src/extractor.py`):
-    *   Inicia sesión en el portal web.
-    *   Extrae las URLs de todas las guías.
-    *   Descarga el contenido HTML de cada guía.
-    *   Extrae las URLs de imágenes y videos.
-    *   Descarga las imágenes.
+*   `POST /get_manual` -> **Microservicio Extractor de Manuales Web (Playwright):**
+    1. Acepta y registra una petición para una marca específica (Actualmente: **EZVIZ**). Por ejemplo: `{"modelo": "h1c"}`.
+    2. Ejecuta una orden asíncrona a un navegador web Chromium invisible.
+    3. Traza una red híbrida de búsqueda: consulta en el buscador DuckDuckGo por el centro de descargas oficial local, y de fallar, extrae el enlace exacto navegando con Python MFS.
+    4. Devuelve el enlace directo y limpio al manual PDF corporativo.
 
-2.  **Limpiador (`src/limpiador.py`):
-    *   Limpia los archivos HTML eliminando etiquetas innecesarias (headers, footers, etc.).
+*(Nota: Dentro de la carpeta `src/marcas` el sistema tiene un diseño componetizado, preparado para agregar en el futuro integraciones con Dahua, Hikvision, etc).*
 
-3.  **Conversor (`src/conversor.py`):
-    *   Convierte los archivos HTML limpios a formato Markdown.
+### 2. Pipeline ETL Original (`main.py` y tools antiguas)
 
-4.  **Transcriptor (`src/transcriptor.py`):
-    *   Descarga el audio de los videos de YouTube.
-    *   Sube los archivos de audio a Google Cloud Storage.
-    *   Utiliza Google Cloud Speech-to-Text para transcribir el audio.
-    *   Guarda las transcripciones como archivos de texto.
-
-5.  **Fragmentador (`src/fragmentador.py`):
-    *   Divide los archivos Markdown y las transcripciones en fragmentos (chunks).
-    *   Utiliza la API de OpenAI para generar un *embedding* vectorial para cada fragmento.
-    *   Crea el archivo `knowledge_base.json` con los fragmentos y sus vectores, y lo sube a Google Cloud Storage.
-
-### 2. API de Consultas (`api.py`)
-
-Una aplicación Flask que expone un endpoint `/query` para responder preguntas.
-
-**Funcionamiento:**
-
-1.  **Carga de la Base de Conocimiento:** Al iniciar, la API descarga el archivo `knowledge_base.json` desde Google Cloud Storage.
-2.  **Recepción de Consultas:** Recibe una pregunta en formato JSON (`{"pregunta": "..."}`).
-3.  **Búsqueda Semántica:**
-    *   Genera un *embedding* para la pregunta del usuario.
-    *   Compara el vector de la pregunta con los vectores de la base de conocimiento para encontrar los fragmentos más relevantes (búsqueda por similitud de coseno).
-4.  **Generación de Respuesta:**
-    *   Envía los fragmentos relevantes y la pregunta original a un modelo de lenguaje de OpenAI.
-    *   El modelo genera una respuesta basada únicamente en el contexto proporcionado.
-5.  **Respuesta al Usuario:** Devuelve la respuesta generada por el modelo.
+El proyecto aún conserva bajo sus carpetas la lógica ETL para el relleno de la base de conocimiento vectorial antigua (scraping de web, conversión MD, y subida a la nube), lista para ser invocada mediante los scripts correspondientes o los jobs de `main.py`.
 
 ## Despliegue y Ejecución
 
@@ -71,33 +49,27 @@ Una aplicación Flask que expone un endpoint `/query` para responder preguntas.
     pip install -r requirements.txt
     ```
 
-2.  **Configurar variables de entorno:**
-    Crea un archivo `.env` (o configura las variables en tu sistema) con las siguientes claves:
-    ```
+2.  **Configurar variables de entorno (`.env`):**
+    Crea un archivo `.env` en la raíz con tus claves:
+    ```env
     PORTAL_USER="tu_usuario_del_portal"
     PORTAL_PASS="tu_contraseña_del_portal"
-    OPENAI_API_KEY="tu_clave_de_openai"
+    GEMINI_API_KEY="tu_api_key_de_Google_Gemini"
     ```
 
-3.  **Autenticación de Google Cloud:**
-    Asegúrate de tener `gcloud` CLI instalado y autenticado:
+3.  **Descargar navegadores de Playwright:**
     ```bash
-    gcloud auth application-default login
+    playwright install chromium
     ```
 
-### Ejecución del Pipeline de Datos
+### Iniciar la API
 
-Para ejecutar el pipeline completo:
-
-```bash
-python main.py
-```
-
-Para ejecutar un paso específico (p. ej., `fragmentador`):
+Para levantar el servidor dual de IA y Playwright:
 
 ```bash
-python main.py fragmentador
+python api.py
 ```
+*(Se recomienda siempre ejecutar dentro de un entorno virtual `.venv`)*.
 
 ### Despliegue en Google Cloud Run
 
@@ -105,13 +77,13 @@ El proyecto incluye un `Dockerfile` y un `entrypoint.sh` para facilitar el despl
 
 1.  **Construir la imagen de Docker:**
     ```bash
-    gcloud builds submit --tag gcr.io/$(gcloud config get-value project)/move-kb-api
+    gcloud builds submit --tag gcr.io/$(gcloud config get-value project)/buscador-manuales-tech
     ```
 
 2.  **Desplegar en Cloud Run:**
     ```bash
-    gcloud run deploy move-kb-api \
-      --image gcr.io/$(gcloud config get-value project)/move-kb-api \
+    gcloud run deploy buscador-manuales-tech \
+      --image gcr.io/$(gcloud config get-value project)/buscador-manuales-tech \
       --platform managed \
       --region us-central1 \
       --allow-unauthenticated
