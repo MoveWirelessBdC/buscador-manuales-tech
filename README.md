@@ -1,56 +1,63 @@
-# Proyecto Move KB: Base de Conocimiento y API de Consultas
+# Proyecto Move KB: RAG Industrial EZVIZ (v3.6.0)
 
-Este proyecto tiene como objetivo construir un sistema RAG (Retrieval-Augmented Generation) para asistencia técnica, utilizando manuales oficiales de productos de seguridad.
+Sistema avanzado de **Generación Aumentada por Recuperación (RAG)** diseñado para automatizar el soporte técnico de dispositivos de seguridad mediante el procesamiento de manuales técnicos oficiales.
 
-## Arquitectura General
+## Arquitectura de Alta Disponibilidad (v3.6.0)
 
-El sistema se compone de un flujo de ingesta de datos y una API de consultas, utilizando las siguientes tecnologías:
+El proyecto ha sido refactorizado para soportar operaciones de carga masiva industrial, superando bloqueos de red y límites de cuota de IA:
 
-*   **Google Gemini 2.0 Flash:** Motor para el procesamiento de documentos y generación de respuestas.
-*   **Google Gemini Embeddings (text-embedding-004):** Para la vectorización del conocimiento técnico.
-*   **Pinecone:** Base de datos vectorial en la nube para almacenamiento escalable y búsqueda rápida.
-*   **Playwright:** Para la extracción automatizada de manuales directamente desde portales de soporte (fuente de verdad comercial).
+*   **Ingestor Industrial (`ingestor_total_ezviz.py`)**: Arquitectura de rescate que utiliza **Playwright** para navegación profunda, evitando errores 403 y capturando enlaces reales de manuales en español.
+*   **Resiliencia 429**: Protocolo inteligente que detecta saturación de cuota en **Gemini 2.0 Flash** y aplica enfriamientos automáticos de 180 segundos.
+*   **Optimización de Tokens**: Fragmentación de documentos para analizar solo secciones críticas (Instalación, Reset, LEDs), reduciendo drásticamente el consumo de tokens por modelo.
+*   **Base Vectorial**: Integración nativa con **Pinecone** para búsqueda semántica de alta precisión en el namespace `ezviz`.
 
-## Componentes Principales
+## Componentes Técnicos
 
-### 1. Ingestor Web Comercial (`ingestor_web.py`)
-Un script avanzado que automatiza la recolección de conocimiento:
-*   **Scraping Inteligente:** Navega por el Centro de Soporte de EZVIZ para identificar modelos por su nombre comercial (ej. H1C, C6N).
-*   **Procesamiento IA:** Descarga los manuales PDF y utiliza Gemini para extraer secciones críticas: diagramas, funciones de botones (Reset), y LEDs de estado.
-*   **Vectorización:** Sube los fragmentos procesados a Pinecone con metadatos claros para facilitar la búsqueda por nombre de producto.
+1.  **Ingestor de Alto Rendimiento**:
+    *   **Unificación Maestra**: Uso estricto de `modelo_id` para trazabilidad total.
+    *   **Validación Binaria**: Chequeo del header `%PDF` antes de cualquier procesamiento de IA.
+    *   **Persistencia de Progreso**: Registro atómico en `progreso_v3.json` para permitir reanudaciones sin duplicidad.
 
-### 2. API de Consultas (`api.py`)
-Servidor basado en Flask/Quart que conecta al usuario con el conocimiento:
-*   `POST /query`: Recibe preguntas sobre instalación o soporte, busca en Pinecone y genera una respuesta informada usando Gemini.
-*   `POST /get_manual`: Busca y entrega el enlace directo al manual PDF oficial.
+2.  **API de Consultas (`api.py`)**:
+    *   Servidor basado en **Quart** (Async Flask).
+    *   Endpoint `/get_manual`: Recuperación dinámica de links de descarga.
+    *   Próximamente: Integración de chat conversacional RAG.
 
 ## Configuración y Ejecución
 
-### 1. Requisitos Previos
-*   Python 3.10+ (recomendado).
-*   Entorno virtual configurado.
-*   Playwright instalado: `playwright install chromium`.
+### 1. Preparación del Entorno
+```bash
+pip install -r requirements.txt
+playwright install chromium
+```
 
 ### 2. Variables de Entorno (`.env`)
-Configura las siguientes llaves en tu archivo `.env`:
 ```env
-GEMINI_API_KEY="tu_llave_aqui"
-PINECONE_API_KEY="tu_llave_aqui"
+GEMINI_API_KEY="tu_llave"
+PINECONE_API_KEY="tu_llave"
 PINECONE_INDEX_NAME="manuales-tech"
 PINECONE_NAMESPACE="ezviz"
 ```
 
-### 3. Ejecución del Ingestor
-Para poblar la base de datos con los últimos manuales comerciales:
+### 3. Ejecución Industrial (Carga de 306 modelos)
+Para iniciar la maratón de ingesta en segundo plano:
 ```bash
-python ingestor_web.py
-```
-*(Usa `--test-mode` para procesar solo los primeros 3 modelos y validar el flujo).*
-
-### 4. Lanzar la API
-```bash
-python api.py
+nohup python3 ingestor_total_ezviz.py > ingesta_v36.log 2>&1 &
 ```
 
-## Despliegue en GCP
-El proyecto está preparado para correr como un **Cloud Run Job** (el ingestor) y un **Cloud Run Service** (la API). Consulta el `Dockerfile` para más detalles sobre la construcción de la imagen.
+Para validaciones rápidas:
+```bash
+python3 ingestor_total_ezviz.py --test-mode --reset
+```
+
+## Monitoreo de Ingesta
+*   **Logs**: `tail -f ingesta_v36.log`
+*   **Reporte de Éxito**: `cat resumen_ingesta.txt`
+
+## Historial de Versiones
+*   `v3.4.0`: Implementación de Navegación Profunda (Bypass 403).
+*   `v3.5.0`: Flujo Descarga -> Validación -> IA (Eficiencia de Tokens).
+*   `v3.6.0`: Arquitectura de Alta Disponibilidad y unificación de variables.
+
+---
+*Mantenido por el equipo de Arquitectura de Datos de MoveWireless.*
