@@ -1,14 +1,8 @@
-Flask
+Quart
 gunicorn
-google-generativeai
-faiss-cpu
-numpy
 python-dotenv
 playwright
 beautifulsoup4
 markdownify
-yt-dlp
 requests
-google-cloud-speech
-google-cloud-storagefaiss-cpu
-
+uvicorn

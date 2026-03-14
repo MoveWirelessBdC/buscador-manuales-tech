@@ -1,0 +1,10 @@
+.env
+*.log
+*.json
+!requirements.txt
+storage/
+*.html
+.DS_Store
+__pycache__/
+*.pdf
+n8n-invoker-key.json

@@ -1,97 +1,56 @@
 # Proyecto Move KB: Base de Conocimiento y API de Consultas
 
-Este proyecto tiene dos componentes principales:
-
-1.  **Pipeline de Datos:** Un conjunto de scripts que extraen contenido de un portal web, lo procesan y construyen una base de conocimiento vectorial.
-2.  **API de Consultas:** Un servidor web que utiliza la base de conocimiento para responder preguntas en lenguaje natural.
+Este proyecto tiene como objetivo construir un sistema RAG (Retrieval-Augmented Generation) para asistencia técnica, utilizando manuales oficiales de productos de seguridad.
 
 ## Arquitectura General
 
-El sistema está diseñado para ser desplegado en Google Cloud y ejecutado en entornos locales, e incluye las siguientes tecnologías y servicios principales:
+El sistema se compone de un flujo de ingesta de datos y una API de consultas, utilizando las siguientes tecnologías:
 
-*   **Google Cloud Storage y Cloud Run:** Para almacenar artefactos y desplegar el backend.
-*   **Google Gemini AI:** Motor del sistema conversacional (`gemini-1.5-flash`) y de la creación de *embeddings* vectoriales (`text-embedding-004`).
-*   **FAISS:** Base de datos vectorial optimizada instalada en local.
-*   **Playwright (Asíncrono):** Para la automatización web tipo RPA (Robotic Process Automation), permitiendo interactuar con sitios de soporte oficiales y evadir barreras anti-bot.
-*   **APIs Híbridas (DuckDuckGo + Navegación Directa):** Para la localización de manuales PDF de distintas marcas tecnológicas corporativas.
+*   **Google Gemini 2.0 Flash:** Motor para el procesamiento de documentos y generación de respuestas.
+*   **Google Gemini Embeddings (text-embedding-004):** Para la vectorización del conocimiento técnico.
+*   **Pinecone:** Base de datos vectorial en la nube para almacenamiento escalable y búsqueda rápida.
+*   **Playwright:** Para la extracción automatizada de manuales directamente desde portales de soporte (fuente de verdad comercial).
 
-## Componentes del Proyecto
+## Componentes Principales
 
-### 1. Servidor de Consultas / Endpoints (`api.py`)
+### 1. Ingestor Web Comercial (`ingestor_web.py`)
+Un script avanzado que automatiza la recolección de conocimiento:
+*   **Scraping Inteligente:** Navega por el Centro de Soporte de EZVIZ para identificar modelos por su nombre comercial (ej. H1C, C6N).
+*   **Procesamiento IA:** Descarga los manuales PDF y utiliza Gemini para extraer secciones críticas: diagramas, funciones de botones (Reset), y LEDs de estado.
+*   **Vectorización:** Sube los fragmentos procesados a Pinecone con metadatos claros para facilitar la búsqueda por nombre de producto.
 
-Una aplicación robusta construida sobre Flask que expone interfaces de atención al usuario:
+### 2. API de Consultas (`api.py`)
+Servidor basado en Flask/Quart que conecta al usuario con el conocimiento:
+*   `POST /query`: Recibe preguntas sobre instalación o soporte, busca en Pinecone y genera una respuesta informada usando Gemini.
+*   `POST /get_manual`: Busca y entrega el enlace directo al manual PDF oficial.
 
-*   `POST /query` -> **Buscador IA Base de Conocimiento:**
-    1. Acepta una pregunta (ej. `{"pregunta": "¿Cómo instalo la cámara?"}`).
-    2. Convierte la pregunta a vector 3D mediante **Google Gemini**.
-    3. Busca los fragmentos literarios más exactos en la base de datos local **FAISS**.
-    4. Envía el contexto estructurado al modelo **Gemini 1.5 Flash**.
-    5. Retorna la respuesta oficial en español y con recomendaciones de lectura.
+## Configuración y Ejecución
 
-*   `POST /get_manual` -> **Microservicio Extractor de Manuales Web (Playwright):**
-    1. Acepta y registra una petición para una marca específica (Actualmente: **EZVIZ**). Por ejemplo: `{"modelo": "h1c"}`.
-    2. Ejecuta una orden asíncrona a un navegador web Chromium invisible.
-    3. Traza una red híbrida de búsqueda: consulta en el buscador DuckDuckGo por el centro de descargas oficial local, y de fallar, extrae el enlace exacto navegando con Python MFS.
-    4. Devuelve el enlace directo y limpio al manual PDF corporativo.
+### 1. Requisitos Previos
+*   Python 3.10+ (recomendado).
+*   Entorno virtual configurado.
+*   Playwright instalado: `playwright install chromium`.
 
-*(Nota: Dentro de la carpeta `src/marcas` el sistema tiene un diseño componetizado, preparado para agregar en el futuro integraciones con Dahua, Hikvision, etc).*
+### 2. Variables de Entorno (`.env`)
+Configura las siguientes llaves en tu archivo `.env`:
+```env
+GEMINI_API_KEY="tu_llave_aqui"
+PINECONE_API_KEY="tu_llave_aqui"
+PINECONE_INDEX_NAME="manuales-tech"
+PINECONE_NAMESPACE="ezviz"
+```
 
-### 2. Pipeline ETL Original (`main.py` y tools antiguas)
+### 3. Ejecución del Ingestor
+Para poblar la base de datos con los últimos manuales comerciales:
+```bash
+python ingestor_web.py
+```
+*(Usa `--test-mode` para procesar solo los primeros 3 modelos y validar el flujo).*
 
-El proyecto aún conserva bajo sus carpetas la lógica ETL para el relleno de la base de conocimiento vectorial antigua (scraping de web, conversión MD, y subida a la nube), lista para ser invocada mediante los scripts correspondientes o los jobs de `main.py`.
-
-## Despliegue y Ejecución
-
-### Configuración Local
-
-1.  **Instalar dependencias:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-2.  **Configurar variables de entorno (`.env`):**
-    Crea un archivo `.env` en la raíz con tus claves:
-    ```env
-    PORTAL_USER="tu_usuario_del_portal"
-    PORTAL_PASS="tu_contraseña_del_portal"
-    GEMINI_API_KEY="tu_api_key_de_Google_Gemini"
-    ```
-
-3.  **Descargar navegadores de Playwright:**
-    ```bash
-    playwright install chromium
-    ```
-
-### Iniciar la API
-
-Para levantar el servidor dual de IA y Playwright:
-
+### 4. Lanzar la API
 ```bash
 python api.py
 ```
-*(Se recomienda siempre ejecutar dentro de un entorno virtual `.venv`)*.
 
-### Despliegue en Google Cloud Run
-
-El proyecto incluye un `Dockerfile` y un `entrypoint.sh` para facilitar el despliegue.
-
-1.  **Construir la imagen de Docker:**
-    ```bash
-    gcloud builds submit --tag gcr.io/$(gcloud config get-value project)/buscador-manuales-tech
-    ```
-
-2.  **Desplegar en Cloud Run:**
-    ```bash
-    gcloud run deploy buscador-manuales-tech \
-      --image gcr.io/$(gcloud config get-value project)/buscador-manuales-tech \
-      --platform managed \
-      --region us-central1 \
-      --allow-unauthenticated
-    ```
-
-## Scripts de Utilidad
-
-*   `diagnose_url.py`: Script para depurar problemas de carga de URLs específicas con Playwright.
-*   `run_diagnostics.sh`: Ejecuta `diagnose_url.py` para una lista predefinida de URLs.
-*   `verify_openai.py`: Verifica que la clave de API de OpenAI esté configurada correctamente.
-*   `test_server.py`: Un servidor Flask de prueba para verificar el entorno.
+## Despliegue en GCP
+El proyecto está preparado para correr como un **Cloud Run Job** (el ingestor) y un **Cloud Run Service** (la API). Consulta el `Dockerfile` para más detalles sobre la construcción de la imagen.
